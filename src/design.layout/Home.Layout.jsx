@@ -3,38 +3,60 @@ import NewsCard1 from '@/ui/NewsCard1'
 import NewsCard3 from '@/ui/NewsCard3'
 import React, { useState } from 'react'
 import {newsDatas} from '../../data/newsData.jsx'
+import NewsCard2 from '@/ui/NewsCard2.jsx'
+import NewsCard4 from '@/ui/NewsCard4.jsx'
+import StoryPart from '@/components/StoryPart.jsx'
+import VideoPart from '@/components/VideoPart.jsx'
+import OpinionPart from '@/components/OpinionPart.jsx'
+import SpecialPart from '@/components/SpecialPart.jsx'
 
 function HomeLayout() {
   const [newsData, setNewsData] = useState(newsDatas);
   return (
-    <section>
-      <div>
+    <section className='flex flex-col items-start justify-start gap-y-8'>
+      <div className='w-full flex flex-wrap items-start justify-between'>
           {/* top part */}
-          <div>
+          <div className='w-[50%] flex flex-col gap-4'>
             {/* left side */}
-            {newsData.map((news, index)=>(
-              <NewsCard1 key={index} news={news}></NewsCard1>
-            ))}
+            <div>
+             {/* top card */}
+              <NewsCard1 news={newsData[0]}></NewsCard1>
+            </div>
+            <div className='w-full h-full flex flex-wrap items-start justify-between gap-y-16  p-2 border-1 border-gray-300 rounded-md  '>
+              {/* buttom of top card */}
+              {newsData.slice(0,6).map((news, index)=>(
+                   <NewsCard2 key={index}  news={news}></NewsCard2>
+                ))}
+            </div>
           </div>
-          <div>
+          <div className='flex flex-col gap-4 w-[24%] p-2 border-1 border-gray-300 rounded-md'>
             {/* right side */}
             <div>
-              {newsData.map((news, index) => (
-                 <NewsCard3 key={index} news={news}></NewsCard3>
+              {/* top of right side */}
+              <NewsCard3 news={newsData[0]}></NewsCard3>
+            </div>
+            <div className='flex flex-col gap-4'>
+              {/* buttom of right side */}
+              {newsData.slice(0,5).map((news, index) => (
+                 <NewsCard4 key={index} news={news}></NewsCard4>
               ))}
             </div>
           </div>
+
+          <div className='  w-[22%] p-2 border-1 border-gray-300 rounded-md'>
+             {/* story part */}
+             <StoryPart></StoryPart>
+          </div>
       </div>
       
-      <div>
         {/* video section */}
-      </div>
+        <VideoPart></VideoPart>
 
-      <div>
+      <div className='w-full flex flex-wrap items-start justify-between'>
         {/* motamot ,online jorip,(letest and famous news) section  */}
-         <div>
+
             {/* motamot */}
-         </div>
+            <OpinionPart></OpinionPart>
          <div>
             {/* online jorip */}
          </div>
@@ -43,9 +65,8 @@ function HomeLayout() {
          </div>
       </div>
 
-      <div>
         {/* bachai krito section */}
-      </div>
+            <SpecialPart></SpecialPart>
 
       <div>
         {/* jatio section */}

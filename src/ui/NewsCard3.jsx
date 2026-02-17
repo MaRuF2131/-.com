@@ -5,11 +5,11 @@ import React from 'react'
 
 function NewsCard3({news}) {
   return (
-    <div>
+    <div className='group cursor-pointer'>
         <Image src={news?.image || "/public/default.webp"} alt={news?.title} width={300} height={200} />
-        <div>
-            <h2>{news?.title}</h2>
-        </div>
+
+        <h2 className='text-3xl font-bold group-hover:text-[#0a58ca]'>{news?.title}</h2>
+
     </div>
   )
 }
