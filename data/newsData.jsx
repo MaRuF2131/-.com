@@ -35,4 +35,16 @@ export const newsDatas = [
     description: "সরকার আগামী দশকে কার্বন নিঃসরণ কমানোর জন্য নতুন নীতি ঘোষণা করেছে।",
     image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=600"
   },
+  {
+    id: 6,
+    title: "নতুন পরিবেশ নীতি ঘোষণা",
+    description: "সরকার আগামী দশকে কার্বন নিঃসরণ কমানোর জন্য নতুন নীতি ঘোষণা করেছে।",
+    image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
+  {
+    id: 6,
+    title: "নতুন পরিবেশ নীতি ঘোষণা",
+    description: "সরকার আগামী দশকে কার্বন নিঃসরণ কমানোর জন্য নতুন নীতি ঘোষণা করেছে।",
+    image: "https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=600"
+  },
 ];

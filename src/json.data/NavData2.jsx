@@ -1,66 +1,66 @@
 export const NavData2 = {
     "সর্বশেষ":{
-        "link":"/latest-news",
+        "link":"/latest-news?message=সর্বশেষ",
         "name":"সর্বশেষ",
         "icon":"latest",
         "popup":false
     },
     "নির্বাচন":{
-        "link":"/election-news",
+        "link":"/election-news?message=নির্বাচন",
         "name":"নির্বাচন",
         "icon":"election",
         "popup":false
     },
     "জাতীয়":{
-        "link":"/national-news",
+        "link":"/national-news?message=জাতীয়",
         "name":"জাতীয়",
         "icon":"national",
         "popup":false
     },
     "রাজনীতি":{
-        "link":"/politics",
-        "name":"আর্কাইভ",
-        "icon":"রাজনীতি",
+        "link":"/politics?message=রাজনীতি",
+        "name":"রাজনীতি",
+        "icon":"আর্কাইভ",
         "popup":false
     },
     "সারাদেশ":{
-        "link":"/country-news",
+        "link":"/country-news?message=সারাদেশ",
         "name":"সারাদেশ",
         "icon":"country",
         "popup":false
     },
     "বিশ্ব":{
-        "link":"/world-news",
+        "link":"/world-news?message=বিশ্ব",
         "name":"বিশ্ব",
         "icon":"world",
         "popup":false
     },
     "খেলা":{
-        "link":"/sports",
+        "link":"/sports?message=খেলা",
         "name":"খেলা",
         "icon":"sports",
         "popup":false
     },
     "শিক্ষা":{
-        "link":"/education-news",
+        "link":"/education-news?message=শিক্ষা",
         "name":"শিক্ষা",
         "icon":"education",
         "popup":false
     },
     "বাণিজ্য":{
-        "link":"/business-news",
+        "link":"/business-news?message=বাণিজ্য",
         "name":"বাণিজ্য",
         "icon":"business",
         "popup":false
     },
     "বিনোদন":{
-        "link":"/entertainment",
+        "link":"/entertainment?message=বিনোদন",
         "name":"বিনোদন",
         "icon":"entertainment",
         "popup":false
     },
     "ভিডিও":{
-        "link":"/video",
+        "link":"/video?message=ভিডিও",
         "name":"ভিডিও",
         "icon":"video",
         "popup":false

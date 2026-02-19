@@ -9,6 +9,16 @@ import StoryPart from '@/components/StoryPart.jsx'
 import VideoPart from '@/components/VideoPart.jsx'
 import OpinionPart from '@/components/OpinionPart.jsx'
 import SpecialPart from '@/components/SpecialPart.jsx'
+import NationalPart from '@/components/NationalPart.jsx'
+import PoliticalPart from '@/components/PoliticalPart.jsx'
+import BusinessPart from '@/components/BusinessPart.jsx'
+import CountryPart from '@/components/CountryPart.jsx'
+import WorldPart from '@/components/WorldPart.jsx'
+import EntertainmentPart from '@/components/EntertainmentPart.jsx'
+import SportsPart from '@/components/SportsPart.jsx'
+import PodcastPart from '@/components/PodcastPart.jsx'
+import NewsTabCard from '@/ui/NewsTabCard.jsx'
+import NewsTab from '@/components/NewsTab.jsx'
 
 function HomeLayout() {
   const [newsData, setNewsData] = useState(newsDatas);
@@ -25,7 +35,9 @@ function HomeLayout() {
             <div className='w-full h-full flex flex-wrap items-start justify-between gap-y-16  p-2 border-1 border-gray-300 rounded-md  '>
               {/* buttom of top card */}
               {newsData.slice(0,6).map((news, index)=>(
-                   <NewsCard2 key={index}  news={news}></NewsCard2>
+                  <div key={index} className='w-[32%]'>
+                    <NewsCard2 news={news}></NewsCard2>
+                   </div>
                 ))}
             </div>
           </div>
@@ -60,49 +72,50 @@ function HomeLayout() {
          <div>
             {/* online jorip */}
          </div>
-         <div>
             {/* letest and famous news */}
-         </div>
+          <div>
+              <NewsTab></NewsTab>
+           </div>
       </div>
 
         {/* bachai krito section */}
-            <SpecialPart></SpecialPart>
+         <SpecialPart></SpecialPart>
 
-      <div>
         {/* jatio section */}
-      </div>
+        <NationalPart></NationalPart>
 
-      <div>
         {/* rajniti section */}
-      </div>
+        <PoliticalPart></PoliticalPart>
 
-      <div>
         {/* banijjo section */}
-      </div>
+        <BusinessPart></BusinessPart>
+
 
       <div>
         {/* saradesh section */}
+        <CountryPart></CountryPart>
       </div>
 
       <div>
         {/* bisso section */}
+        <WorldPart></WorldPart>
       </div>
 
       <div>
         {/* binodon section */}
+        <EntertainmentPart></EntertainmentPart>
       </div>
 
-      <div>
         {/* khela section */}
-      </div>
+        <SportsPart></SportsPart>
+
 
       <div>
         {/* gallery section */}
       </div>
 
-      <div>
         {/* prodcast section */}
-      </div>
+         <PodcastPart></PodcastPart>
 
     </section>
   )

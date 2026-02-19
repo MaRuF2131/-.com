@@ -39,7 +39,7 @@ function VideoPart() {
   return (
     <div className="w-full flex flex-col min-h-70 p-2 border border-gray-300 rounded-md relative">
 
-      {/* Header */}
+      {/* Header */} 
       <div className="w-full flex items-center justify-between mb-3">
         <span className="flex items-center gap-x-1 text-2xl font-bold">
           <FaVideo className="text-[#d63384]" />

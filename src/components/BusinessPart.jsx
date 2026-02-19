@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { newsDatas } from '../../data/newsData'
 import SpecialCard from '@/ui/SpecialCard'
 
-function SpecialPart() {
+function BusinessPart() {
   return (
     <div className="w-full max-w-[900px] flex flex-col px-6 ">
       {/* Header */}
@@ -32,4 +32,4 @@ function SpecialPart() {
   )
 }
 
-export default SpecialPart
+export default BusinessPart

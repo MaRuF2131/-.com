@@ -5,14 +5,14 @@ import { FaArrowRight } from 'react-icons/fa'
 import { newsDatas } from '../../data/newsData'
 import SpecialCard from '@/ui/SpecialCard'
 
-function SpecialPart() {
+function NationalPart() {
   return (
     <div className="w-full max-w-[900px] flex flex-col px-6 ">
       {/* Header */}
       <div className="w-full flex items-center  justify-between mb-1 border-b-5 border-black">
         <span className="flex items-center gap-x-1 text-2xl font-bold">
-          <Image src={"/special.webp"}  width={300} height={200} className=' w-6 h-6' />
-          <span>বাছাইকৃত</span>
+          <Image src={"/national.webp"}  width={300} height={200} className=' w-6 h-6' />
+          <span>জাতীয়</span>
         </span>
 
         <Link
@@ -24,7 +24,9 @@ function SpecialPart() {
       </div>
       <div className='w-full gap-x-6 flex items-start justify-between py-4 border-b-1 border-gray-300'>
         {newsDatas.slice(0,4).map((news,index)=>
-           <SpecialCard key={index} news={news}></SpecialCard>
+          <div key={index} className='w-[32%]'>
+            <SpecialCard news={news}></SpecialCard>
+          </div>
          )}
       </div>
       
@@ -32,4 +34,4 @@ function SpecialPart() {
   )
 }
 
-export default SpecialPart
+export default NationalPart

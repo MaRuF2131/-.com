@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import React from 'react'
 
-function NewsCard2({news}) {
+function CategoryCard({news}) {
   return (
     <div className='w-full group cursor-pointer  text-black  flex flex-wrap items-center justify-center gap-y-3'>
         <Image src={news?.image || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md w-full aspect-[10/5]' />
@@ -12,4 +12,4 @@ function NewsCard2({news}) {
   )
 }
 
-export default NewsCard2
+export default CategoryCard
