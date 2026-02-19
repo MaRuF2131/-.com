@@ -16,7 +16,7 @@ function InnerNavbar({stateMessage ,state }) {
     "বিশ্ব":WorldList
   }
   useEffect(()=>{
-    if(stateMessage){
+    if(stateMessage && state){
       if(stateMessage==='সারাদেশ'){
         const list=Object.keys(DivisionList)
         state.setnavlist(list)
@@ -55,7 +55,7 @@ function InnerNavbar({stateMessage ,state }) {
   return (
     <div className='h-auto w-full border-b-2 border-gray-300 flex items-start justify-start px-4 gap-4'>
       <h1 className='text-2xl font-bold text-[#0a58ca]'>{stateMessage}</h1>
-      <div className="flex-1">
+{   state &&  Object.keys(state).length > 0 && <div className="flex-1">
         <div className='flex flex-wrap items-center justify-start gap-2'>
             {state.navlist.map((v, i) => (
               <button
@@ -89,7 +89,7 @@ function InnerNavbar({stateMessage ,state }) {
             </button>
           ))}
         </div>
-      </div>
+      </div>}
     </div>
   )
 }

@@ -46,7 +46,7 @@ import Link from 'next/link'
   if(stateMessage==="ভিডিও"){
     return(
       <>
-       <VideoList stateMessage={stateMessage}></VideoList>
+       <VideoList stateMessage={stateMessage} state={{}}></VideoList>
       </>
     )
   }
