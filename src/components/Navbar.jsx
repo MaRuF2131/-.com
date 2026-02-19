@@ -1,14 +1,46 @@
-import Navbar1 from '@/ui/Navbar1'
-import Navbar2 from '@/ui/Navbar2'
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from "react"
+import Navbar1 from "@/ui/Navbar1"
+import Navbar2 from "@/ui/Navbar2"
 
 function Navbar() {
+  const [isSticky, setIsSticky] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("scroll",window.scrollY);
+      
+      if (window.scrollY > 200) {
+        setIsSticky(true)
+      } else {
+        setIsSticky(false)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   return (
-    <div className='fixed top-0 left-0 right-0 z-[999] bg-white shadow-md'>
-        {/* top navbar */}
-        <Navbar1></Navbar1>
-        {/* bottom navbar */}
-        <Navbar2></Navbar2>
+    <div className="w-full z-[999] bg-white shadow-md">
+      
+      {/* Top Navbar (always static) */}
+      <Navbar1 />
+
+      {/* Bottom Navbar (becomes fixed on scroll) */}
+      <div
+        className={`transition-all duration-500 ease-in-out ${
+          isSticky
+            ? "fixed top-0 left-0 right-0 z-[999] bg-white shadow-md"
+            : ""
+        }`}
+      >
+        <Navbar2 />
+      </div>
+
     </div>
   )
 }

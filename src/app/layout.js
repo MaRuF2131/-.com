@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${solaimanLipi.className} antialiased leading-none`}
       >
         <Navbar />
-        <div className="mt-40">
+        <div className="mt-3">
           {children}
         </div>
         <Footer></Footer>

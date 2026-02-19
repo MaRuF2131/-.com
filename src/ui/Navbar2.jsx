@@ -12,7 +12,6 @@ function Navbar2() {
       <Link href="/" ><HiHome className="cursor-pointer text-2xl" /></Link>
       {Object.keys(NavData2).map((key, index) => {
         const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link
-        console.log("pathname",`${pathname}?message=${NavData2[key].name}`,isActive,NavData2[key].link);
         
         return(
           <Link key={index} href={NavData2[key].link}  className={` h-full flex items-center gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca] border-b-3 border-[#0a58ca] rounded":" hover:border-b-2 hover:border-[#0a58ca] rounded"}`}>
