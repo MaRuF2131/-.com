@@ -7,12 +7,12 @@ import SpecialCard from '@/ui/SpecialCard'
 
 function BusinessPart() {
   return (
-    <div className="w-full max-w-[900px] flex flex-col px-6 ">
+    <div className="w-full max-w-[900px] flex flex-col border-b border-gray-300 pb-4 mx-6 ">
       {/* Header */}
-      <div className="w-full flex items-center  justify-between mb-1 border-b-5 border-black">
+      <div className="w-full flex items-center  justify-between mb-4 border-b-5 border-black">
         <span className="flex items-center gap-x-1 text-2xl font-bold">
-          <Image src={"/special.webp"}  width={300} height={200} className=' w-6 h-6' />
-          <span>বাছাইকৃত</span>
+          <Image src={"/business-news.webp"}  width={300} height={200} className=' w-6 h-6' />
+          <span>বাণিজ্য</span>
         </span>
 
         <Link
@@ -22,12 +22,33 @@ function BusinessPart() {
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
         </Link>
       </div>
-      <div className='w-full gap-x-6 flex items-start justify-between py-4 border-b-1 border-gray-300'>
-        {newsDatas.slice(0,4).map((news,index)=>
-           <SpecialCard key={index} news={news}></SpecialCard>
-         )}
-      </div>
-      
+      <div className='grid grid-cols-3 w-full'>
+
+            {/* Left Side */}
+           <div className='w-full border-r border-gray-300 pr-4  h-fit col-span-2 flex flex-wrap items-start justify-center  gap-x-4'>
+                {newsDatas.slice(0,2).map((news,index)=>
+                  <div key={index} className={`${index === 1 ? '' : 'border-b border-gray-300'} pb-4 w-full max-h-fit flex items-start justify-center gap-x-4 mb-4`}>
+                      <Image src={news.image} width={300} height={200} className='w-[45%] h-38 object-cover rounded-md' />
+                      <div className='flex-1 flex flex-col items-start justify-start '>
+                        <h2 className='text-2xl font-bold'>{news.title}</h2>
+                        <p className='text-lg text-gray-600 mt-1'>{news.description.length>100?`${news.description.slice(0,101)}...`:news.description}</p>
+                      </div>
+                  </div>
+                )}
+           </div>
+
+            <div className='w-full flex flex-wrap items-start'>
+                {newsDatas.slice(0,3).map((news,index)=>
+                  <div key={index} className={`${index === 2 ? '' : 'border-b border-gray-300'} pb-4 pl-3 w-full max-h-fit flex flex-wrap items-start justify-center gap-x-4 mb-4`}>
+                       <h2 className='text-2xl leading-none font-bold w-full'>{news.title}</h2>
+                      <div className='flex-1 flex  items-start justify-start mt-2'>
+                        <p className='text-lg leading-none text-gray-600 '>{news.description.length>50?`${news.description.slice(0,50)}...`:news.description}</p>
+                        <Image src={news.image} width={300} height={200} className='w-[55%] h-15 object-cover rounded-md' />
+                      </div>
+                  </div>
+                )}
+           </div>
+      </div>   
     </div>
   )
 }

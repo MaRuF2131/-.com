@@ -24,17 +24,17 @@ function SportsPart() {
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
         </Link>
       </div>
-      <div className='w-full gap-x-6 flex items-start justify-between py-4 border-b-1 border-gray-300'>
-          <div className='w-[78%] flex items-start justify-between gap-x-6'>
-            <div className=' flex-1 gap-y-5 flex flex-col items-start justify-center'>
+      <div className='w-full  gap-x-6 flex flex-wrap items-start justify-between py-4 border-b border-gray-300'>
+          <div className='md:w-[78%] w-full flex flex-wrap items-start justify-between gap-x-6'>
+            <div className=' flex-1 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
                 {newsDatas.slice(0,2).map((news,index)=>
                 <NewsCard2 key={index} news={news}></NewsCard2>
                 )}
             </div>
-            <div className='w-[50%]'>
+            <div className='sm:w-[50%] w-full'>
             <SportsNewsCard news={newsDatas[0]}></SportsNewsCard>
             </div>
-            <div className=' flex-1 gap-y-5 flex flex-col items-start justify-center'>
+            <div className=' flex-1 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
                 {newsDatas.slice(0,2).map((news,index)=>
                 <NewsCard2 key={index} news={news}></NewsCard2>
                 )}
@@ -42,7 +42,7 @@ function SportsPart() {
          </div>
          {/* Event part */}
          <div className='flex-1 gap-y-2 flex flex-col items-center justify-start h-100 min-w-[250px] p-2 border-1  border-gray-300 rounded-md'>
-           <h2 className='z-[500] w-full text-start text-2xl font-bold  border-b-1 border-gray-300'>ইভেন্ট</h2>
+           <h2 className='z-[500] w-full text-start text-2xl font-bold  border-b border-gray-300'>ইভেন্ট</h2>
            <div className='space-y-4 overflow-auto'>
            {
             eventData.map((event,index)=>

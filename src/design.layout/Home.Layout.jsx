@@ -23,10 +23,10 @@ import NewsTab from '@/components/NewsTab.jsx'
 function HomeLayout() {
   const [newsData, setNewsData] = useState(newsDatas);
   return (
-    <section className='flex flex-col items-start justify-start gap-y-8'>
+    <section className='w-full flex flex-col items-start justify-start gap-y-8'>
       <div className='w-full flex flex-wrap items-start justify-between'>
           {/* top part */}
-          <div className='w-[50%] flex flex-col gap-4'>
+          <div className='lg:w-[50%] md:w-[65%] w-full flex flex-col gap-4'>
             {/* left side */}
             <div>
              {/* top card */}
@@ -41,7 +41,7 @@ function HomeLayout() {
                 ))}
             </div>
           </div>
-          <div className='flex flex-col gap-4 w-[24%] p-2 border-1 border-gray-300 rounded-md'>
+          <div className='flex flex-col gap-4 lg:w-[24%] md:w-[31%] w-full p-2 border-1 border-gray-300 rounded-md'>
             {/* right side */}
             <div>
               {/* top of right side */}
@@ -55,7 +55,7 @@ function HomeLayout() {
             </div>
           </div>
 
-          <div className='  w-[22%] p-2 border-1 border-gray-300 rounded-md'>
+          <div className='  lg:w-[22%] w-full p-2 border-1 border-gray-300 rounded-md'>
              {/* story part */}
              <StoryPart></StoryPart>
           </div>
@@ -73,7 +73,7 @@ function HomeLayout() {
             {/* online jorip */}
          </div>
             {/* letest and famous news */}
-          <div>
+          <div className='md:w-[50%] md:min-w-[300px] lg:w-[30%] w-full min-w-full '>
               <NewsTab></NewsTab>
            </div>
       </div>

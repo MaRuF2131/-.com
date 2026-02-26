@@ -10,6 +10,7 @@
   FaLanguage,
   FaThumbsUp,
 } from "react-icons/fa";
+import SocialPopUp from "@/ui/SocialPopUp";
 
  export const NavData1 ={
     "আজকের পত্রিকা":{
@@ -40,7 +41,7 @@
         "link":"/social-media",
         "name":"সোশ্যাল মিডিয়া",
         "icon":<FaThumbsUp/>,
-        "popup":true
+        "popup":<SocialPopUp/>
     },
     "বাংলা কনভার্টার":{
         "link":"/converter",

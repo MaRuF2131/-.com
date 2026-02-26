@@ -1,0 +1,137 @@
+import { NavData2 } from "./NavData2";
+
+export const NavData3 = {
+    ...NavData2,
+  "মতামত": {
+    link: "/opinion?message=মতামত",
+    name: "মতামত",
+    icon: "opinion",
+    popup: false,
+  },
+  "লাইফস্টাইল": {
+    link: "/lifestyle?message=লাইফস্টাইল",
+    name: "লাইফস্টাইল",
+    icon: "lifestyle",
+    popup: false,
+  },
+  "আইন-আদালত": {
+    link: "/law-court?message=আইন-আদালত",
+    name: "আইন-আদালত",
+    icon: "law",
+    popup: false,
+  },
+  "অপরাধ": {
+    link: "/crime?message=অপরাধ",
+    name: "অপরাধ",
+    icon: "crime",
+    popup: false,
+  },
+  "স্বাস্থ্য": {
+    link: "/health?message=স্বাস্থ্য",
+    name: "স্বাস্থ্য",
+    icon: "health",
+    popup: false,
+  },
+  "ধর্ম": {
+    link: "/religion?message=ধর্ম",
+    name: "ধর্ম",
+    icon: "religion",
+    popup: false,
+  },
+  "রাজধানী": {
+    link: "/capital?message=রাজধানী",
+    name: "রাজধানী",
+    icon: "capital",
+    popup: false,
+  },
+  "শিল্প-সাহিত্য": {
+    link: "/art-literature?message=শিল্প-সাহিত্য",
+    name: "শিল্প-সাহিত্য",
+    icon: "art",
+    popup: false,
+  },
+  "প্রবাস": {
+    link: "/expatriate?message=প্রবাস",
+    name: "প্রবাস",
+    icon: "expat",
+    popup: false,
+  },
+  "প্রযুক্তি": {
+    link: "/technology?message=প্রযুক্তি",
+    name: "প্রযুক্তি",
+    icon: "technology",
+    popup: false,
+  },
+  "চাকরি": {
+    link: "/jobs?message=চাকরি",
+    name: "চাকরি",
+    icon: "jobs",
+    popup: false,
+  },
+  "চট্টগ্রাম": {
+    link: "/chattogram?message=চট্টগ্রাম",
+    name: "চট্টগ্রাম",
+    icon: "chattogram",
+    popup: false,
+  },
+  "সারাবেলা": {
+    link: "/sarabela?message=সারাবেলা",
+    name: "সারাবেলা",
+    icon: "sarabela",
+    popup: false,
+  },
+  "নারী-শিশু": {
+    link: "/women-children?message=নারী-শিশু",
+    name: "নারী-শিশু",
+    icon: "women",
+    popup: false,
+  },
+  "আইন ও পরামর্শ": {
+    link: "/legal-advice?message=আইন ও পরামর্শ",
+    name: "আইন ও পরামর্শ",
+    icon: "advice",
+    popup: false,
+  },
+  "সোশ্যাল মিডিয়া": {
+    link: "/social-media?message=সোশ্যাল মিডিয়া",
+    name: "সোশ্যাল মিডিয়া",
+    icon: "social",
+    popup: false,
+  },
+  "বিচিত্র": {
+    link: "/odd-news?message=বিচিত্র",
+    name: "বিচিত্র",
+    icon: "odd",
+    popup: false,
+  },
+  "কর্পোরেট": {
+    link: "/corporate?message=কর্পোরেট",
+    name: "কর্পোরেট",
+    icon: "corporate",
+    popup: false,
+  },
+  "পরিবেশ ও জলবায়ু": {
+    link: "/environment?message=পরিবেশ ও জলবায়ু",
+    name: "পরিবেশ ও জলবায়ু",
+    icon: "environment",
+    popup: false,
+  },
+  "পিএসআই": {
+    link: "/psi?message=পিএসআই",
+    name: "পিএসআই",
+    icon: "psi",
+    popup: false,
+  },
+  "রম্যবেলা": {
+    link: "/fun-time?message=রম্যবেলা",
+    name: "রম্যবেলা",
+    icon: "fun",
+    popup: false,
+  },
+  "অডিও": {
+    link: "/audio?message=অডিও",
+    name: "অডিও",
+    icon: "audio",
+    popup: false,
+  },
+};

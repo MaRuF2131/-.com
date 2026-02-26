@@ -25,7 +25,7 @@ function Navbar() {
   }, [])
 
   return (
-    <div className="w-full z-[999] bg-white shadow-md">
+    <div className="w-full mt-1 md:block hidden z-[999] bg-white shadow-md">
       
       {/* Top Navbar (always static) */}
       <Navbar1 />
