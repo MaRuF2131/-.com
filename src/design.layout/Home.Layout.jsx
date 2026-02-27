@@ -19,6 +19,7 @@ import SportsPart from '@/components/SportsPart.jsx'
 import PodcastPart from '@/components/PodcastPart.jsx'
 import NewsTabCard from '@/ui/NewsTabCard.jsx'
 import NewsTab from '@/components/NewsTab.jsx'
+import AreaNewsForm from '@/components/AreaNewsForm.jsx'
 
 function HomeLayout() {
   const [newsData, setNewsData] = useState(newsDatas);
@@ -32,15 +33,30 @@ function HomeLayout() {
              {/* top card */}
               <NewsCard1 news={newsData[0]}></NewsCard1>
             </div>
-            <div className='w-full h-full flex flex-wrap items-start justify-between gap-y-16  p-2 border-1 border-gray-300 rounded-md  '>
-              {/* buttom of top card */}
-              {newsData.slice(0,6).map((news, index)=>(
-                  <div key={index} className='w-[32%]'>
-                    <NewsCard2 news={news}></NewsCard2>
-                   </div>
-                ))}
-            </div>
-          </div>
+                {/* buttom of top card */}
+                <div className='grid grid-cols-1 w-full h-full py-2 border border-gray-300 rounded-md'>
+
+                    <div className='w-full   flex flex-wrap items-start justify-start '>
+                      <div className='w-full grid grid-cols-3 items-start  border-b border-gray-300 pb-5 '>
+                        {newsDatas.slice(0,3).map((news,index)=>
+                        <div key={index} className={`w-full px-2 ${index === 2 ? '' : 'border-r  border-gray-300'}`}>
+                          <NewsCard2 news={news}></NewsCard2>
+                        </div>
+                      )}
+                      </div>
+
+                      <div className='w-full grid grid-cols-3 h-full  items-start pt-5'>
+                        {newsDatas.slice(0,3).map((news,index)=>
+                        <div key={index} className={`w-full px-3 ${index === 2 ? '' : 'border-r border-gray-300'}`}>
+                        <NewsCard2  news={news}></NewsCard2>
+                          </div>
+                      )}
+                      </div>
+
+                    </div>
+
+                </div>
+        </div>
           <div className='flex flex-col gap-4 lg:w-[24%] md:w-[31%] w-full p-2 border-1 border-gray-300 rounded-md'>
             {/* right side */}
             <div>
@@ -91,9 +107,12 @@ function HomeLayout() {
         <BusinessPart></BusinessPart>
 
 
-      <div>
+      <div className='w-full flex flex-wrap items-start justify-between'>
         {/* saradesh section */}
         <CountryPart></CountryPart>
+        <div className='flex-1'>
+             <AreaNewsForm></AreaNewsForm>
+        </div>
       </div>
 
       <div>
