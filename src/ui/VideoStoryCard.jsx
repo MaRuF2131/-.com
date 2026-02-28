@@ -5,7 +5,7 @@ function VideoStoryCard({videoStory }) {
   return (
     <div className='w-full h-80 pt-2 relative'>
         <p>{videoStory?.watch}</p>
-        <Image src={videoStory?.image || "/default.webp"} alt={videoStory?.title} width={300} height={200} className='object-fill aspect-[5/6.5] rounded-md max-h-80 w-full' />
+        <Image src={videoStory?.image || "/default.webp"} alt={videoStory?.title} width={300} height={200} className='object-fill aspect-[5/6.5] rounded-md max-h-full w-full' />
 
         <h2 className='absolute bottom-2 w-full text-center text-white font-light  text-2xl'>{videoStory?.title}</h2>           
         {/* overlay */}
