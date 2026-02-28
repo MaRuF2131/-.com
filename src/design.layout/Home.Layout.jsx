@@ -35,20 +35,20 @@ function HomeLayout() {
               <NewsCard1 news={newsData[0]}></NewsCard1>
             </div>
                 {/* buttom of top card */}
-                <div className='grid grid-cols-1 w-full h-full py-2 border border-gray-300 rounded-md'>
+                <div className='grid grid-cols-1 w-full h-full py-2 sm:border border-b border-gray-300 sm:rounded-md'>
 
                     <div className='w-full   flex flex-wrap items-start justify-start '>
-                      <div className='w-full grid grid-cols-3 items-start  border-b border-gray-300 pb-5 '>
+                      <div className='w-full gap-y-4 grid sm:grid-cols-3 grid-cols-2 items-start  sm:border-b sm:border-gray-300 pb-5 '>
                         {newsDatas.slice(0,3).map((news,index)=>
-                        <div key={index} className={`w-full px-2 ${index === 2 ? '' : 'border-r  border-gray-300'}`}>
+                        <div key={index} className={`w-full px-2 ${index === 2 ? '' : 'sm:border-r  sm:border-gray-300'}`}>
                           <NewsCard2 news={news}></NewsCard2>
                         </div>
                       )}
                       </div>
 
-                      <div className='w-full grid grid-cols-3 h-full  items-start pt-5'>
+                      <div className='w-full gap-y-4 grid sm:grid-cols-3 grid-cols-2 sm:h-full h-fit items-start pt-5'>
                         {newsDatas.slice(0,3).map((news,index)=>
-                        <div key={index} className={`w-full px-3 ${index === 2 ? '' : 'border-r border-gray-300'}`}>
+                        <div key={index} className={`w-full  px-3 ${index === 2 ? '' : 'sm:border-r sm:border-gray-300'}`}>
                         <NewsCard2  news={news}></NewsCard2>
                           </div>
                       )}
@@ -58,16 +58,18 @@ function HomeLayout() {
 
                 </div>
         </div>
-          <div className=' flex flex-row  md:flex-col gap-4 xl:w-[24%] flex-1 w-full p-2 border border-gray-300 rounded-md'>
+          <div className=' flex flex-row flex-wrap sm:flex-nowrap  md:flex-col gap-4 xl:w-[24%] flex-1 w-full p-2 sm:border border-b border-gray-300 sm:rounded-md'>
             {/* right side */}
-            <div className=''>
+            <div className='sm:w-auto w-full'>
               {/* top of right side */}
               <NewsCard3 news={newsData[0]}></NewsCard3>
             </div>
-            <div className='grid grid-cols-1  gap-4'>
+            <div className='grid grid-cols-1  gap-4 border-t sm:border-0 border-gray-300 sm:pt-0 pt-4'>
               {/* buttom of right side */}
               {newsData.slice(0,5).map((news, index) => (
+                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30`}>
                  <NewsCard4 key={index} news={news}></NewsCard4>
+                </div>
               ))}
             </div>
           </div>

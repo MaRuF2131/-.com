@@ -22,7 +22,7 @@ function SpecialPart() {
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
         </Link>
       </div>
-      <div className='w-full gap-x-6 flex items-start justify-between py-4 border-b-1 border-gray-300'>
+      <div className='w-full gap-4 grid sm:grid-cols-4 grid-cols-2 items-start  py-4 border-b border-gray-300'>
         {newsDatas.slice(0,4).map((news,index)=>
            <SpecialCard key={index} news={news}></SpecialCard>
          )}
