@@ -24,8 +24,8 @@ function SportsPart() {
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
         </Link>
       </div>
-          <div className='w-full  gap-x-6 grid grid-cols-8 items-start  '>
-              <div className=' col-span-6 w-full grid grid-cols-9 items-start  gap-x-3 border-b border-gray-300 pb-0.5'>
+          <div className='w-full  gap-6 grid lg:grid-cols-8 grid-cols-1 items-start  '>
+              <div className=' lg:col-span-6 col-span-full w-full grid grid-cols-9 items-start  gap-x-3 border-b border-gray-300 pb-0.5'>
                 <div className=' col-span-2 pb-4 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
                     {newsDatas.slice(0,2).map((news,index)=>
                     <NewsCard2 key={index} news={news}></NewsCard2>
@@ -41,14 +41,14 @@ function SportsPart() {
                 </div>
             </div>
             {/* Event part */}
-            <div className='col-span-2  gap-y-2 flex flex-col items-center justify-start h-100 min-w-[250px] p-2 border-1  border-gray-300 rounded-md'>
+            <div className='lg:col-span-2 col-span-full lg:min-w-full gap-y-2 flex flex-col items-center justify-start h-100 lg:min-w-[250px] p-2 border  border-gray-300 rounded-md'>
               <h2 className='z-[500] w-full text-start text-2xl font-bold  border-b border-gray-300'>ইভেন্ট</h2>
               <div className='space-y-4 overflow-auto'>
               {
                 eventData.map((event,index)=>
                     <div key={index} className='inline-flex w-full gap-x-2 '>
                         <Image src={event?.logo}  width={50} height={50} className='object-fill h-full w-8 h-8  rounded-full ' />
-                        <h2 className='flex-1 text-xl font-bold h-fit border-b-1  border-gray-300'>{event?.name}</h2>
+                        <h2 className='flex-1 text-xl font-bold h-fit border-b  border-gray-300'>{event?.name}</h2>
                     </div>
                 )
               }

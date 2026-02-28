@@ -20,14 +20,15 @@ import PodcastPart from '@/components/PodcastPart.jsx'
 import NewsTabCard from '@/ui/NewsTabCard.jsx'
 import NewsTab from '@/components/NewsTab.jsx'
 import AreaNewsForm from '@/components/AreaNewsForm.jsx'
+import PollForm from '@/components/PollForm.jsx'
 
 function HomeLayout() {
   const [newsData, setNewsData] = useState(newsDatas);
   return (
     <section className='w-full flex flex-col items-start justify-start gap-y-8'>
-      <div className='w-full flex flex-wrap items-start justify-between'>
+      <div className='w-full flex flex-wrap items-start justify-between gap-4'>
           {/* top part */}
-          <div className='lg:w-[50%] md:w-[65%] w-full flex flex-col gap-4'>
+          <div className='xl:w-[50%]  md:w-[70%] w-full flex flex-col gap-4'>
             {/* left side */}
             <div>
              {/* top card */}
@@ -57,13 +58,13 @@ function HomeLayout() {
 
                 </div>
         </div>
-          <div className='flex flex-col gap-4 lg:w-[24%] md:w-[31%] w-full p-2 border-1 border-gray-300 rounded-md'>
+          <div className=' flex flex-row  md:flex-col gap-4 xl:w-[24%] flex-1 w-full p-2 border border-gray-300 rounded-md'>
             {/* right side */}
-            <div>
+            <div className=''>
               {/* top of right side */}
               <NewsCard3 news={newsData[0]}></NewsCard3>
             </div>
-            <div className='flex flex-col gap-4'>
+            <div className='grid grid-cols-1  gap-4'>
               {/* buttom of right side */}
               {newsData.slice(0,5).map((news, index) => (
                  <NewsCard4 key={index} news={news}></NewsCard4>
@@ -71,7 +72,7 @@ function HomeLayout() {
             </div>
           </div>
 
-          <div className='  lg:w-[22%] w-full p-2 border-1 border-gray-300 rounded-md'>
+          <div className=' hidden  xl:block w-[22%]  p-2 border border-gray-300 rounded-md'>
              {/* story part */}
              <StoryPart></StoryPart>
           </div>
@@ -80,16 +81,17 @@ function HomeLayout() {
         {/* video section */}
         <VideoPart></VideoPart>
 
-      <div className='w-full flex flex-wrap items-start justify-between'>
+      <div className='w-full flex gap-4 flex-wrap items-start justify-between'>
         {/* motamot ,online jorip,(letest and famous news) section  */}
 
             {/* motamot */}
             <OpinionPart></OpinionPart>
-         <div>
+         <div className='lg:flex-1  lg:block w-full'>
             {/* online jorip */}
+            <PollForm></PollForm>
          </div>
             {/* letest and famous news */}
-          <div className='md:w-[50%] md:min-w-[300px] lg:w-[30%] w-full min-w-full '>
+          <div className='lg:flex-1  lg:block w-full'>
               <NewsTab></NewsTab>
            </div>
       </div>
@@ -107,10 +109,12 @@ function HomeLayout() {
         <BusinessPart></BusinessPart>
 
 
-      <div className='w-full flex flex-wrap items-start justify-between'>
+      <div className='w-full flex  items-start justify-between'>
         {/* saradesh section */}
-        <CountryPart></CountryPart>
-        <div className='flex-1'>
+         <div>
+          <CountryPart></CountryPart>
+          </div>
+        <div className='flex-1 max-w-md mx-auto min-w-[250px] lg:block hidden'>
              <AreaNewsForm></AreaNewsForm>
         </div>
       </div>

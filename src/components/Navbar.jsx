@@ -25,14 +25,16 @@ function Navbar() {
   }, [])
 
   return (
-    <div className="w-full mt-1 md:block hidden z-[999] bg-white shadow-md">
+    <div className="w-full mt-1  z-[999] bg-white shadow-md">
       
       {/* Top Navbar (always static) */}
-      <Navbar1 />
+      <div className="md:block hidden">
+        <Navbar1 />
+      </div>
 
       {/* Bottom Navbar (becomes fixed on scroll) */}
       <div
-        className={`transition-all duration-500 ease-in-out ${
+        className={`transition-all duration-500 ease-in-out overflow-auto ${
           isSticky
             ? "fixed top-0 left-0 right-0 z-[999] bg-white shadow-md"
             : ""

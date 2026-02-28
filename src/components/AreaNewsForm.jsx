@@ -38,7 +38,7 @@ export default function AreaNewsForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto border rounded-xl p-6 bg-gray-50 shadow-sm">
+    <div className="w-full border rounded-xl p-6 bg-gray-50 shadow-sm">
       
       {/* Title */}
       <div className="flex items-center gap-3 mb-6">

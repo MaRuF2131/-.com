@@ -7,7 +7,7 @@ import SpecialCard from '@/ui/SpecialCard'
 
 function SpecialPart() {
   return (
-    <div className="w-full max-w-[850px] flex flex-col border-b border-gray-300 pb-4 mx-6 ">
+    <div className="w-full max-w-[850px] flex flex-col border-b border-gray-300 pb-4 lg:mx-6 mx-0 ">
       {/* Header */}
       <div className="w-full flex items-center  justify-between mb-1 border-b-5 border-black">
         <span className="flex items-center gap-x-1 text-2xl font-bold">

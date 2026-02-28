@@ -6,10 +6,10 @@ import React from 'react'
 function NewsCard3({news}) {
   return (
     <div className='group cursor-pointer'>
-        <Image src={news?.image || "/public/default.webp"} alt={news?.title} width={300} height={200} />
+        <Image src={news?.image || "/public/default.webp"} alt={news?.title} width={300} height={200} className='w-full h-full' />
 
         <h2 className='text-3xl font-bold group-hover:text-[#0a58ca]'>{news?.title}</h2>
-
+        <p className='text-lg md:hidden block'>{news?.description.length>200?`${news?.description.slice(0,200)}...`:news?.description}</p>
     </div>
   )
 }

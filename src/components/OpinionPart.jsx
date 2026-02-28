@@ -12,7 +12,7 @@ function OpinionPart() {
   const [currentPage, setCurrentPage] = useState(0);
 
   return (
-    <div className="lg:w-[34%] md:w-[50%] w-full  border border-gray-300 p-3 rounded-md flex flex-col gap-y-4 overflow-hidden">
+    <div className="lg:w-[37%]  w-full  border border-gray-300 p-3 rounded-md flex flex-col gap-y-4 overflow-hidden">
 
       {/* Header */}
       <div className="w-full flex items-center gap-x-1">
@@ -46,7 +46,7 @@ function OpinionPart() {
             })}
         </div>
         </div>
-
+         
 
       {/* Pagination Buttons */}
       <div className="flex justify-center gap-2 mt-2">

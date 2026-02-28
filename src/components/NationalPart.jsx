@@ -7,7 +7,7 @@ import { HiOutlineChevronRight } from 'react-icons/hi'
 
 function NationalPart() {
   return (
-    <div className="w-full max-w-[850px]   flex flex-wrap items-start justify-between  border-b border-gray-300 pb-4 h-auto mx-6 ">
+    <div className="w-full max-w-[850px]   flex flex-wrap items-start justify-between  border-b border-gray-300 pb-4 h-auto lg:mx-6 mx-0 ">
       {/* Header */}
       <div className="w-full flex items-center  justify-between  border-b-5 border-black mb-4">
         <span className="flex items-center gap-x-1 text-2xl font-bold">

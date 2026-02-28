@@ -7,7 +7,7 @@ import NewsCard2 from '@/ui/NewsCard2'
 
 function PoliticalPart() {
   return (
-    <div className="w-full max-w-[850px]  border-b border-gray-300 pb-4  h-auto flex flex-col items-center justify-start mx-6  ">
+    <div className="w-full max-w-[850px]  border-b border-gray-300 pb-4  h-auto flex flex-col items-center justify-start lg:mx-6 mx-0  ">
       {/* Header */}
       <div className="w-full flex items-center  justify-between mb-4 border-b-5 border-black">
         <span className="flex items-center gap-x-1 text-2xl font-bold">

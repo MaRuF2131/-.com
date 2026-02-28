@@ -4,10 +4,11 @@ import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { newsDatas } from '../../data/newsData'
 import NewsCard2 from '@/ui/NewsCard2'
+import AreaNewsForm from './AreaNewsForm'
 
 function CountryPart() {
   return (
-    <div className="w-full max-w-[850px] flex flex-col  border-b border-gray-300 pb-4 mx-6">
+    <div className="w-full max-w-[850px] flex flex-col  border-b border-gray-300 pb-4 lg:mx-6 mx-0">
       {/* Header */}
       <div className="w-full flex items-center  justify-between mb-4 border-b-5 border-black">
         <span className="flex items-center gap-x-1 text-2xl font-bold">
@@ -22,6 +23,9 @@ function CountryPart() {
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
         </Link>
       </div>
+          <div className=' mb-4 w-full'>
+           <AreaNewsForm></AreaNewsForm>
+           </div> 
 
             <div className='grid grid-cols-1 h-full w-full '>
       
