@@ -28,7 +28,7 @@ function HomeLayout() {
     <section className='w-full flex flex-col items-start justify-start gap-y-8'>
       <div className='w-full flex flex-wrap items-start justify-between gap-4'>
           {/* top part */}
-          <div className='xl:w-[50%]  md:w-[70%] w-full flex flex-col gap-4'>
+          <div className='lg:w-[50%]  md:w-[70%] w-full flex flex-col gap-4'>
             {/* left side */}
             <div>
              {/* top card */}
@@ -67,14 +67,14 @@ function HomeLayout() {
             <div className='grid grid-cols-1  gap-4 border-t sm:border-0 border-gray-300 sm:pt-0 pt-4'>
               {/* buttom of right side */}
               {newsData.slice(0,5).map((news, index) => (
-                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30`}>
+                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30 sm:h-auto`}>
                  <NewsCard4 key={index} news={news}></NewsCard4>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className=' hidden  xl:block w-[22%]  p-2 border border-gray-300 rounded-md'>
+          <div className=' hidden  lg:block w-[22%]  p-2 border border-gray-300 rounded-md'>
              {/* story part */}
              <StoryPart></StoryPart>
           </div>
