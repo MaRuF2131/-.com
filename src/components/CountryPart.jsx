@@ -23,7 +23,7 @@ function CountryPart() {
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
         </Link>
       </div>
-          <div className=' mb-4 w-full'>
+          <div className=' mb-4 w-full lg:hidden block'>
            <AreaNewsForm></AreaNewsForm>
            </div> 
 
