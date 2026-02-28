@@ -34,7 +34,7 @@ function NationalPart() {
       <div className='w-full px-4 sm:border-r border-gray-300 sm:gap-x-6 flex flex-wrap items-start justify-between'>
         {newsDatas.slice(0,4).map((news,index)=>
             <div key={index} className='group cursor-pointer flex flex-wrap sm:flex-nowrap items-start justify-between sm:w-full w-[47%] sm:gap-2 sm:border-b border-gray-300 sm:pb-4 pt-2'>
-                <Image src={news?.image || "/public/default.webp"} alt={news?.title} width={300} height={200} className='sm:w-2/5 w-full rounded-md' />
+                <Image src={news?.image || "/public/default.webp"} alt={news?.title} width={300} height={200} className='sm:w-2/5 w-full max-h-30 sm:max-h-50 rounded-md' />
                <div className='sm:w-auto w-full'>
                 <h2 className='text-[24px] font-semibold opacity-80 group-hover:text-[#0a58ca] flex-1'>{news?.title}</h2>
                 <p className='text-lg opacity-80 hidden sm:inline-flex items-center justify-start gap-x-1'><FaRegClock className="text-lg text-gray-600" />৫ ঘণ্টা আগে</p>
