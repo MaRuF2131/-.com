@@ -78,12 +78,12 @@ function InnerNavbar({stateMessage ,state }) {
             </button>
           ))}
         </div>
-        <div className='flex flex-wrap items-center justify-start gap-2'>
+        <div className='flex flex-wrap items-center justify-start md:gap-2'>
           {state.navlist3.map((v, i) => (
             <button
               key={i}
               onClick={(e)=>{e.preventDefault(); e.stopPropagation();state.setUp(v)}}
-              className={`px-2 cursor-pointer text-xl font-bold ${v===state.up ?"text-[#0a58ca]":"text-black  hover:text-[#0a58ca]"} `}
+              className={`md:px-2 px-1 cursor-pointer text-xl font-bold ${v===state.up ?"text-[#0a58ca]":"text-black  hover:text-[#0a58ca]"} `}
             >
               {v}
             </button>
