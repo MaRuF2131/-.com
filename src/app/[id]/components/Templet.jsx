@@ -52,10 +52,10 @@ import Link from 'next/link'
   }
    return (
     <>
-    <div className='bg-[#f7f8fa] p-3 w-full rounded-t-md'>
-        <div className='bg-white p-2 w-full border border-gray-300 rounded-md'>
+    <div className='bg-[#f7f8fa] md:p-3 w-full rounded-t-md'>
+        <div className='bg-white md:p-2 w-full border border-gray-300 rounded-md'>
             <InnerNavbar stateMessage={stateMessage} state={state}></InnerNavbar>
-            <div className='w-full pt-4 flex flex-wrap items-start justify-between gap-5 '>
+            <div className='w-full md:pt-4 pt-2 flex flex-wrap items-start justify-between gap-5 '>
               <div className='md:w-[48%] w-full'>
                 <NewsCard1 news={newsDatas[0]} imcl={"aspect-[10/5]"}></NewsCard1>
               </div>
