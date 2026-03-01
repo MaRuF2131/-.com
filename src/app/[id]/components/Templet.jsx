@@ -61,7 +61,7 @@ import Link from 'next/link'
               </div>
               <div className='flex-1 flex flex-wrap   items-start justify-between gap-y-3'>
                 {newsDatas.slice(0,4).map((v,i)=>
-                  <div key={i} className='md:w-[49%] w-full'>
+                  <div key={i} className='w-[49%] '>
                      <NewsCard1  news={v} imcl={"aspect-[5/2.3]"} ></NewsCard1>
                   </div>
                 )}
