@@ -38,18 +38,18 @@ export default function AreaNewsForm() {
   };
 
   return (
-    <div className="w-full border rounded-xl p-6 bg-gray-50 shadow-sm">
+    <div className="w-full lg:border lg:rounded-xl lg:p-6 lg:bg-gray-50 lg:shadow-sm">
       
       {/* Title */}
-      <div className="flex items-center gap-3 mb-6">
+      <div className="lg:flex hidden items-center gap-3 mb-6">
         <div className="w-1 h-6 bg-orange-500"></div>
         <h2 className="text-xl font-bold">আমার এলাকার সংবাদ</h2>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 lg:block flex justify-between flex-wrap">
 
         {/* Division */}
-        <div>
+        <div className="w-[45%] lg:w-full">
           <select
             {...register("division", { required: "বিভাগ নির্বাচন করুন" })}
             className="w-full border rounded-lg p-3 bg-white"
@@ -69,7 +69,7 @@ export default function AreaNewsForm() {
         </div>
 
         {/* District */}
-        <div>
+        <div className="w-[45%] lg:w-full">
           <select
             {...register("district", { required: "জেলা নির্বাচন করুন" })}
             className="w-full border rounded-lg p-3 bg-white"
@@ -91,7 +91,7 @@ export default function AreaNewsForm() {
         </div>
 
         {/* Upazila */}
-        <div>
+        <div className="w-[45%] lg:w-full">
           <select
             {...register("upazila", { required: "উপজেলা নির্বাচন করুন" })}
             className="w-full border rounded-lg p-3 bg-white"
@@ -115,7 +115,7 @@ export default function AreaNewsForm() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-gray-700 text-white py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition"
+          className="lg:w-full lg:h-auto h-12 w-[47%] bg-gray-700 text-white lg:py-3 py-0 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition"
         >
           অনুসন্ধান <FiSearch />
         </button>
