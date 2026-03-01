@@ -6,8 +6,8 @@ import React from 'react'
 function CategoryCard({news}) {
   return (
     <div className='w-full group cursor-pointer  text-black  flex flex-wrap items-center justify-center gap-y-3'>
-        <Image src={news?.image || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md w-full aspect-[10/5]' />
-        <h2 className='text-[22px]  font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
+        <Image src={news?.image || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md w-full sm:aspect-[10/5] aspect-[10/6]' />
+        <h2 className='sm:text-[22px] text-xl font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
     </div>
   )
 }

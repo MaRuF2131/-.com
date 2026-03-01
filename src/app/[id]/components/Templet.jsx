@@ -72,7 +72,7 @@ import Link from 'next/link'
     </div>
      { 
         (stateMessage!="সারাদেশ" && navlist.length>0)?navlist.map((v,i)=>(
-            <div key={i} className="w-full max-w-[900px] flex flex-col px-6 ">
+            <div key={i} className="w-full max-w-[900px] flex flex-col sm:px-6 px-1">
                 {/* Header */}
                 <div className="w-full flex items-center  justify-between mb-1 border-b-5 border-black">
                     <span className="flex items-center gap-x-1 text-2xl font-bold">
@@ -86,9 +86,11 @@ import Link from 'next/link'
                     <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
                     </Link>
                 </div>
-                <div className='w-full gap-x-6 flex items-start justify-between py-4 border-b-1 border-gray-300'>
+                <div className='w-full md:gap-6 sm:gap-4 flex sm:flex-nowrap flex-wrap items-start justify-between py-4 sm:border-b border-gray-300'>
                     {newsDatas.slice(0,4).map((news,index)=>
-                    <CategoryCard key={index} news={news}></CategoryCard>
+                     <div key={index} className='sm:w-auto w-[47%]'>
+                      <CategoryCard news={news}></CategoryCard>
+                     </div>
                     )}
                 </div>
                 
