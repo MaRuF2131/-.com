@@ -25,16 +25,16 @@ function SportsPart() {
         </Link>
       </div>
           <div className='w-full  gap-6 grid lg:grid-cols-8 grid-cols-1 items-start  '>
-              <div className=' lg:col-span-6 col-span-full w-full grid grid-cols-9 items-start  gap-x-3 border-b border-gray-300 pb-0.5'>
-                <div className=' col-span-2 pb-4 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
+              <div className=' lg:col-span-6 col-span-full w-full grid sm:grid-cols-9 grid-cols-1 items-start  gap-x-3 border-b border-gray-300 pb-0.5'>
+                <div className=' sm:col-span-2 pb-4 order-1 sm:order-0 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
                     {newsDatas.slice(0,2).map((news,index)=>
                     <NewsCard2 key={index} news={news}></NewsCard2>
                     )}
                 </div>
-                <div className='col-span-5 pb-4 w-full h-full sm:border-x sm:border-gray-300 sm:px-4'>
+                <div className='sm:col-span-5 pb-4 order-0 sm:order-1 w-full h-full sm:border-x sm:border-gray-300 sm:px-4'>
                    <SportsNewsCard news={newsDatas[0]}></SportsNewsCard>
                 </div>
-                <div className=' col-span-2 pb-4 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
+                <div className=' sm:col-span-2 order-2  pb-4 gap-y-5 gap-x-3 flex sm:flex-col items-start justify-center'>
                     {newsDatas.slice(0,2).map((news,index)=>
                     <NewsCard2 key={index} news={news}></NewsCard2>
                     )}
