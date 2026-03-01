@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="bn">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${solaimanLipi.className} antialiased leading-none`}
+        className={`${geistSans.variable} ${geistMono.variable} ${solaimanLipi.className} antialiased leading-none bg-white dark:bg-white text-black dark:text-black  `}
       >
         <Navbar />
         <div className="mt-3 max-w-[1500px] mx-auto">
