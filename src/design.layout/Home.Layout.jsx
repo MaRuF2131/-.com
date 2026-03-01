@@ -111,12 +111,12 @@ function HomeLayout() {
         <BusinessPart></BusinessPart>
 
 
-      <div className='w-full flex  items-start justify-between'>
+      <div className='w-full flex   items-start justify-start gap-8'>
         {/* saradesh section */}
-         <div>
+         <div className=''>
           <CountryPart></CountryPart>
           </div>
-        <div className='flex-1 max-w-md mx-auto min-w-[250px] lg:block hidden'>
+        <div className=' flex-1 max-w-md  min-w-[230px]   lg:block hidden'>
              <AreaNewsForm></AreaNewsForm>
         </div>
       </div>

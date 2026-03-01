@@ -24,23 +24,23 @@ function WorldPart() {
       </div>
             <div className='grid grid-cols-1 h-full w-full '>
       
-                   <div className='w-full  border-b border-gray-300 pb-4  h-auto  flex  items-start justify-between  gap-x-4'>
-                      <div className='w-[50%] h-full flex items-start justify-center bg-black  rounded-md'>
+                   <div className='w-full  border-b border-gray-300 pb-4  sm:h-auto h-fit  flex sm:flex-nowrap flex-wrap items-start justify-between  gap-4'>
+                      <div className='sm:w-[50%] w-full h-full flex items-start justify-center bg-black  rounded-md'>
                          <div className='p-2'>
-                            <h2 className='text-[24px] text-white font-bold mt-2'>বাংলাদেশে করোনায় আরও ৩ জনের মৃত্যু, শনাক্ত ২৭৮</h2>
-                            <p className='text-white text-lg mt-3'>{'বাংলাদেশে করোনাভাইরাসে আক্রান্ত হয়ে আরও তিনজনের মৃত্যু হয়েছে। এ নিয়ে মোট মৃতের সংখ্যা বেড়ে দাঁড়িয়েছে ২৭ হাজার ৫৮০ জনে।'.length>100 ? 'বাংলাদেশে করোনাভাইরাসে আক্রান্ত হয়ে আরও তিনজনের মৃত্যু হয়েছে। এ নিয়ে মোট মৃতের সংখ্যা বেড়ে দাঁড়িয়েছে ২৭ হাজার ৫৮০ জনে।'.substring(0,100) + '...' : 'বাংলাদেশে করোনাভাইরাসে আক্রান্ত হয়ে আরও তিনজনের মৃত্যু হয়েছে। এ নিয়ে মোট মৃতের সংখ্যা বেড়ে দাঁড়িয়েছে ২৭ হাজার ৫৮০ জনে।'}</p>
+                            <h2 className='text-[24px] text-white font-bold mt-2'>বাংলাদেশে করোনায় আরও ৩ জনের মৃত্যু, শনাক্ত ২৭৮</h2>
+                            <p className='text-white text-lg mt-3'>{'বাংলাদেশে করোনাভাইরাসে আক্রান্ত হয়ে আরও তিনজনের মৃত্যু হয়েছে। এ নিয়ে মোট মৃতের সংখ্যা বেড়ে দাঁড়িয়েছে ২৭ হাজার ৫৮০ জনে।'.length>100 ? 'বাংলাদেশে করোনাভাইরাসে আক্রান্ত হয়ে আরও তিনজনের মৃত্যু হয়েছে। এ নিয়ে মোট মৃতের সংখ্যা বেড়ে দাঁড়িয়েছে ২৭ হাজার ৫৮০ জনে।'.substring(0,100) + '...' : 'বাংলাদেশে করোনাভাইরাসে আক্রান্ত হয়ে আরও তিনজনের মৃত্যু হয়েছে। এ নিয়ে মোট মৃতের সংখ্যা বেড়ে দাঁড়িয়েছে ২৭ হাজার ৫৮০ জনে।'}</p>
                           </div>
                           <Image src={"/default.webp"} width={500} height={500} className='w-[50%] h-full max-h-55 rounded-md  object-fit' />
                       </div>
                       {newsDatas.slice(0,2).map((news,index)=>
-                        <div key={index} className={`${index === 1 ? '' : 'border-r border-gray-300'} pr-4 flex-1 h-full flex items-start justify-center gap-x-4 mb-4`}>
+                        <div key={index} className={`${index === 1 ? '' : 'sm:border-r border-gray-300'} sm:pr-4 flex-1 h-full flex items-start justify-center gap-x-4 mb-4`}>
                            <NewsCard2  news={news}></NewsCard2>
                          </div>
                         )}
                   </div>
-                   <div className='w-full  pt-4  h-auto  flex  items-start justify-between  gap-x-4'>
+                   <div className='w-full  sm:pt-4  sm:h-auto h-fit  flex sm:flex-nowrap flex-wrap items-start justify-between  gap-4'>
                       {newsDatas.slice(0,4).map((news,index)=>
-                        <div key={index} className={`${index === 3 ? '' : 'border-r border-gray-300'} pr-4 w-full h-full flex items-start justify-center gap-x-4 mb-4`}>
+                        <div key={index} className={`${index === 3 ? '' : 'sm:border-r border-gray-300'} sm:pr-4 sm:w-full w-[47%] h-full flex items-start justify-center  gap-x-4 mb-4`}>
                            <NewsCard2  news={news}></NewsCard2>
                          </div>
                          )}

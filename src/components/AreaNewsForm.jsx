@@ -115,7 +115,7 @@ export default function AreaNewsForm() {
         {/* Submit Button */}
         <button
           type="submit"
-          className="lg:w-full lg:h-auto h-12 w-[47%] bg-gray-700 text-white lg:py-3 py-0 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition"
+          className="lg:w-full  lg:h-auto h-12 w-[47%] bg-gray-700 text-white lg:py-3 py-0 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-800 transition"
         >
           অনুসন্ধান <FiSearch />
         </button>
