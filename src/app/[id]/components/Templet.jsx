@@ -57,12 +57,12 @@ import Link from 'next/link'
             <InnerNavbar stateMessage={stateMessage} state={state}></InnerNavbar>
             <div className='w-full md:pt-4 pt-2 flex flex-wrap items-start justify-between gap-5 '>
               <div className='md:w-[48%] w-full'>
-                <NewsCard1 news={newsDatas[0]} imcl={"aspect-[10/5]"}></NewsCard1>
+                <NewsCard1 news={newsDatas[0]} imcl={"aspect-[10/5] "}></NewsCard1>
               </div>
-              <div className='flex-1 flex flex-wrap   items-start justify-between gap-y-3'>
+              <div className='flex-1 flex flex-wrap px-1 sm:px-0   items-start justify-between gap-y-3'>
                 {newsDatas.slice(0,4).map((v,i)=>
-                  <div key={i} className='w-[49%] '>
-                     <NewsCard1  news={v} imcl={"aspect-[5/2.3]"} ></NewsCard1>
+                  <div key={i} className='md:w-[49%] w-[48%]'>
+                     <NewsCard1  news={v} imcl={"sm:aspect-[5/2.3] aspect-[10/6]"} ></NewsCard1>
                   </div>
                 )}
               </div>
