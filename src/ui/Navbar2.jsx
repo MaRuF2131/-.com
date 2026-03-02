@@ -11,7 +11,7 @@ function Navbar2() {
   const pathname = usePathname()
   const [open, setOpen] = React.useState(false);
   return (
-    <div className="navbar2 relative text-lg font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4">
+    <div className="navbar2  text-lg font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4">
       <Link href="/" ><HiHome className="cursor-pointer text-2xl" /></Link>
       {Object.keys(NavData2).map((key, index) => {
         const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link
@@ -24,13 +24,13 @@ function Navbar2() {
       })}
 
        <div           
-           onMouseEnter={() => setOpen(true)}
-           onMouseLeave={() => setOpen(false)}
+           onPointerEnter={() => setOpen(true)}
+           onPointerLeave={() => setOpen(false)}
            >
           <HiMenu className="text-xl cursor-pointer " 
           />
 
-          { open  && <div className='absolute z-50 top-2/3 left-5 right-5 overflow-auto   bg-white shadow-lg rounded-md  px-5 '>
+          { open  && <div className='absolute z-[999] top-[89%] left-5 right-5 overflow-auto   bg-white shadow-lg rounded-md  px-5 '>
              <h2 className='text-xl border-b border-gray-300 py-2'>
                 {new Date().toLocaleDateString("bn-BD", {
                   weekday: "long",
