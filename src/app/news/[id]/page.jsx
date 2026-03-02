@@ -13,7 +13,7 @@ export default function NewsDetailsPage() {
         <span className="text-blue-600 font-medium text-2xl">/ আইন-আদালত</span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-7 lg:grid-cols-10 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-7 lg:grid-cols-12 gap-4">
 
         {/* ================= Left Sidebar ================= */}
         <div className="col-span-2 md:block hidden">
@@ -50,7 +50,7 @@ export default function NewsDetailsPage() {
         </div>
 
         {/* ================= Main Content ================= */}
-        <div className="col-span-5">
+        <div className="col-span-7">
 
           {/* Title */}
           <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-none">
