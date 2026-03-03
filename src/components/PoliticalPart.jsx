@@ -71,7 +71,7 @@ function PoliticalPart() {
           {newsData.slice(1,4).map((news,index)=>
            <div key={index} className={`w-full  sm:px-3 py-3 ${index === 2 ? '' : 'sm:border-r sm:border-0 border-b border-gray-300'}`}>
                  <div className='w-full h-full group cursor-pointer  text-black  flex sm:flex-wrap flex-nowrap sm:items-center items-start justify-center gap-3'>
-                     <Image src={news?.imageUrl || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md min-w-50 max-w-45 sm:max-w-auto sm:min-w-auto w-[40%] sm:h-auto h-28 sm:w-full sm:aspect-[10/6]' />
+                     <Image src={news?.imageUrl || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md   sm:max-w-auto sm:min-w-auto w-[40%] sm:h-auto h-28 sm:w-full sm:aspect-[10/6]' />
                      <h2 className='text-[22px]  font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
                  </div>
            </div>
@@ -82,7 +82,7 @@ function PoliticalPart() {
           {newsData.slice(4,7).map((news,index)=>
           <div key={index} className={`w-full sm:px-3 py-3 ${index === 2 ? '' : 'sm:border-r border-b sm:border-0 border-gray-300'}`}>
                <div className='w-full sm:h-full group cursor-pointer  text-black  flex sm:flex-wrap flex-nowrap sm:items-center items-start justify-center gap-3'>
-                   <Image src={news?.imageUrl || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md min-w-50 max-w-45 sm:max-w-auto sm:min-w-auto w-[40%] sm:h-auto h-28 sm:w-full sm:aspect-[10/6]' />
+                   <Image src={news?.imageUrl || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md   sm:max-w-auto sm:min-w-auto w-[40%] sm:h-auto h-28 sm:w-full sm:aspect-[10/6]' />
                    <h2 className='text-[22px] flex-1  font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
                </div>
             </div>

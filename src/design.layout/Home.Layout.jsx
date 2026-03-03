@@ -92,14 +92,14 @@ function HomeLayout() {
         </div>
           <div className=' flex flex-row flex-wrap sm:flex-nowrap  md:flex-col gap-4 xl:w-[24%] flex-1 w-full p-2 sm:border border-b border-gray-300 sm:rounded-md'>
             {/* right side */}
-            <div className='sm:w-auto w-full h-auto'>
+            <div className='sm:w-auto w-full h-full'>
               {/* top of right side */}
               <NewsCard3 news={newsData[1]}></NewsCard3>
             </div>
             <div className='grid grid-cols-1  gap-4 border-t sm:border-0 border-gray-300 sm:pt-0 pt-4'>
               {/* buttom of right side */}
               {newsData.slice(8,12).map((news, index) => (
-                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30 sm:h-auto`}>
+                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30 h-full sm:h-auto`}>
                  <NewsCard4 key={index} news={news}></NewsCard4>
                 </div>
               ))}
