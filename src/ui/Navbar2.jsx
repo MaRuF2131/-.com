@@ -31,7 +31,7 @@ function Navbar2() {
            onClick={(e)=>{e.stopPropagation();e.preventDefault(); setOpen(!open)}}
           />
 
-          { open  && <div className='absolute z-[999] top-[89%] sm:left-5 left-0 bottom-0 md:bottom-auto  sm:right-5 right-0 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
+          { open  && <div className='absolute z-[999] top-[89%] sm:left-5 left-0 max-h-svh  sm:right-5 right-0 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
              <h2 className='text-xl border-b border-gray-300 py-2'>
                 {new Date().toLocaleDateString("bn-BD", {
                   weekday: "long",
