@@ -31,7 +31,7 @@ function Navbar2() {
            onClick={(e)=>{e.stopPropagation();e.preventDefault(); setOpen(!open)}}
           />
 
-          { open  && <div className='absolute z-[999] top-[89%] left-5 right-5 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
+          { open  && <div className='absolute z-[999] top-[89%] sm:left-5 left-0  sm:right-5 right-0 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
              <h2 className='text-xl border-b border-gray-300 py-2'>
                 {new Date().toLocaleDateString("bn-BD", {
                   weekday: "long",
@@ -39,13 +39,13 @@ function Navbar2() {
                   month: "long",
                   year: "numeric",
                 })}</h2>
-              <div className='flex flex-wrap items-start justify-start gap-2 py-4'>
+              <div className='flex flex-wrap items-start max-h-screen overflow-auto no-scrollbar justify-start  gap-x-4 gap-y-2 py-4'>
                 {Object.keys(NavData3).map((key, index) => {
                 const isActive = `${pathname}?message=${NavData3[key].name}` === NavData3[key].link
                 
                 return(
-                  <Link key={index} href={NavData3[key].link}  className={` h-full text-lg w-[12%] flex items-center gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca]   rounded ":"  hover:text-[#0a58ca] rounded"}`}>
-                    <span className='h-full'>{NavData3[key].name}</span>
+                  <Link key={index} href={NavData3[key].link}  className={` h-full text-lg lg:w-[12%] md:w-[15%] sm:w-[22%] w-[25%] min-w-fit flex items-center  gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca]   rounded ":"  hover:text-[#0a58ca] rounded"}`}>
+                    <span className='h-full text-nowrap'>{NavData3[key].name}</span>
                   </Link>
                 )
               })}

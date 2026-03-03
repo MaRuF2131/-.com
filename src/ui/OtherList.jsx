@@ -32,14 +32,14 @@ const menuItems = [
 export default function MediaMenu() {
   return (
     <div className="w-full border-t border-b border-gray-300 py-2">
-      <div className="max-w-6xl mx-auto flex items-center justify-center gap-10 py-3">
+      <div className="max-w-6xl mx-auto overflow-auto no-scrollbar flex items-center justify-center gap-10 py-3">
         {menuItems.map((item, index) => (
           <div
             key={index}
             className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition"
           >
             {item.icon}
-            <span className="text-lg font-semibold text-gray-800">
+            <span className="text-lg text-nowrap font-semibold text-gray-800">
               {item.name}
             </span>
           </div>
