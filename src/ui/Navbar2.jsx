@@ -26,9 +26,9 @@ function Navbar2() {
        <div           
            onPointerMove={() => setOpen(true)}
            onPointerLeave={() => setOpen(false)}
-           onClick={()=>setOpen(!open)}
            >
           <HiMenu className="text-xl cursor-pointer " 
+           onClick={(e)=>{e.stopPropagation();e.preventDefault(); setOpen(!open)}}
           />
 
           { open  && <div className='absolute z-[999] top-[89%] left-5 right-5 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>

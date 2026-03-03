@@ -99,7 +99,7 @@ function HomeLayout() {
             <div className='grid grid-cols-1  gap-4 border-t sm:border-0 border-gray-300 sm:pt-0 pt-4'>
               {/* buttom of right side */}
               {newsData.slice(8,12).map((news, index) => (
-                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30 h-full sm:h-auto`}>
+                <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4  h-full sm:h-auto`}>
                  <NewsCard4 key={index} news={news}></NewsCard4>
                 </div>
               ))}
