@@ -31,7 +31,7 @@ const menuItems = [
 
 export default function MediaMenu() {
   return (
-    <div className="w-full border-t border-b border-gray-300 py-2">
+    <div className="w-full border-t border-b border-gray-300 py-2 px-5">
       <div className="max-w-6xl mx-auto overflow-auto no-scrollbar flex items-center justify-center gap-10 py-3">
         {menuItems.map((item, index) => (
           <div
