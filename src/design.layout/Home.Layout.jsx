@@ -92,7 +92,7 @@ function HomeLayout() {
         </div>
           <div className=' flex flex-row flex-wrap sm:flex-nowrap  md:flex-col gap-4 xl:w-[24%] flex-1 w-full p-2 sm:border border-b border-gray-300 sm:rounded-md'>
             {/* right side */}
-            <div className='sm:w-auto w-full'>
+            <div className='sm:w-auto w-full h-auto'>
               {/* top of right side */}
               <NewsCard3 news={newsData[1]}></NewsCard3>
             </div>

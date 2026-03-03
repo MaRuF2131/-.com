@@ -6,7 +6,7 @@ import React from 'react'
 
 function NewsCard3({news}) {
   return (
-    <Link href={`/news/${news?._id}`} className='group cursor-pointer w-full'>
+    <Link href={`/news/${news?._id}`} className='group cursor-pointer w-full h-auto'>
         <Image src={news?.imageUrl   || "/default.webp"} alt={news?.title} width={300} height={200} className='w-full h-full object-fill sm:max-h-auto max-h-[240px]' />
 
         <h2 className='text-3xl font-bold group-hover:text-[#0a58ca]'>{news?.title}</h2>
