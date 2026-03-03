@@ -14,13 +14,11 @@ function Navbar1() {
 
        </div>
         {Object.keys(NavData1).map((key, index) => (
-            <Link key={index} href={NavData1[key].link}  className=' flex-1 text-nowrap flex  items-center gap-x-1 cursor-pointer hover:text-[#0a58ca] transition-colors duration-300'
-                  onPointerEnter={() => setOpen(index)}
-                  onPointerLeave={() => setOpen(-1)}
+            <Link key={index} href={NavData1[key].link}  className='group flex-1 text-nowrap flex  items-center gap-x-1 cursor-pointer hover:text-[#0a58ca] transition-colors duration-300'
              >
                 <span className='text-sm'>{NavData1[key].icon}</span>
                 <span>{NavData1[key].name}</span>
-                 {(NavData1[key].popup && open === index) && <div className='absolute top-[40%] left-0 right-0   bg-transparent  p-4 z-999'>{NavData1[key].popup}</div>} 
+                 {(NavData1[key].popup) && <div className='absolute top-[40%] left-0 right-0 hidden group-hover:block   bg-transparent  p-4 z-999'>{NavData1[key].popup}</div>} 
             </Link>
         ))}
 
