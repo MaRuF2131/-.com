@@ -1,12 +1,45 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { newsDatas } from '../../data/newsData'
 import NewsCard2 from '@/ui/NewsCard2'
 import AreaNewsForm from './AreaNewsForm'
+import Pagination from '@/app/service/Pagination'
 
 function CountryPart() {
+      const [newsData, setNewsData] = useState([]);
+  
+      const {
+          data,
+          fetchNextPage,
+          hasNextPage,
+          isFetchingNextPage,
+          isFetching,
+          status
+         } = Pagination({
+          url:`/user/news`,
+          keyValuepair:{
+            id:"",
+            division:"",
+            distic:"",
+            upozela:"",
+            locationType:'',
+            subcategory:'জাতীয়',
+            category:'',
+            database:"news"
+            },
+            page:1,limit:11
+          });
+  
+        useEffect(()=>{
+          console.log("data",data);
+            if(data){ 
+              const value=data?.pages?.flatMap((page) => page?.data?.data) || []; 
+              setNewsData(value);
+            }
+          },[data])
   return (
     <div className="w-full max-w-[850px] flex flex-col  border-b border-gray-300 pb-4 lg:mx-6 mx-0">
       {/* Header */}
@@ -30,14 +63,14 @@ function CountryPart() {
             <div className='grid grid-cols-1 h-full w-full '>
       
                    <div className='w-full sm:h-auto h-fit  sm:border-b border-gray-300 sm:pb-4   col-span-2 flex sm:flex-nowrap flex-wrap items-start justify-between  gap-x-4'>
-                      {newsDatas.slice(0,4).map((news,index)=>
+                      {newsData.slice(0,4).map((news,index)=>
                         <div key={index} className={`${index === 3 ? '' : 'sm:border-r border-gray-300'} sm:pr-4 sm:w-full w-[47%] h-full flex items-start justify-center gap-x-4 mb-4`}>
                            <NewsCard2  news={news}></NewsCard2>
                          </div>
                         )}
                   </div>
                    <div className='w-full  sm:pt-4  sm:h-auto h-fit  col-span-2 flex sm:flex-nowrap flex-wrap items-start justify-between  gap-x-4'>
-                      {newsDatas.slice(0,4).map((news,index)=>
+                      {newsData.slice(4,8).map((news,index)=>
                         <div key={index} className={`${index === 3 ? '' : 'sm:border-r border-gray-300'} sm:pr-4 sm:w-full w-[47%] h-full flex items-start justify-center gap-x-4 mb-4`}>
                            <NewsCard2  news={news}></NewsCard2>
                          </div>

@@ -37,7 +37,7 @@ function NewsTabCard({ latestNews = [], popularNews = [] }) {
       </div>
 
       {/* News List */}
-      <div className="h-full max-h-[400px] overflow-y-auto">
+      <div className="h-full max-h-[400px] overflow-y-auto no-scrollbar">
 
         {newsData.map((item, index) => (
           <div

@@ -10,6 +10,7 @@ import VideoList from './VideoList'
 import { FaArrowRight } from "react-icons/fa"
 import CategoryCard from "../ui/CategoryCard"
 import Link from 'next/link'
+import Pagination from '@/app/service/Pagination'
  
  function Templet() {
       const [navlist,setnavlist]=useState([]);
@@ -41,6 +42,38 @@ import Link from 'next/link'
     }
   }, [message])
 
+  const [newsData, setNewsData] = useState([]);
+  
+      const {
+          data,
+          fetchNextPage,
+          hasNextPage,
+          isFetchingNextPage,
+          isFetching,
+          status
+         } = Pagination({
+          url:`/user/news`,
+          keyValuepair:{
+            id:"",
+            division:"",
+            distic:"",
+            upozela:"",
+            locationType:'',
+            subcategory:'',
+            category:stateMessage,
+            database:"news"
+            },
+            page:1,limit:5
+          });
+  
+        useEffect(()=>{
+          console.log("data",data);
+            if(data){ 
+              const value=data?.pages?.flatMap((page) => page?.data?.data) || []; 
+              setNewsData(value);
+            }
+        },[data])
+
   if (stateMessage === 'loading') return <p>Loading...</p>
   if (stateMessage === 'invalid') return <p>Invalid path</p>
   if(stateMessage==="ভিডিও"){
@@ -57,10 +90,10 @@ import Link from 'next/link'
             <InnerNavbar stateMessage={stateMessage} state={state}></InnerNavbar>
             <div className='w-full md:pt-4 pt-2 flex flex-wrap items-start justify-between gap-5 '>
               <div className='md:w-[48%] w-full'>
-                <NewsCard1 news={newsDatas[0]} imcl={"aspect-[10/5] "}></NewsCard1>
+                <NewsCard1 news={newsData[0]} imcl={"aspect-[10/5] "}></NewsCard1>
               </div>
               <div className='flex-1 flex flex-wrap px-1 sm:px-0   items-start justify-between gap-y-3'>
-                {newsDatas.slice(0,4).map((v,i)=>
+                {newsData.slice(1,5).map((v,i)=>
                   <div key={i} className='md:w-[49%] w-[48%]'>
                      <NewsCard1  news={v} imcl={"sm:aspect-[5/2.3] aspect-[10/6]"} ></NewsCard1>
                   </div>
@@ -87,16 +120,12 @@ import Link from 'next/link'
                     </Link>
                 </div>
                 <div className='w-full md:gap-6 sm:gap-4 flex sm:flex-nowrap flex-wrap items-start justify-between py-4 sm:border-b border-gray-300'>
-                    {newsDatas.slice(0,4).map((news,index)=>
-                     <div key={index} className='sm:w-auto w-[47%]'>
-                      <CategoryCard news={news}></CategoryCard>
-                     </div>
-                    )}
+                      <CategoryCard  stateMessage={stateMessage}></CategoryCard>
                 </div>
                 
             </div>
         ))
-        : <BottomPart></BottomPart> 
+        : <BottomPart stateMessage={stateMessage}></BottomPart> 
       
       }      
     </>

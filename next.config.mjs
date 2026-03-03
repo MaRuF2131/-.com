@@ -3,9 +3,15 @@ const nextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
+/*       {
+        protocol: 'https',
+        hostname: 'images.pexels.com ',
+        port: '',
+        pathname: '/**',
+      }, */
       {
         protocol: 'https',
-        hostname: 'images.pexels.com',
+        hostname: 'res.cloudinary.com',
         port: '',
         pathname: '/**',
       },

@@ -28,7 +28,7 @@ function Navbar() {
     <div className="w-full mt-1 relative  z-[999] bg-white shadow-md">
       
       {/* Top Navbar (always static) */}
-      <div className="md:block hidden">
+      <div className="block z-[999]">
         <Navbar1 />
       </div>
 
@@ -36,7 +36,7 @@ function Navbar() {
       <div
         className={`transition-all duration-500 ease-in-out overflow-auto ${
           isSticky
-            ? "fixed top-0 left-0 right-0 z-[999] bg-white shadow-md"
+            ? "fixed top-0 left-0 right-0 z-[998] bg-white shadow-md"
             : ""
         }`}
       >

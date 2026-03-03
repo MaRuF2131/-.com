@@ -3,8 +3,8 @@ import React from 'react'
 
 function PhoteStoryCard({photoStory}) {
   return (
-    <div className='w-full h-80 pt-2 relative'>
-       <Image src={photoStory?.image || "/default.webp"} alt={photoStory?.title} width={300} height={200} className='object-fill aspect-[5/6.5] rounded-md max-h-full w-full' />
+    <div className='max-w-full min-w-62 h-80 pt-2 relative'>
+       <Image src={photoStory?.imageUrl || "/default.webp"} alt={photoStory?.title} width={300} height={200} className='object-fill aspect-[5/6.5] rounded-md max-h-full w-full' />
        <h2 className='absolute bottom-2 w-full text-center text-white font-light  text-2xl'>{photoStory?.title}</h2>
     </div>
   )

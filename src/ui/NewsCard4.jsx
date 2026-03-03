@@ -6,8 +6,8 @@ import React from 'react'
 
 function NewsCard4({news}) {
   return (
-    <Link href={`/news/${news?.id}`} className='group cursor-pointer flex flex-nowrap items-start justify-between w-full gap-2 h-full'>
-        <Image src={news?.image || "/default.webp"} alt={news?.title} width={300} height={200} className='w-2/5 sm:max-h-auto max-h-full  sm:aspect-auto object-fill' />
+    <Link href={`/news/${news?._id}`} className='group cursor-pointer flex flex-nowrap items-start justify-between w-full gap-2 h-full'>
+        <Image src={news?.imageUrl || "/default.webp"} alt={news?.title} width={300} height={200} className='w-2/5 sm:max-h-auto max-h-full  sm:aspect-auto object-fill' />
 
         <h2 className='text-[22px] font-semibold opacity-80 group-hover:text-[#0a58ca] flex-1'>{news?.title}</h2>
 

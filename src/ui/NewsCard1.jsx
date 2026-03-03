@@ -6,8 +6,8 @@ import React from 'react'
 
 export default function NewsCard1({news}) {
   return (
-    <Link href={`/news/${news?.id}`} className=' group cursor-pointer  text-black sm:inline-flex sm:items-center sm:justify-center w-full h-full p-2 gap-4 sm:border border-b border-gray-300 sm:rounded-md'>
-        <Image src={news?.image} alt={news?.title} width={500} height={500} className='object-fill h-full w-full sm:w-4/6 sm:aspect-[12/7] rounded-md sm:max-w-xl max-h-[240px] sm:min-h-[240px]' />
+    <Link href={`/news/${news?._id}`} className=' group cursor-pointer  text-black sm:inline-flex sm:items-center sm:justify-center w-full h-full p-2 gap-4 sm:border border-b border-gray-300 sm:rounded-md'>
+        <Image src={news?.imageUrl || '/default-image.jpg'} alt={news?.title} width={500} height={500} className='object-fill h-full w-full sm:w-4/6 sm:aspect-[12/7] rounded-md sm:max-w-xl max-h-[240px] sm:min-h-[240px]' />
         <div className='max-h-[238px]  h-full flex-1 flex flex-col items-start justify-start overflow-hidden'>
             <h2 className='pb-3 text-4xl font-bold group-hover:text-[#0a58ca]'>{news?.title}</h2>
             <p className='text-lg opacity-60 sm:block hidden'>{news?.description}</p>

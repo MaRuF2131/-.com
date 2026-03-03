@@ -1,8 +1,8 @@
 "use client"
 import NewsCard1 from '@/ui/NewsCard1'
 import NewsCard3 from '@/ui/NewsCard3'
-import React, { useState } from 'react'
-import {newsDatas} from '../../data/newsData.jsx'
+import React, { useEffect, useState } from 'react'
+/* import {newsDatas} from '../../data/newsData.jsx' */
 import NewsCard2 from '@/ui/NewsCard2.jsx'
 import NewsCard4 from '@/ui/NewsCard4.jsx'
 import StoryPart from '@/components/StoryPart.jsx'
@@ -21,9 +21,41 @@ import NewsTabCard from '@/ui/NewsTabCard.jsx'
 import NewsTab from '@/components/NewsTab.jsx'
 import AreaNewsForm from '@/components/AreaNewsForm.jsx'
 import PollForm from '@/components/PollForm.jsx'
+import Pagination from '@/app/service/Pagination.jsx'
 
 function HomeLayout() {
-  const [newsData, setNewsData] = useState(newsDatas);
+  const [newsData, setNewsData] = useState([]);
+
+    const {
+        data,
+        fetchNextPage,
+        hasNextPage,
+        isFetchingNextPage,
+        isFetching,
+        status
+       } = Pagination({
+        url:`/user/news`,
+        keyValuepair:{
+          id:"",
+          division:"",
+          distic:"",
+          upozela:"",
+          locationType:'',
+          subcategory:'',
+          category:'',
+          database:"news"
+          },
+          page:1,limit:13
+        });
+
+      useEffect(()=>{
+        console.log("data",data);
+          if(data){ 
+            const value=data?.pages?.flatMap((page) => page?.data?.data) || []; 
+            setNewsData(value);
+          }
+        },[data])
+  
   return (
     <section className='w-full flex flex-col items-start justify-start gap-y-8'>
       <div className='w-full flex flex-wrap items-start justify-between gap-4'>
@@ -39,7 +71,7 @@ function HomeLayout() {
 
                     <div className='w-full   flex flex-wrap items-start justify-start '>
                       <div className='w-full gap-y-4 grid sm:grid-cols-3 grid-cols-2 items-start  sm:border-b sm:border-gray-300 pb-5 '>
-                        {newsDatas.slice(0,3).map((news,index)=>
+                        {newsData.slice(2,5).map((news,index)=>
                         <div key={index} className={`w-full px-2 ${index === 2 ? '' : 'sm:border-r  sm:border-gray-300'}`}>
                           <NewsCard2 news={news}></NewsCard2>
                         </div>
@@ -47,9 +79,9 @@ function HomeLayout() {
                       </div>
 
                       <div className='w-full gap-y-4 grid sm:grid-cols-3 grid-cols-2 sm:h-full h-fit items-start pt-5'>
-                        {newsDatas.slice(0,3).map((news,index)=>
+                        {newsData.slice(5,8).map((news,index)=>
                         <div key={index} className={`w-full  px-3 ${index === 2 ? '' : 'sm:border-r sm:border-gray-300'}`}>
-                        <NewsCard2  news={news}></NewsCard2>
+                           <NewsCard2  news={news}></NewsCard2>
                           </div>
                       )}
                       </div>
@@ -62,11 +94,11 @@ function HomeLayout() {
             {/* right side */}
             <div className='sm:w-auto w-full'>
               {/* top of right side */}
-              <NewsCard3 news={newsData[0]}></NewsCard3>
+              <NewsCard3 news={newsData[1]}></NewsCard3>
             </div>
             <div className='grid grid-cols-1  gap-4 border-t sm:border-0 border-gray-300 sm:pt-0 pt-4'>
               {/* buttom of right side */}
-              {newsData.slice(0,5).map((news, index) => (
+              {newsData.slice(8,12).map((news, index) => (
                 <div key={index} className={`${index === 4 ? '' : 'border-b border-gray-300'} pb-4 h-30 sm:h-auto`}>
                  <NewsCard4 key={index} news={news}></NewsCard4>
                 </div>
@@ -76,63 +108,63 @@ function HomeLayout() {
 
           <div className=' hidden  lg:block w-[22%]  p-2 border border-gray-300 rounded-md'>
              {/* story part */}
-             <StoryPart></StoryPart>
+              <StoryPart></StoryPart> 
           </div>
       </div>
       
         {/* video section */}
-        <VideoPart></VideoPart>
+        <VideoPart></VideoPart> 
 
       <div className='w-full flex gap-4 flex-wrap items-start justify-between'>
         {/* motamot ,online jorip,(letest and famous news) section  */}
 
             {/* motamot */}
-            <OpinionPart></OpinionPart>
+             <OpinionPart></OpinionPart> 
          <div className='lg:flex-1  lg:block w-full'>
             {/* online jorip */}
-            <PollForm></PollForm>
+             <PollForm></PollForm> 
          </div>
             {/* letest and famous news */}
           <div className='lg:flex-1  lg:block w-full'>
-              <NewsTab></NewsTab>
+               <NewsTab></NewsTab> 
            </div>
       </div>
 
         {/* bachai krito section */}
-         <SpecialPart></SpecialPart>
+        <SpecialPart></SpecialPart> 
 
         {/* jatio section */}
-        <NationalPart></NationalPart>
+         <NationalPart></NationalPart> 
 
         {/* rajniti section */}
-        <PoliticalPart></PoliticalPart>
+        <PoliticalPart></PoliticalPart> 
 
         {/* banijjo section */}
-        <BusinessPart></BusinessPart>
+         <BusinessPart></BusinessPart> 
 
 
       <div className='w-full flex   items-start justify-start gap-8'>
         {/* saradesh section */}
          <div className=''>
-          <CountryPart></CountryPart>
+           <CountryPart></CountryPart> 
           </div>
         <div className=' flex-1 max-w-md  min-w-[230px]   lg:block hidden'>
-             <AreaNewsForm></AreaNewsForm>
+               <AreaNewsForm></AreaNewsForm>  
         </div>
       </div>
 
       <div>
         {/* bisso section */}
-        <WorldPart></WorldPart>
+         <WorldPart></WorldPart> 
       </div>
 
       <div>
         {/* binodon section */}
-        <EntertainmentPart></EntertainmentPart>
+         <EntertainmentPart></EntertainmentPart> 
       </div>
 
         {/* khela section */}
-        <SportsPart></SportsPart>
+         <SportsPart></SportsPart> 
 
 
       <div>
@@ -140,7 +172,7 @@ function HomeLayout() {
       </div>
 
         {/* prodcast section */}
-         <PodcastPart></PodcastPart>
+          <PodcastPart></PodcastPart> 
 
     </section>
   )

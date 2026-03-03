@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ReactQueryProvider from "./service/ReactQueryProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,9 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         <div className="mt-3 max-w-[1500px] mx-auto">
-          {children}
+          <ReactQueryProvider>
+            {children}
+          </ReactQueryProvider>
         </div>
         <Footer></Footer>
       </body>

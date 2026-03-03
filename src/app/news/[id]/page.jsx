@@ -1,11 +1,73 @@
 "use client";
 
+import FinishIndicator from "@/app/service/loader/FinishIndicator";
+import NoDataIndicator from "@/app/service/loader/NodataIndicator";
+import TableLoader from "@/app/service/loader/TableLoader";
+import Pagination from "@/app/service/Pagination";
 import NewsTab from "@/components/NewsTab";
 import Image from "next/image";
+import { useParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { FaPrint, FaFont } from "react-icons/fa";
 
 export default function NewsDetailsPage() {
+  const params = useParams();
+  const id = params.id;
+  const [news, setnews] = useState([]);
+  const loadMoreRef = useRef();
+      const {
+      data,
+      fetchNextPage,
+      hasNextPage,
+      isFetchingNextPage,
+      isFetching,
+      status
+     } = Pagination({
+      url:`/user/news/${id}`,
+      keyValuepair:{
+        locationType:'all',
+        subcategory:'all',
+        category:'all'
+        },
+        page:1,limit:10
+      });
+      useEffect(()=>{
+      console.log("data",data);
+        if(data){ 
+          const value=data?.pages?.flatMap((page) => page?.data?.data) || []; 
+          setnews(value);
+          const len=data?.pages.length || 0
+          const tl=data?.pages[len-1]?.data?.total || 0
+          settotal(parseInt(tl));
+        }
+      },[data])
+
+  useEffect(() => {
+    if (!loadMoreRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      },
+      { root: null, rootMargin: '0px', threshold: 0.1 }
+    );
+    observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
   return (
+    <>
+        {/* Load more / end indicator */}
+        <div ref={loadMoreRef} className="w-full text-center mt-8">
+              {(isFetching || isFetchingNextPage)  && <TableLoader ms={"News"}></TableLoader>}
+        </div>
+        {/* no data indicator  */}
+        {(!hasNextPage && news?.length <= 0 && !isFetching && !isFetchingNextPage && status==="success") &&(
+          <NoDataIndicator message="News"></NoDataIndicator>
+        )}
+          {!hasNextPage && data?.pages[0]?.data?.data.length > 0 && (
+             <FinishIndicator ms={"All News Loaded"}></FinishIndicator>
+          )}
     <div className="max-w-7xl mx-auto sm:px-4 px-2 sm:py-6 py-2">
 
       {/* Breadcrumb */}
@@ -134,5 +196,6 @@ export default function NewsDetailsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

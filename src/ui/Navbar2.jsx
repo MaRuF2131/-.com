@@ -24,13 +24,14 @@ function Navbar2() {
       })}
 
        <div           
-           onPointerEnter={() => setOpen(true)}
+           onPointerMove={() => setOpen(true)}
            onPointerLeave={() => setOpen(false)}
+           onClick={()=>setOpen(!open)}
            >
           <HiMenu className="text-xl cursor-pointer " 
           />
 
-          { open  && <div className='absolute z-[999] top-[89%] left-5 right-5 overflow-auto   bg-white shadow-lg rounded-md  px-5 '>
+          { open  && <div className='absolute z-[999] top-[89%] left-5 right-5 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
              <h2 className='text-xl border-b border-gray-300 py-2'>
                 {new Date().toLocaleDateString("bn-BD", {
                   weekday: "long",

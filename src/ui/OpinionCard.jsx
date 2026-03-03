@@ -5,7 +5,7 @@ function OpinionCard({opinion}) {
   return (
         <div className='flex flex-wrap items-start justify-center bg-[#fff9e1] border-b-3 border-[#d60000] rounded-md py-4 px-4'>
             <div className='w-[40%] flex flex-col items-center justify-start'>
-              <Image src={opinion?.image || "/default.webp"} alt={opinion?.title} width={300} height={200} className='w-20 h-20 rounded-full object-center object-cover border-2 border-[#d60000]' />
+              <Image src={opinion?.imageUrl || "/default.webp"} alt={opinion?.title} width={300} height={200} className='w-20 h-20 rounded-full object-center object-cover border-2 border-[#d60000]' />
               <p>{opinion?.name}</p>
               <p>{opinion?.occupation}</p>
             </div>
