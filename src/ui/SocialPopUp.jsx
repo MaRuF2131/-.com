@@ -30,45 +30,45 @@ export default function SocialNavbar() {
 
                         <a
                         className="flex items-center gap-2 hover:text-blue-600 transition"
-                        href="https://www.facebook.com/kalbelanews"
+                        href="https://www.facebook.com/share/1KciEdBv1Y/?mibextid=wwXIfr"
                         >
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela
+                        Kontosor
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela Online
+                        Kontosor Online
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela News
+                        Kontosor News
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        kalbela.com
+                        Kontosor.com
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela World
+                        Kontosor World
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela Sports
+                        Kontosor Sports
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela Entertainment
+                        Kontosor Entertainment
                         </a>
 
                         <a className="flex items-center gap-2 hover:text-blue-600 transition" href="#">
                         <FaFacebook className="text-blue-600 text-lg" />
-                        Kalbela Drama
+                        kontosor Drama
                         </a>
 
                     </div>
@@ -83,12 +83,12 @@ export default function SocialNavbar() {
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
                     {[
-                    "Kalbela News",
-                    "Kalbela World",
-                    "Kalbela Entertainment",
-                    "Kalbela Sports",
-                    "Kalbela",
-                    "Kalbela Drama",
+                    "kontosor News",
+                    "kontosor World",
+                    "kontosor Entertainment",
+                    "kontosor Sports",
+                    "kontosor",
+                    "kontosor Drama",
                     ].map((item, i) => (
                     <a
                         key={i}
@@ -111,10 +111,10 @@ export default function SocialNavbar() {
                 </h3>
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                    {["Kalbela News", "Kalbela Sports", "Kalbela World"].map((item, i) => (
+                    {["kontosor News", "kontosor Sports", "kontosor World"].map((item, i) => (
                     <a
                         key={i}
-                        href="#"
+                        href="https://wa.me/8801747773132"
                         className="flex items-center gap-2 hover:text-green-500 transition"
                     >
                         <FaWhatsapp className="text-green-500 text-lg" />
@@ -132,7 +132,7 @@ export default function SocialNavbar() {
                 </h3>
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                    {["Kalbela News", "Kalbela Entertainment"].map((item, i) => (
+                    {["kontosor News", "kontosor Entertainment"].map((item, i) => (
                     <a
                         key={i}
                         href="#"
@@ -152,7 +152,7 @@ export default function SocialNavbar() {
                 </h3>
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                    {["Kalbela News"].map((item, i) => (
+                    {["kontosor News"].map((item, i) => (
                     <a
                         key={i}
                         href="#"
@@ -172,7 +172,7 @@ export default function SocialNavbar() {
                     </h3>
 
                     <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                        {["Kalbela"].map((item, i) => (
+                        {["kontosor"].map((item, i) => (
                         <a
                             key={i}
                             href="#"
@@ -192,7 +192,7 @@ export default function SocialNavbar() {
                 </h3>
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                    {["Kalbela"].map((item, i) => (
+                    {["kontosor"].map((item, i) => (
                     <a
                         key={i}
                         href="#"
@@ -213,7 +213,7 @@ export default function SocialNavbar() {
                 </h3>
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                    {["Kalbela"].map((item, i) => (
+                    {["kontosor"].map((item, i) => (
                     <a
                         key={i}
                         href="#"
@@ -234,7 +234,7 @@ export default function SocialNavbar() {
                 </h3>
 
                 <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
-                    {["Kalbela"].map((item, i) => (
+                    {["kontosor"].map((item, i) => (
                     <a
                         key={i}
                         href="#"
@@ -259,7 +259,7 @@ export default function SocialNavbar() {
                     className="flex items-center gap-2 hover:text-orange-500 transition"
                     >
                     <FaSoundcloud className="text-orange-500 text-lg" />
-                    Kalbela News (সাউন্ডক্লাউড)
+                    kontosor News (সাউন্ডক্লাউড)
                     </a>
 
                     <a
@@ -267,7 +267,7 @@ export default function SocialNavbar() {
                     className="flex items-center gap-2 hover:text-green-600 transition"
                     >
                     <FaGoogle className="text-green-600 text-lg" />
-                    Kalbela (গুগল নিউজ)
+                    kontosor (গুগল নিউজ)
                     </a>
                 </div>
                 </div>
