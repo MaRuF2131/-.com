@@ -2,12 +2,13 @@
 import Link from "next/link";
 import { 
   FaFacebookF, FaYoutube, FaTwitter, FaLinkedinIn, FaInstagram, 
-  FaTelegramPlane, FaTiktok // অতিরিক্ত যোগ করা যায় যদি থাকে
+  FaTelegramPlane, FaTiktok, // অতিরিক্ত যোগ করা যায় যদি থাকে
+  FaWhatsapp
 } from "react-icons/fa";
 
 const option=[
   {
-    "name": "কালবেলা",
+    "name": "কন্ঠস্বর",
     "path": "/"
   },
   {
@@ -65,22 +66,20 @@ export default function Footer() {
                     সম্পাদক: সন্তোষ শর্মা । প্রকাশক: মিয়া নুরুদ্দিন আহাম্মেদ অপু
                 </p>
                 <p>
-                    কালবেলা মিডিয়া লিমিটেডের পক্ষে প্রকাশক কর্তৃক নিউমার্কেট সিটি কমপ্লেক্স, ৪৪/১, রহিম স্কয়ার,
-                    নিউমার্কেট, ঢাকা থেকে প্রকাশিত এবং 
-                    ২৮/বি, টয়েনবি সার্কুলার রোড, মতিঝিল ঢাকা, শরীয়তপুর প্রিন্টিং প্রেস থেকে মুদ্রিত।
+                    কন্ঠস্বর মিডিয়া লিমিটেডের হাউস ১৪ / ব্লক জে / রোড ৭, রামপুরা বনশ্রী, ঢাকা ১২১৯
                 </p>
            </div>
 
             {/* যোগাযোগ + বিজ্ঞাপন + সার্কুলেশন */}
             <div className="flex-1">
                 <p>
-                ফোন : +৮৮ ০২ ৪৪৬১৭০০৩, +৮৮ ০২ ৪৪৬১৭০০৪ 
+                ফোন : 01747773132 
                 </p>
                 <p>
-                <span>ফ্যাক্স : +৮৮ ০২ ৪৪৬১৭০০২ । ই-মেইল:<a href="mailto:news@kalbela.com" className=" hover:underline">news@kalbela.com</a></span>
+                <span>ফ্যাক্স : +৮৮ ০২ ৪৪৬১৭০০২ । ই-মেইল:<a href="mailto:Konthoshor24@gmail.com" className=" hover:underline">Konthoshor24@gmail.com</a></span>
                 </p>
-                <p className="">বিজ্ঞাপন বিভাগ:<span>ফোন: +৮৮ ০২ ৪৪৬১৭০০৫, ০১৭৩০ ০৯৩৩২৮ | ই-মেইল:<a href="mailto:ads@kalbela.com" className=" hover:underline">ads@kalbela.com</a></span></p>
-                <p className="">সার্কুলেশন:ফোন: ০১৭৩০ ০৯৩৩৪৭ | কালবেলা মিডিয়া লিমিটেডের একটি প্রকাশনা।</p>
+                <p className="">বিজ্ঞাপন বিভাগ:<span>ফোন: 01747773132| ই-মেইল:<a href="mailto:Konthoshor24@gmail.com" className=" hover:underline">Konthoshor24@gmail.com</a></span></p>
+                <p className="">সার্কুলেশন:ফোন: 01747773132 | কন্ঠস্বর মিডিয়া লিমিটেডের একটি প্রকাশনা।</p>
             </div>
         </div>
 
@@ -89,17 +88,17 @@ export default function Footer() {
             <div className="w-full max-w-md flex flex-col items-start justify-start">
                 <p className="font-bold mb-2">সোশ্যাল মিডিয়া</p>
                 <div className="flex flex-wrap items-start justify-start gap-1 text-3xl mb-4">
-                    <a href="https://www.facebook.com/kalbeladigital/" className="text-[#3b5998] hover:opacity-80">
+                    <a href="https://www.facebook.com/share/1KciEdBv1Y/?mibextid=wwXIfr" className="text-[#3b5998] hover:opacity-80">
                     <FaFacebookF />
                     </a>
-                    <a href="https://www.youtube.com/@kalbelanews24" className="text-[#ff0000] hover:opacity-80">
+                    <a href="#" className="text-[#ff0000] hover:opacity-80">
                     <FaYoutube />
                     </a>
                     <a href="#" className="text-[#1da1f2] hover:opacity-80">
                     <FaTwitter />
                     </a>
-                    <a href="#" className="text-[#e1306c] hover:opacity-80">
-                    <FaInstagram />
+                    <a href="https://wa.me/8801747773132" className="text-[#e1306c] hover:opacity-80">
+                    <FaWhatsapp />
                     </a>
                     <a href="#" className="text-[#0077b5] hover:opacity-80">
                     <FaLinkedinIn />
@@ -122,7 +121,7 @@ export default function Footer() {
         {/* কপিরাইট + ডিসক্লেইমার */}
         <div className="  flex items-center justify-between bg-[#ededed] py-2 px-3   text-[#555555]">
           <p className="">
-            স্বত্ব © কালবেলা মিডিয়া লিমিটেড ২০২৬
+            স্বত্ব © কন্ঠস্বর মিডিয়া লিমিটেড ২০২৬
           </p>
           <p>
             ওয়েবসাইটের কোনো লেখা, ছবি, ভিডিও অনুমতি ছাড়া ব্যবহার বেআইনি।
