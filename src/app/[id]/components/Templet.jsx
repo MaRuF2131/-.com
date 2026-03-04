@@ -16,10 +16,12 @@ import Pagination from '@/app/service/Pagination'
       const [navlist,setnavlist]=useState([]);
       const [navlist2,setnavlist2]=useState([]);
       const [navlist3,setnavlist3]=useState([]);
+      const [subcategory,setsubcategory]=useState("");
       const [division,setDivision]=useState('')
       const [distic,setDistic]=useState('')
       const [up,setUp]=useState('')
       const state={
+        subcategory,setsubcategory,
         up,setUp,
         distic,setDistic,
         division,setDivision,
@@ -55,11 +57,11 @@ import Pagination from '@/app/service/Pagination'
           url:`/user/news`,
           keyValuepair:{
             id:"",
-            division:"",
-            distic:"",
-            upozela:"",
+            division:division,
+            distic:distic,
+            upozila:up,
             locationType:'',
-            subcategory:'',
+            subcategory:subcategory,
             category:stateMessage,
             database:"news"
             },
@@ -104,7 +106,7 @@ import Pagination from '@/app/service/Pagination'
         
     </div>
      { 
-        (stateMessage!="সারাদেশ" && navlist.length>0)?navlist.map((v,i)=>(
+        (stateMessage!="সারাদেশ" && !subcategory && navlist.length>0)?navlist.map((v,i)=>(
             <div key={i} className="w-full max-w-[900px] flex flex-col sm:px-6 px-1">
                 {/* Header */}
                 <div className="w-full flex items-center  justify-between mb-1 border-b-5 border-black">
@@ -125,7 +127,7 @@ import Pagination from '@/app/service/Pagination'
                 
             </div>
         ))
-        : <BottomPart stateMessage={stateMessage}></BottomPart> 
+        : <BottomPart stateMessage={stateMessage} subcategory={subcategory}></BottomPart> 
       
       }      
     </>

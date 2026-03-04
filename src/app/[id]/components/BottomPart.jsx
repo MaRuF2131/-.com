@@ -7,7 +7,7 @@ import TableLoader from '@/app/service/loader/TableLoader';
 import NoDataIndicator from '@/app/service/loader/NodataIndicator';
 import FinishIndicator from '@/app/service/loader/FinishIndicator';
 
-function BottomPart({stateMessage}) {
+function BottomPart({stateMessage,subcategory}) {
   const [newsData, setNewsData] = useState([]);
   const loadMoreRef = useRef();
       const {
@@ -25,7 +25,7 @@ function BottomPart({stateMessage}) {
             distic:"",
             upozela:"",
             locationType:'',
-            subcategory:'',
+            subcategory:subcategory || '',
             category:stateMessage,
             database:"news"
             },
