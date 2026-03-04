@@ -6,7 +6,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 function Navbar1() {
-    const [open, setOpen] = useState(false);
   return (
     <div className='text-lg overflow-auto no-scrollbar   font-bold text-[#1F1F1F] w-full flex items-center justify-between gap-x-4   px-4 border-y border-gray-300'> 
        <div className='h-fit w-fit'>
