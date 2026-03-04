@@ -8,10 +8,9 @@ import Image from 'next/image'
 function Navbar1() {
     const [open, setOpen] = useState(false);
   return (
-    <div className='text-lg overflow-auto no-scrollbar   font-bold text-[#1F1F1F] w-full flex items-center justify-between gap-x-4 md:py-9 py-4 px-4 border-y border-gray-300'>
-       {/* <Image src="/logo/কন্ঠস্বর লোগো.ai" alt="logo" width={100} height={100} className='w-20 h-auto' /> */}
-       <div className='h-full w-55'>
-
+    <div className='text-lg overflow-auto no-scrollbar   font-bold text-[#1F1F1F] w-full flex items-center justify-between gap-x-4   px-4 border-y border-gray-300'> 
+       <div className='h-fit w-fit'>
+         <Image  src="/logo/logo.svg" alt="logo" width={100} height={100} className='w-45 h-30 svg' />
        </div>
         {Object.keys(NavData1).map((key, index) => (
             <Link key={index} href={NavData1[key].link}  className='group flex-1 text-nowrap flex  items-center gap-x-1 cursor-pointer hover:text-[#0a58ca] transition-colors duration-300'
