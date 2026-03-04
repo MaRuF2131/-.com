@@ -5,6 +5,7 @@ import TopPart from './components/TopPart'
 import BottomPart from './components/BottomPart'
 import VideoList from './components/VideoList'
 import Templet from './components/Templet'
+import LetestNews from './components/LetestNews'
 
 function page() {
   const searchParams = useSearchParams()
@@ -27,6 +28,13 @@ function page() {
     return(
       <>
        <VideoList stateMessage={stateMessage}></VideoList>
+      </>
+    )
+  }
+  if(stateMessage==="সর্বশেষ"){
+    return(
+      <>
+       <LetestNews stateMessage={stateMessage}></LetestNews>
       </>
     )
   }
