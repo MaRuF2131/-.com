@@ -39,7 +39,7 @@ function HomeLayout() {
           id:"",
           division:"",
           distic:"",
-          upozela:"",
+          upozila:"",
           locationType:'',
           subcategory:'',
           category:'',

@@ -22,7 +22,7 @@ function CategoryCard({stateMessage}) {
             id:"",
             division:"",
             distic:"",
-            upozela:"",
+            upozila:"",
             locationType:'',
             subcategory:'',
             category:stateMessage,

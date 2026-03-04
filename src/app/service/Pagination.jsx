@@ -2,7 +2,7 @@ import { useInfiniteQuery} from '@tanstack/react-query';
 import api from './axios';
 
 const fetchData=async (url,keyValuepair,pageParam,limit)=>{
-    if(!url || !keyValuepair || keyValuepair.category === "loading" || keyValuepair.category === "invalid"){  
+    if(!url || !keyValuepair || keyValuepair.category === "loading" || keyValuepair.category === "invalid" || keyValuepair.id==="invalid"){  
       return null;
     }
     const params = new URLSearchParams({
@@ -35,7 +35,7 @@ const fetchData=async (url,keyValuepair,pageParam,limit)=>{
 
  function Pagination({url,keyValuepair={},page=1,limit=10}=info) {
     return useInfiniteQuery({
-     queryKey: [url,keyValuepair?.breaking,keyValuepair?.search,keyValuepair?.status,keyValuepair?.locationType,keyValuepair?.subcategory,keyValuepair?.category,keyValuepair?.database],
+     queryKey: [url,keyValuepair?.upozila,keyValuepair?.distic,keyValuepair?.division,keyValuepair?.id,keyValuepair?.locationType,keyValuepair?.subcategory,keyValuepair?.category,keyValuepair?.database],
      queryFn:({pageParam=page})=>fetchData(url,keyValuepair,pageParam,limit),
      getNextPageParam: (lastPage) => lastPage?.nextPage,
      staleTime: 5 * 60 * 1000, // 5 minutes

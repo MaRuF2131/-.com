@@ -27,7 +27,7 @@ function LetestNews({stateMessage }) {
                 id:"",
                 division:"",
                 distic:"",
-                upozela:"",
+                upozila:"",
                 locationType:'',
                 subcategory:'',
                 category:"",

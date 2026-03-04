@@ -15,7 +15,7 @@ export const NavData3 = {
     popup: false,
   },
   "আইন-আদালত": {
-    link: "/law-court?message=আইন-আদালত",
+    link: "/law-court?message=আইন_আদালত",
     name: "আইন-আদালত",
     icon: "law",
     popup: false,
@@ -45,7 +45,7 @@ export const NavData3 = {
     popup: false,
   },
   "শিল্প-সাহিত্য": {
-    link: "/art-literature?message=শিল্প-সাহিত্য",
+    link: "/art-literature?message=শিল্প_সাহিত্য",
     name: "শিল্প-সাহিত্য",
     icon: "art",
     popup: false,
@@ -81,19 +81,19 @@ export const NavData3 = {
     popup: false,
   },
   "নারী-শিশু": {
-    link: "/women-children?message=নারী-শিশু",
+    link: "/women-children?message=নারী_শিশু",
     name: "নারী-শিশু",
     icon: "women",
     popup: false,
   },
   "আইন ও পরামর্শ": {
-    link: "/legal-advice?message=আইন ও পরামর্শ",
+    link: "/legal-advice?message=আইন_পরামর্শ",
     name: "আইন ও পরামর্শ",
     icon: "advice",
     popup: false,
   },
   "সোশ্যাল মিডিয়া": {
-    link: "/social-media?message=সোশ্যাল মিডিয়া",
+    link: "/social-media",
     name: "সোশ্যাল মিডিয়া",
     icon: "social",
     popup: false,
@@ -111,7 +111,7 @@ export const NavData3 = {
     popup: false,
   },
   "পরিবেশ ও জলবায়ু": {
-    link: "/environment?message=পরিবেশ ও জলবায়ু",
+    link: "/environment?message=পরিবেশ_জলবায়ু",
     name: "পরিবেশ ও জলবায়ু",
     icon: "environment",
     popup: false,

@@ -23,7 +23,7 @@ function BottomPart({stateMessage,subcategory}) {
             id:"",
             division:"",
             distic:"",
-            upozela:"",
+            upozila:"",
             locationType:'',
             subcategory:subcategory || '',
             category:stateMessage,
