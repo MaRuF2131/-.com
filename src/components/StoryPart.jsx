@@ -90,14 +90,12 @@ function StoryPart() {
         className="flex w-full gap-4 overflow-auto scroll-smooth no-scrollbar"
       >
         {videoActive &&
-          newsDatas.map((item, index) => (
-            <VideoStoryCard key={index} videoStory={item} />
-          ))}
+            <VideoStoryCard/>
+          }
 
         {photeActive &&
-          newsDatas.map((item, index) => (
-            <PhoteStoryCard key={index} photoStory={item} />
-          ))}
+            <PhoteStoryCard />
+          }
       </div>
 
       {/* Right Arrow */}

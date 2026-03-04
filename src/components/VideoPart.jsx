@@ -6,11 +6,44 @@ import React, { useRef, useState, useEffect } from "react";
 import { FaVideo, FaArrowRight } from "react-icons/fa";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { newsDatas } from "../../data/newsData";
+import Pagination from "@/app/service/Pagination";
 
 function VideoPart() {
   const scrollRef = useRef(null);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(false);
+
+  const [newsData, setNewsData] = useState([]);
+      const {
+          data,
+          fetchNextPage,
+          hasNextPage,
+          isFetchingNextPage,
+          isFetching,
+          status
+         } = Pagination({
+          url:`/user/news`,
+          keyValuepair:{
+            id:"",
+            division:"",
+            distic:"",
+            upozela:"",
+            locationType:'',
+            subcategory:'',
+            category:"",
+            database:"video"
+            },
+            page:1,limit:7
+          });
+  
+        useEffect(()=>{
+          console.log("data",data);
+            if(data){ 
+              const value=data?.pages?.flatMap((page) => page?.data?.data) || []; 
+              setNewsData(value);
+            }
+        },[data])
+
 
   const checkScroll = () => {
     const el = scrollRef.current;
@@ -35,6 +68,8 @@ function VideoPart() {
       behavior: "smooth",
     });
   };
+
+
 
   return (
     <div className="w-full flex flex-col min-h-70 p-2 border border-gray-300 rounded-md relative">
@@ -71,7 +106,7 @@ function VideoPart() {
         onScroll={checkScroll}
         className="flex w-auto gap-4 overflow-auto scroll-smooth no-scrollbar"
       >
-        {newsDatas.map((video, index) => (
+        {newsData.map((video, index) => (
           <VideoCard key={index} video={video} />
         ))}
       </div>

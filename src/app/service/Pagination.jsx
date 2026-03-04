@@ -35,7 +35,7 @@ const fetchData=async (url,keyValuepair,pageParam,limit)=>{
 
  function Pagination({url,keyValuepair={},page=1,limit=10}=info) {
     return useInfiniteQuery({
-     queryKey: [url,keyValuepair?.breaking,keyValuepair?.search,keyValuepair?.status,keyValuepair?.locationType,keyValuepair?.subcategory,keyValuepair?.category],
+     queryKey: [url,keyValuepair?.breaking,keyValuepair?.search,keyValuepair?.status,keyValuepair?.locationType,keyValuepair?.subcategory,keyValuepair?.category,keyValuepair?.database],
      queryFn:({pageParam=page})=>fetchData(url,keyValuepair,pageParam,limit),
      getNextPageParam: (lastPage) => lastPage?.nextPage,
      staleTime: 5 * 60 * 1000, // 5 minutes
