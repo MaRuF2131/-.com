@@ -54,7 +54,7 @@ export default function Footer() {
 
         <div className="flex mt-5 md:mt-0 flex-wrap items-start justify-between gap-5 w-full border-b p-3 border-b-gray-300">
             <p className="w-md">
-                বাংলাদেশ ও বিশ্বের সকল খবর, ব্রেকিং নিউজ, লাইভ নিউজ, রাজনীতি, বাণিজ্য, খেলা, বিনোদনসহ সকল সর্বশেষ সংবাদ সবার আগে পড়তে ক্লিক করুন কালবেলা ডট কম।
+                বাংলাদেশ ও বিশ্বের সকল খবর, ব্রেকিং নিউজ, লাইভ নিউজ, রাজনীতি, বাণিজ্য, খেলা, বিনোদনসহ সকল সর্বশেষ সংবাদ সবার আগে পড়তে ক্লিক করুন কন্ঠস্বর ডট কম।
             </p>
             <div className="absolute no-scrollbar overflow-auto w-full md:static md:w-auto top-0 right-0 md:flex-1 flex md:flex-wrap flex-nowrap items-center  justify-start  gap-x-3 gap-y-1">
                 {option.map((v,i)=><Link className="text-xl font-bold text-nowrap" href={v?.path} key={i}>{v?.name}</Link>)}
