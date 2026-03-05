@@ -27,11 +27,11 @@ import { MdEmail } from "react-icons/md";
     },
     {
       "name": "বাংলা কনভার্টার",
-      "path": "/bangla-converter"
+      "path": "#"
     },
     {
       "name": "বিজ্ঞাপন",
-      "path": "/advertisement"
+      "path": "#"
     },
     {
       "name": "যোগাযোগ",
@@ -39,11 +39,11 @@ import { MdEmail } from "react-icons/md";
     },
     {
       "name": "ছুটির তালিকা",
-      "path": "/holiday-list"
+      "path": "#"
     },
     {
       "name": "দিবস",
-      "path": "/special-days"
+      "path": "#"
     }
   ]
 
@@ -78,7 +78,7 @@ export default function Footer() {
                 ফোন : 01747773132 
                 </p>
                 <p>
-                <span>ফ্যাক্স : +৮৮ ০২ ৪৪৬১৭০০২ । ই-মেইল:<a href="mailto:Konthoshor24@gmail.com" className=" hover:underline">Konthoshor24@gmail.com</a></span>
+                <span>ই-মেইল:<a href="mailto:Konthoshor24@gmail.com" className=" hover:underline">Konthoshor24@gmail.com</a></span>
                 </p>
                 <p className="">বিজ্ঞাপন বিভাগ:<span>ফোন: 01747773132| ই-মেইল:<a href="mailto:Konthoshor24@gmail.com" className=" hover:underline">Konthoshor24@gmail.com</a></span></p>
                 <p className="">সার্কুলেশন:ফোন: 01747773132 | কন্ঠস্বর মিডিয়া লিমিটেডের একটি প্রকাশনা।</p>
