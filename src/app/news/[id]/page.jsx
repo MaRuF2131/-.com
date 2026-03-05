@@ -86,10 +86,10 @@ export default function NewsDetailsPage() {
               <p>অনলাইন সংস্করণ</p>
           </div>
               <div className="lg:flex hidden items-center gap-3 py-6">
-                <div className="w-1 h-6 bg-orange-500"></div>
-                <h2 className="text-xl font-bold">এ সম্পর্কিত আরও খবর</h2>
+                  <div className="w-1 h-6 bg-orange-500"></div>
+                     <h2 className="text-xl font-bold">এ সম্পর্কিত আরও খবর</h2>
               </div>
-              <div className="  border-b p-2 border border-gray-300 rounded-md">
+                  <div className="  border-b p-2 border border-gray-300 rounded-md">
                 {[1, 2, 3, 4].map((item) => (
                   <div
                     key={item}
@@ -108,8 +108,8 @@ export default function NewsDetailsPage() {
                     </p>
                   </div>
                 ))}
-              </div>
-        </div>
+                 </div>
+          </div>
 
         {/* ================= Main Content ================= */}
         <div className="col-span-7">

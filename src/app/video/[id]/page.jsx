@@ -1,17 +1,23 @@
 "use client"
 import InnerNavbar from "@/app/[id]/ui/InnerNavbar";
 import Pagination from "@/app/service/Pagination";
+import { formatDate } from "@/utils/formatDate";
 import { getYoutubeId } from "@/utils/getYoutubeId";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaRegClock } from "react-icons/fa";
+import MoreVideo from "./components/MoreVideo";
 
 export default function VideoPage() {
   const params = useParams();
    const id = params.id;
 
   const [newsData, setNewsData] = useState([]);
-  const [videoId,setvideoId] =useState("")
+  const [videoId,setvideoId] =useState("");
+  const [_id,setid]=useState(id)
+  const state={
+    _id,setid
+  }
       const {
           data,
           fetchNextPage,
@@ -22,7 +28,7 @@ export default function VideoPage() {
          } = Pagination({
           url:`/user/news`,
           keyValuepair:{
-            id:id||"invalid",
+            id:_id||"invalid",
             division:"",
             distic:"",
             upozila:"",
@@ -56,22 +62,23 @@ export default function VideoPage() {
         <h1 className="text-3xl font-bold">{newsData[0]?.title}</h1>
         <p>কন্ঠস্বর ডেস্ক</p>
         <p className='text-lg opacity-80 inline-flex items-center justify-start gap-x-1'><FaRegClock className="text-lg text-black" />
-            {new Date(newsData[0]?.createdAt).toLocaleString("bn-BD", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                hour: "2-digit",
-                minute: "2-digit",
-                }) || "৫"}
+             {formatDate(newsData[0]?.createdAt)}
         </p>
       </div>
-      <div className="aspect-video">
-        <iframe
-          className="w-full h-full rounded-xl"
-          src={`https://www.youtube.com/embed/${videoId}`}
-          title="YouTube video"
-          allowFullScreen
-        ></iframe>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+          
+          <div className="aspect-video flex-1">
+            <iframe
+              className="w-full h-full rounded-xl"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title="YouTube video"
+              allowFullScreen
+            ></iframe>
+          </div>
+
+          <div className="md:w-75 w-full">
+              <MoreVideo state={state}></MoreVideo>
+          </div>
       </div>
     </div>
   );
