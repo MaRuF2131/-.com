@@ -209,7 +209,7 @@ function page() {
                 If, at any time, the users prefer not to receive email containing marketing information from us, then the user can simply follow the unsubscribe options at the bottom of each email.
             </p>
             <p>
-                If the users no longer wish to have a registered account, the user may terminate the account by sending an email to Konthoshoronline@gmail.com
+                If the users no longer wish to have a registered account, the user may terminate the account by sending an email to Konthoshor@gmail.com
             </p>
         </div>
     </div>
