@@ -3,47 +3,49 @@ import Link from "next/link";
 import { 
   FaFacebookF, FaYoutube, FaTwitter, FaLinkedinIn, FaInstagram, 
   FaTelegramPlane, FaTiktok, // অতিরিক্ত যোগ করা যায় যদি থাকে
-  FaWhatsapp
+  FaWhatsapp,
+  FaMailchimp
 } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
-const option=[
-  {
-    "name": "কন্ঠস্বর",
-    "path": "/"
-  },
-  {
-    "name": "গোপনীয়তার নীতি",
-    "path": "/privacy-policy"
-  },
-  {
-    "name": "শর্তাবলি",
-    "path": "/terms-and-conditions"
-  },
-  {
-    "name": "মন্তব্য প্রকাশের নীতিমালা",
-    "path": "/comment-policy"
-  },
-  {
-    "name": "বাংলা কনভার্টার",
-    "path": "/bangla-converter"
-  },
-  {
-    "name": "বিজ্ঞাপন",
-    "path": "/advertisement"
-  },
-  {
-    "name": "যোগাযোগ",
-    "path": "/contact"
-  },
-  {
-    "name": "ছুটির তালিকা",
-    "path": "/holiday-list"
-  },
-  {
-    "name": "দিবস",
-    "path": "/special-days"
-  }
-]
+  const option=[
+    {
+      "name": "কন্ঠস্বর",
+      "path": "/"
+    },
+    {
+      "name": "গোপনীয়তার নীতি",
+      "path": "/privacy-policy"
+    },
+    {
+      "name": "শর্তাবলি",
+      "path": "/terms-and-conditions"
+    },
+    {
+      "name": "মন্তব্য প্রকাশের নীতিমালা",
+      "path": "/comment-policy"
+    },
+    {
+      "name": "বাংলা কনভার্টার",
+      "path": "/bangla-converter"
+    },
+    {
+      "name": "বিজ্ঞাপন",
+      "path": "/advertisement"
+    },
+    {
+      "name": "যোগাযোগ",
+      "path": "/contact"
+    },
+    {
+      "name": "ছুটির তালিকা",
+      "path": "/holiday-list"
+    },
+    {
+      "name": "দিবস",
+      "path": "/special-days"
+    }
+  ]
 
 
 export default function Footer() {
@@ -63,7 +65,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-start justify-between gap-5 w-full border-b py-6 px-3 border-b-gray-300">
            <div className="max-w-xl">
                 <p className="font-bold  mb-1 text-[#111111]">
-                    সম্পাদক: সন্তোষ শর্মা । প্রকাশক: মিয়া নুরুদ্দিন আহাম্মেদ অপু
+                    সম্পাদক: N/A । প্রকাশক: N/A
                 </p>
                 <p>
                     কন্ঠস্বর মিডিয়া লিমিটেডের হাউস ১৪ / ব্লক জে / রোড ৭, রামপুরা বনশ্রী, ঢাকা ১২১৯
@@ -91,24 +93,24 @@ export default function Footer() {
                     <a href="https://www.facebook.com/share/1KciEdBv1Y/?mibextid=wwXIfr" className="text-[#3b5998] hover:opacity-80">
                     <FaFacebookF />
                     </a>
-                    <a href="#" className="text-[#ff0000] hover:opacity-80">
+{/*                     <a href="#" className="text-[#ff0000] hover:opacity-80">
                     <FaYoutube />
                     </a>
                     <a href="#" className="text-[#1da1f2] hover:opacity-80">
                     <FaTwitter />
-                    </a>
+                    </a> */}
                     <a href="https://wa.me/8801747773132" className="text-[#e1306c] hover:opacity-80">
                     <FaWhatsapp />
                     </a>
-                    <a href="#" className="text-[#0077b5] hover:opacity-80">
-                    <FaLinkedinIn />
+                    <a href="mailto:Konthoshor24@gmail.com" className="text-[#0077b5] hover:opacity-80">
+                    <MdEmail />
                     </a>
                     {/* আরো যদি থাকে: Likee, Soundcloud, Google News – আইকন যোগ করতে পারো */}
                 </div>
            </div>
            <div className="flex-1 text-end">
                  <p className="mb-2">
-                    নিউজলেটার কালবেলা থেকে প্রতিদিন মেইলে আপডেট পেতে সাবস্ক্রাইব করুন।
+                    নিউজলেটার কন্ঠস্বর থেকে প্রতিদিন মেইলে আপডেট পেতে সাবস্ক্রাইব করুন।
                 </p>
                 <p>
                     <Link href="#" className="text-[#0066cc] hover:underline">মোবাইল অ্যাপস</Link>
