@@ -60,7 +60,7 @@ function LetestNews({stateMessage }) {
 
   return (
     <div className='grid md:grid-cols-3 grid-cols-2  items-start gap-4'>
-        <div className='col-span-3 '>         
+        <div className='col-span-full '>         
             <InnerNavbar stateMessage={stateMessage}></InnerNavbar>
         </div>
 
@@ -97,18 +97,18 @@ function LetestNews({stateMessage }) {
             <div className='md:block hidden'>
               <NewsTab></NewsTab>
              </div>
-                {/* Load more / end indicator */}
-                <div ref={loadMoreRef} className="w-full text-center mt-8">
-                    {(isFetching || isFetchingNextPage)  && <TableLoader ms={"News"}></TableLoader>}
-                </div>
+              {/* Load more / end indicator */}
+              <div ref={loadMoreRef} className="w-full text-center mt-8 col-span-full">
+                  {(isFetching || isFetchingNextPage)  && <TableLoader ms={"News"}></TableLoader>}
+              </div>
 
-                {/* no data indicator  */}
-                {(!hasNextPage && newsData?.length <= 0 && !isFetching && !isFetchingNextPage && status==="success") &&(
-                    <NoDataIndicator message="News"></NoDataIndicator>
-                )}
-                {!hasNextPage && data?.pages[0]?.data?.data.length > 0 && (
-                     <FinishIndicator ms={"All News Loaded"}></FinishIndicator>
-                )}
+              {/* no data indicator  */}
+              {(!hasNextPage && newsData?.length <= 0 && !isFetching && !isFetchingNextPage && status==="success") &&(
+                  <NoDataIndicator message="News"></NoDataIndicator>
+              )}
+              {!hasNextPage && data?.pages[0]?.data?.data.length > 0 && (
+                    <FinishIndicator ms={"All News Loaded"}></FinishIndicator>
+              )}
         
     </div>
   )

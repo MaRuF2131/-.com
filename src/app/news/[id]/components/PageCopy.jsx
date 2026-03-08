@@ -1,19 +1,19 @@
 "use client";
 
+import FinishIndicator from "@/app/service/loader/FinishIndicator";
+import NoDataIndicator from "@/app/service/loader/NodataIndicator";
+import TableLoader from "@/app/service/loader/TableLoader";
 import Pagination from "@/app/service/Pagination";
 import NewsTab from "@/components/NewsTab";
 import { formatDate } from "@/utils/formatDate";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { FaPrint, FaFont } from "react-icons/fa";
-import PageCopy from "./components/PageCopy.jsx";
-import RelatedNews from "./components/RelatedNews.jsx";
+import RelatedNews from "./RelatedNews";
 
-export default function NewsDetailsPage() {
-  const params = useParams();
-  const id = params.id;
+export default function PageCopy({category}) {
   const [news, setnews] = useState([]);
+  const loadMoreRef = useRef();
       const {
       data,
       fetchNextPage,
@@ -24,10 +24,10 @@ export default function NewsDetailsPage() {
      } = Pagination({
       url:`/user/news`,
       keyValuepair:{
-        id:id || "invalid",
+        id:"",
         locationType:'',
-        subcategory:'',
-        category:'',
+        subcategory:category[1] ||'',
+        category:category[0] || '',
         database:"news"
         },
         page:1,limit:1
@@ -40,26 +40,33 @@ export default function NewsDetailsPage() {
         }
       },[data])
 
+  useEffect(() => {
+    if (!loadMoreRef.current) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      },
+      { root: null, rootMargin: '0px', threshold: 0.1 }
+    );
+    observer.observe(loadMoreRef.current);
+    return () => observer.disconnect();
+  }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
   return (
     <>
-    <div className="max-w-7xl mx-auto sm:px-4 px-2 sm:py-6 py-2">
-
-        {/* Breadcrumb */}
-        <div className="text-sm text-gray-500 mb-2">
-          <span className="text-blue-600 font-medium text-2xl">{news[0]?.category}</span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-7 lg:grid-cols-12 gap-4">
+     {news.map((news,index)=>
+        <div className="grid md:pt-50 pt-20 grid-cols-1 md:grid-cols-7 lg:grid-cols-12 gap-4">
 
               {/* ================= Left Sidebar ================= */}
               <div className="col-span-2 lg:block hidden">
                 <div className="text-lg  text-black font-medium">
-                    <p>{news[0]?.reporter}</p>
-                    <p>আপডেট:{news[0]?.updatedAt?formatDate(news[0]?.updatedAt): ''}</p>
-                    <p>প্রকাশিত:{formatDate(news[0]?.createdAt)}</p>
+                    <p>{news?.reporter}</p>
+                    <p>আপডেট:{news?.updatedAt?formatDate(news?.updatedAt): ''}</p>
+                    <p>প্রকাশিত:{formatDate(news?.createdAt)}</p>
                     <p>অনলাইন সংস্করণ</p>
                 </div>
-                    {news[0]?.category && <RelatedNews category={news[0]?.category}></RelatedNews>}
+                 {category&& <RelatedNews category={category}></RelatedNews>}
                 </div>
 
               {/* ================= Main Content ================= */}
@@ -67,15 +74,15 @@ export default function NewsDetailsPage() {
 
                 {/* Title */}
                 <h1 className="text-2xl md:text-4xl font-bold mb-4 leading-none">
-                  {news[0]?.title}
+                  {news?.title}
                 </h1>
 
                 {/* Meta Info */}
                 <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-4">
                     <div className="flex flex-wrap items-center gap-2 text-lg lg:hidden  text-black font-medium">
-                        <p>{news[0]?.reporter}</p>
-                        <p>আপডেট:{news[0]?.updatedAt?formatDate(news[0]?.updatedAt): ''}</p>
-                        <p>প্রকাশিত:{formatDate(news[0]?.createdAt)}</p>
+                        <p>{news?.reporter}</p>
+                        <p>আপডেট:{news?.updatedAt?formatDate(news?.updatedAt): ''}</p>
+                        <p>প্রকাশিত:{formatDate(news?.createdAt)}</p>
                         <p>অনলাইন সংস্করণ</p>
                     </div>
                   <div className="flex gap-3 ml-auto text-gray-700">
@@ -87,7 +94,7 @@ export default function NewsDetailsPage() {
                 {/* Featured Image */}
                 <div className="w-full h-64 md:h-96 relative mb-3">
                   <Image
-                    src={news[0]?.imageUrl}
+                    src={news?.imageUrl}
                     alt="court"
                     fill
                     className="object-fit rounded-lg"
@@ -95,24 +102,24 @@ export default function NewsDetailsPage() {
                 </div>
 
                 <p className="text-center text-sm text-gray-500 mb-6">
-                  {news[0]?.imageBy}
+                  {news?.imageBy}
                 </p>
 
                 {/* Article Body */}
                 <div className="space-y-5 text-xl leading-8 text-gray-800">
-                  <p>{news[0]?.description}</p>
+                  <p>{news?.description}</p>
                 </div>
 
                 {/* Tags */}
                 <div className="mt-8 flex flex-wrap gap-2">
                   <span className="bg-gray-200 px-3 py-1 rounded text-sm">
-                    {news[0]?.category}
+                    {news?.category}
                   </span>
                   <span className="bg-gray-200 px-3 py-1 rounded text-sm">
-                    {news[0]?.subcategory}
+                    {news?.subcategory}
                   </span>
                   <span className="bg-gray-200 px-3 py-1 rounded text-sm">
-                    {news[0]?.locationType}
+                    {news?.locationType}
                   </span>
                 </div>
 
@@ -122,11 +129,12 @@ export default function NewsDetailsPage() {
                   <NewsTab></NewsTab>
               </div>
          </div>
+     )}
 
-         {/* copy news page */}
-         {news[0]?.category && <PageCopy category={[news[0]?.category,news[0]?.subcategory]}></PageCopy>}
-    </div>
-    
+      {/* Load more / end indicator */}
+        <div ref={loadMoreRef} className="w-full text-center mt-8">
+              {(isFetching || isFetchingNextPage)  && <TableLoader ms={"News"}></TableLoader>}
+        </div>
     </>
   );
 }

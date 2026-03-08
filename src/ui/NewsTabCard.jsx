@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import React, { useState } from "react"
 
 function NewsTabCard({ latestNews = [], popularNews = [] }) {
@@ -40,7 +41,8 @@ function NewsTabCard({ latestNews = [], popularNews = [] }) {
       <div className="h-full max-h-[400px] overflow-y-auto no-scrollbar">
 
         {newsData.map((item, index) => (
-          <div
+          <Link
+            href={`/news/${item?._id}?message=${item?.category}`}
             key={index}
             className="flex group cursor-pointer justify-start items-center gap-4 p-4 border-b border-gray-300 hover:bg-gray-50 transition"
            >
@@ -51,9 +53,9 @@ function NewsTabCard({ latestNews = [], popularNews = [] }) {
 
             {/* Title */}
             <p className="font-semibold group-hover:text-[#0a58ca] text-lg leading-none">
-              {item}
+              {item.title}
             </p>
-          </div>
+          </Link>
         ))}
 
       </div>

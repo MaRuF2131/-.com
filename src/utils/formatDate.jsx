@@ -1,7 +1,6 @@
 export const formatDate = (date) => {
   const d = new Date(date);
   const now = new Date();
-
   const diffMs = now - d; // milliseconds difference
   const diffHrs = diffMs / (1000 * 60 * 60); // hours difference
 

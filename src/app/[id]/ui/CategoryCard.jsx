@@ -4,6 +4,7 @@ import NoDataIndicator from '@/app/service/loader/NodataIndicator';
 import TableLoader from '@/app/service/loader/TableLoader';
 import Pagination from '@/app/service/Pagination';
 import Image from 'next/image'
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 function CategoryCard({stateMessage}) {
@@ -42,13 +43,13 @@ function CategoryCard({stateMessage}) {
   return (
     <>
     {newsData.slice(0,4).map((news,index)=>
-        <div key={index} className='sm:w-auto w-[47%]'>
+        <Link href={`/news/${news?._id}?message=${news?.category}`} key={index} className='sm:w-auto w-[47%]'>
             <div className='w-full group cursor-pointer  text-black  flex flex-wrap items-center justify-center gap-y-3'>
                 <Image src={news?.imageUrl || "/default.webp"} alt={news?.title || "Default News Image"} width={300} height={200} className='object-fill  rounded-md w-full sm:aspect-[10/5] aspect-[10/6]' />
                 <h2 className='sm:text-[22px] text-xl font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
             </div>
 
-        </div>
+        </Link>
     )}
         {/* Load more / end indicator */}
         {(isFetching)  && <TableLoader ms={"News"}></TableLoader>}

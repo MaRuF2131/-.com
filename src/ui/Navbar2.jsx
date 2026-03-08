@@ -3,18 +3,20 @@ import React from 'react'
 import { NavData2 } from '@/json.data/NavData2'
 import Link from 'next/link'
 import { HiHome, HiMenu } from "react-icons/hi";
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { NavData3 } from '@/json.data/NavData3';
 import MediaMenu from './OtherList';
 
 function Navbar2() {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const message = searchParams.get('message')
   const [open, setOpen] = React.useState(false);
   return (
     <div className="navbar2  text-lg font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4">
       <Link href="/" ><HiHome className="cursor-pointer text-2xl" /></Link>
       {Object.keys(NavData2).map((key, index) => {
-        const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link
+        const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link || message==NavData2[key].name
         
         return(
           <Link key={index} href={NavData2[key].link}  className={` h-full flex items-center gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca] border-b-3 border-[#0a58ca] rounded":" hover:border-b-2 hover:border-[#0a58ca] rounded"}`}>
