@@ -16,7 +16,7 @@ function Navbar2() {
     <div className="navbar2  text-lg font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4">
       <Link href="/" ><HiHome className="cursor-pointer text-2xl" /></Link>
       {Object.keys(NavData2).map((key, index) => {
-        const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link || message==NavData2[key].name
+        const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link || message.trim() === NavData2[key].name.trim()
         
         return(
           <Link key={index} href={NavData2[key].link}  className={` h-full flex items-center gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca] border-b-3 border-[#0a58ca] rounded":" hover:border-b-2 hover:border-[#0a58ca] rounded"}`}>
@@ -43,7 +43,7 @@ function Navbar2() {
                 })}</h2>
               <div className='flex flex-wrap items-start   justify-start  gap-x-4 gap-y-2 py-4'>
                 {Object.keys(NavData3).map((key, index) => {
-                const isActive = `${pathname}?message=${NavData3[key].name}` === NavData3[key].link
+                const isActive = `${pathname}?message=${NavData3[key].name}` === NavData3[key].link || message.trim() === NavData3[key].name.trim()
                 
                 return(
                   <Link key={index} href={NavData3[key].link}  className={` h-full text-lg lg:w-[12%] md:w-[15%] sm:w-[22%] w-[25%] min-w-fit flex items-center  gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca]   rounded ":"  hover:text-[#0a58ca] rounded"}`}>

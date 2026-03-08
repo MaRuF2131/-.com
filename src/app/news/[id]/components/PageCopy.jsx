@@ -66,7 +66,7 @@ export default function PageCopy({category}) {
                     <p>প্রকাশিত:{formatDate(news?.createdAt)}</p>
                     <p>অনলাইন সংস্করণ</p>
                 </div>
-                 {category&& <RelatedNews category={category}></RelatedNews>}
+                 {category&& <RelatedNews category={[category[0]||"",news?.subcategory||""]}></RelatedNews>}
                 </div>
 
               {/* ================= Main Content ================= */}

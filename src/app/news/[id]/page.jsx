@@ -59,7 +59,7 @@ export default function NewsDetailsPage() {
                     <p>প্রকাশিত:{formatDate(news[0]?.createdAt)}</p>
                     <p>অনলাইন সংস্করণ</p>
                 </div>
-                    {news[0]?.category && <RelatedNews category={news[0]?.category}></RelatedNews>}
+                    {news[0]?.category && <RelatedNews category={[news[0]?.category||"",news[0]?.subcategory||""]}></RelatedNews>}
                 </div>
 
               {/* ================= Main Content ================= */}
@@ -124,7 +124,7 @@ export default function NewsDetailsPage() {
          </div>
 
          {/* copy news page */}
-         {news[0]?.category && <PageCopy category={[news[0]?.category,news[0]?.subcategory]}></PageCopy>}
+         {news[0]?.category && <PageCopy category={[news[0]?.category||"",news[0]?.subcategory||""]}></PageCopy>}
     </div>
     
     </>

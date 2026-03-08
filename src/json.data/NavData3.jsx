@@ -74,12 +74,6 @@ export const NavData3 = {
     icon: "chattogram",
     popup: false,
   },
-  "সারাবেলা": {
-    link: "/sarabela?message=সারাবেলা",
-    name: "সারাবেলা",
-    icon: "sarabela",
-    popup: false,
-  },
   "নারী-শিশু": {
     link: "/women-children?message=নারী_শিশু",
     name: "নারী-শিশু",

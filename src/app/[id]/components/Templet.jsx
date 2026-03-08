@@ -114,15 +114,15 @@ import Pagination from '@/app/service/Pagination'
                     <span>{v}</span>
                     </span>
 
-                    <Link
-                    href="/"
+                    <button
+                    onClick={()=>setsubcategory(v)}
                     className="cursor-pointer flex items-center gap-x-1"
                     >
                     <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />
-                    </Link>
+                    </button>
                 </div>
                 <div className='w-full md:gap-6 sm:gap-4 flex sm:flex-nowrap flex-wrap items-start justify-between py-4 sm:border-b border-gray-300'>
-                      <CategoryCard  stateMessage={stateMessage}></CategoryCard>
+                      <CategoryCard  stateMessage={stateMessage} subcategory={v}></CategoryCard>
                 </div>
                 
             </div>

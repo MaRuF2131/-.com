@@ -62,7 +62,7 @@ function MoreVideo({state}) {
                             {newsData.map((item,index) => (
                               <div
                                 key={index}
-                                onClick={(e)=>{e.stopPropagation();e.preventDefault();state.setid(item?._id);window.history.pushState({}, "", `/video/${item?._id}`);}}
+                                onClick={(e)=>{e.stopPropagation();e.preventDefault();state.setid(item?._id);window.history.pushState({}, "", `/video/${item?._id}?message=ভিডিও`);}}
                                 className="flex gap-3 group  border-b py-2  border-gray-300 cursor-pointer hover:bg-gray-50"
                               >
                                 <div className="w-50 h-20 relative flex items-center justify-center">

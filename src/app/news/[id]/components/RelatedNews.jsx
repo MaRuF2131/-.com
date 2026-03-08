@@ -18,8 +18,8 @@ function RelatedNews({category}) {
       keyValuepair:{
         id:"",
         locationType:'',
-        subcategory:'',
-        category:category || '',
+        subcategory:category[1] || '',
+        category:category[0] || '',
         database:"news"
         },
         page:1,limit:4

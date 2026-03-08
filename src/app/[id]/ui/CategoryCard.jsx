@@ -7,7 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
-function CategoryCard({stateMessage}) {
+function CategoryCard({stateMessage,subcategory}) {
   const [newsData, setNewsData] = useState([]);
   
       const {
@@ -25,7 +25,7 @@ function CategoryCard({stateMessage}) {
             distic:"",
             upozila:"",
             locationType:'',
-            subcategory:'',
+            subcategory:subcategory || '',
             category:stateMessage,
             database:"news"
             },

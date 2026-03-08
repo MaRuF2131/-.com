@@ -3,6 +3,7 @@
 import { DivisionList } from "@/json.data/DivisionList"
 import { EducationList } from "@/json.data/EducationList"
 import { EntertainmentList } from "@/json.data/EntertainmentList"
+import { art_literatureList, healthList, lifeStyleList, opinionList, techList } from "@/json.data/OtherList"
 import { SportsList } from "@/json.data/SportsList"
 import { WorldList } from "@/json.data/WorldList"
 import { useEffect} from "react"
@@ -13,7 +14,12 @@ function InnerNavbar({stateMessage ,state }) {
     "বিনোদন":EntertainmentList,
     "শিক্ষা":EducationList,
     "খেলা":SportsList,
-    "বিশ্ব":WorldList
+    "বিশ্ব":WorldList,
+    "মতামত":opinionList,
+    "লাইফস্টাইল":lifeStyleList,
+    "স্বাস্থ্য":healthList,
+    "শিল্প_সাহিত্য":art_literatureList,
+    "প্রযুক্তি":techList
   }
   useEffect(()=>{
     if(stateMessage && state){
