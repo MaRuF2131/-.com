@@ -10,7 +10,7 @@ import MediaMenu from './OtherList';
 function Navbar2() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const message = searchParams.get('message')
+  const message = searchParams.get('message') || ""
   const [open, setOpen] = React.useState(false);
   return (
     <div className="navbar2  text-lg font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4">
