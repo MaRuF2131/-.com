@@ -62,9 +62,9 @@ function NewsTabCard({ latestNews = [], popularNews = [] }) {
 
       {/* Bottom Button */}
       <div className="p-4">
-        <button className=" cursor-pointer  w-full text-xl flex items-center justify-center border border-blue-500 text-blue-600 font-bold  p-1 rounded-lg hover:bg-blue-50 transition">
+        <Link href={"../latest-news?message=সর্বশেষ"} className=" cursor-pointer  w-full text-xl flex items-center justify-center border border-blue-500 text-blue-600 font-bold  p-1 rounded-lg hover:bg-blue-50 transition">
           সর্বশেষ সব খবর
-        </button>
+        </Link>
       </div>
 
     </div>
