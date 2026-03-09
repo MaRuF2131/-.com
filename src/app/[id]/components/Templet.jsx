@@ -12,7 +12,7 @@ import CategoryCard from "../ui/CategoryCard"
 import Link from 'next/link'
 import Pagination from '@/app/service/Pagination'
  
- function Templet({stateMessage}) {
+ function Templet() {
       const [navlist,setnavlist]=useState([]);
       const [navlist2,setnavlist2]=useState([]);
       const [navlist3,setnavlist3]=useState([]);
@@ -29,6 +29,20 @@ import Pagination from '@/app/service/Pagination'
         navlist2,setnavlist2,
         navlist,setnavlist
       }
+
+      const searchParams = useSearchParams()
+
+      const message = searchParams.get('message') //  directly string
+
+      const [stateMessage, setStateMessage] = useState('loading')
+
+      useEffect(() => {
+        if (message) {
+          setStateMessage(message)
+        } else {
+          setStateMessage('invalid')
+        }
+      }, [message])
 
 
   const [newsData, setNewsData] = useState([]);
@@ -64,6 +78,24 @@ import Pagination from '@/app/service/Pagination'
               setNewsData(value);
             }
         },[data])
+
+
+      if (stateMessage === 'loading') return <p>Loading...</p>
+      if (stateMessage === 'invalid') return <p>Invalid path</p>
+      if(stateMessage==="ভিডিও"){
+        return(
+          <>
+          <VideoList stateMessage={stateMessage}></VideoList>
+          </>
+        )
+      }
+      if(stateMessage==="সর্বশেষ"){
+        return(
+          <>
+          <LetestNews stateMessage={stateMessage}></LetestNews>
+          </>
+        )
+      }
 
    return (
     <>

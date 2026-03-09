@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReactQueryProvider from "./service/ReactQueryProvider";
 import ScrollToTop from "@/components/ScrollTop";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +40,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${solaimanLipi.className} antialiased leading-none bg-white dark:bg-white text-black dark:text-black  `}
       >
         <ScrollToTop></ScrollToTop>
-        <Navbar />
+        <Suspense>
+          <Navbar />
+        </Suspense>
         <div className="mt-3 max-w-[1500px] mx-auto">
           <ReactQueryProvider>
             {children}
