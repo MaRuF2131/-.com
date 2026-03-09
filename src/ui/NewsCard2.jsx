@@ -7,7 +7,7 @@ import React from 'react'
 function NewsCard2({news}) {
   return (
     <Link href={`/news/${news?._id}`} className='w-full h-full group cursor-pointer  text-black  flex flex-wrap items-center justify-center gap-y-3'>
-        <Image src={news?.imageUrl || "/default.webp"} alt={news?.title} width={300} height={200} className='object-fill  rounded-md w-full aspect-[10/6]' />
+        <Image src={news?.imageUrl } alt={news?.title || "news"} width={300} height={200} className='object-fill  rounded-md w-full aspect-[10/6]' />
         <h2 className='text-[22px]  font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
     </Link>
   )

@@ -60,9 +60,10 @@ import Pagination from '@/app/service/Pagination'
             division:division,
             distic:distic,
             upozila:up,
-            locationType:"",
-            subcategory:subcategory,
-            category:stateMessage!='বাছাইকৃত'?stateMessage:"",
+            country:stateMessage==='বিশ্ব'?subcategory: '', 
+            locationType:stateMessage==='জাতীয়'?"bangladesh":stateMessage==='বিশ্ব'?"world":"",
+            subcategory:stateMessage!='বিশ্ব'?subcategory: '',
+            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' )?stateMessage:"",
             database:"news",
             views:stateMessage==='বাছাইকৃত'?"true":""
             },

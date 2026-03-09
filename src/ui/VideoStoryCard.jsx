@@ -2,10 +2,13 @@
 import NoDataIndicator from '@/app/service/loader/NodataIndicator';
 import Pagination from '@/app/service/Pagination';
 import Image from 'next/image'
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
+import { FaEye } from 'react-icons/fa';
 
 function VideoStoryCard() {
   const [newsData, setNewsData] = useState([]);
+  const router=useRouter()
   const loadMoreRef = useRef();
       const {
           data,
@@ -50,11 +53,18 @@ function VideoStoryCard() {
     observer.observe(loadMoreRef.current);
     return () => observer.disconnect();
   }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
+
+  const click=(id)=>{
+    router.push(`/video-story/${id}`)
+  }
   return (
     <>
     {newsData.map((videoStory, index) => (
-      <div key={index} className='max-w-full min-w-62 h-80 pt-2 relative'>
-          <p>{videoStory?.watch}</p>
+      <div onClick={()=>click(videoStory?._id)} key={index} className='max-w-full min-w-62 h-80 pt-2 relative'>
+                    <div className="flex items-center gap-2 text-sm absolute top-2 left-1">
+                      <FaEye />
+                      <span>{videoStory?.views || 0}</span>
+                    </div>
           <video src={videoStory?.videoUrl || "/default.webp"} alt={videoStory?.title} width={300} height={200} className='object-fill aspect-[5/6.5] rounded-md max-h-full w-full' />
 
           <h2 className='absolute bottom-0 z-50 w-full text-center text-white bg-black/15  text-2xl'>{videoStory?.title}</h2>           

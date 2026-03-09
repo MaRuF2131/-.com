@@ -24,10 +24,12 @@ function CategoryCard({stateMessage,subcategory}) {
             division:"",
             distic:"",
             upozila:"",
-            locationType:'',
-            subcategory:subcategory || '',
-            category:stateMessage,
-            database:"news"
+            country:stateMessage==='বিশ্ব'?subcategory: '', 
+            locationType:stateMessage==='জাতীয়'?"bangladesh":stateMessage==='বিশ্ব'?"world":"",
+            subcategory:stateMessage!='বিশ্ব'?subcategory: '',
+            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' )?stateMessage:"",
+            database:"news",
+            views:stateMessage==='বাছাইকৃত'?"true":""
             },
             page:1,limit:5
           });
@@ -45,7 +47,7 @@ function CategoryCard({stateMessage,subcategory}) {
     {newsData.slice(0,4).map((news,index)=>
         <Link href={`/news/${news?._id}?message=${news?.category}`} key={index} className='sm:w-auto w-[47%]'>
             <div className='w-full group cursor-pointer  text-black  flex flex-wrap items-center justify-center gap-y-3'>
-                <Image src={news?.imageUrl || "/default.webp"} alt={news?.title || "Default News Image"} width={300} height={200} className='object-fill  rounded-md w-full sm:aspect-[10/5] aspect-[10/6]' />
+                <Image src={news?.imageUrl} alt={news?.title || "Default News Image"} width={300} height={200} className='object-fill  rounded-md w-full sm:aspect-[10/5] aspect-[10/6]' />
                 <h2 className='sm:text-[22px] text-xl font-semibold  opacity-80 w-full group-hover:text-[#0a58ca]'>{news?.title}</h2>
             </div>
 
