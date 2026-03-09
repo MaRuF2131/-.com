@@ -60,10 +60,11 @@ import Pagination from '@/app/service/Pagination'
             division:division,
             distic:distic,
             upozila:up,
-            locationType:'',
+            locationType:"",
             subcategory:subcategory,
-            category:stateMessage,
-            database:"news"
+            category:stateMessage!='বাছাইকৃত'?stateMessage:"",
+            database:"news",
+            views:stateMessage==='বাছাইকৃত'?"true":""
             },
             page:1,limit:5
           });

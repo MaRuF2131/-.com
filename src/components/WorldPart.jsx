@@ -52,7 +52,7 @@ function WorldPart() {
         </span>
 
         <Link
-          href="/"
+          href="/world-news?message=বিশ্ব"
           className="cursor-pointer flex items-center gap-x-1"
         >
           <FaArrowRight className="w-7 h-7 p-1 border-2 border-gray-600 rounded-full" />

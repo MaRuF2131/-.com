@@ -26,8 +26,9 @@ function BottomPart({stateMessage,subcategory}) {
             upozila:"",
             locationType:'',
             subcategory:subcategory || '',
-            category:stateMessage,
-            database:"news"
+            category:stateMessage!='বাছাইকৃত'?stateMessage:"",
+            database:"news",
+            views:stateMessage==='বাছাইকৃত'?"true":""
             },
             page:1,limit:5
           });
