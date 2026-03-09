@@ -12,7 +12,7 @@ import CategoryCard from "../ui/CategoryCard"
 import Link from 'next/link'
 import Pagination from '@/app/service/Pagination'
  
- function Templet() {
+ function Templet({stateMessage}) {
       const [navlist,setnavlist]=useState([]);
       const [navlist2,setnavlist2]=useState([]);
       const [navlist3,setnavlist3]=useState([]);
@@ -30,19 +30,6 @@ import Pagination from '@/app/service/Pagination'
         navlist,setnavlist
       }
 
-  const searchParams = useSearchParams()
-
-  const message = searchParams.get('message') //  directly string
-
-  const [stateMessage, setStateMessage] = useState('loading')
-
-  useEffect(() => {
-    if (message) {
-      setStateMessage(message)
-    } else {
-      setStateMessage('invalid')
-    }
-  }, [message])
 
   const [newsData, setNewsData] = useState([]);
   
@@ -78,15 +65,6 @@ import Pagination from '@/app/service/Pagination'
             }
         },[data])
 
-  if (stateMessage === 'loading') return <p>Loading...</p>
-  if (stateMessage === 'invalid') return <p>Invalid path</p>
-  if(stateMessage==="ভিডিও"){
-    return(
-      <>
-       <VideoList stateMessage={stateMessage} state={{}}></VideoList>
-      </>
-    )
-  }
    return (
     <>
     <div className='bg-[#f7f8fa] md:p-3 w-full rounded-t-md'>

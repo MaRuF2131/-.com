@@ -1,8 +1,6 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
-import React, { useState, useEffect } from 'react'
-import TopPart from './components/TopPart'
-import BottomPart from './components/BottomPart'
+import React, { useState, useEffect, Suspense } from 'react'
 import VideoList from './components/VideoList'
 import Templet from './components/Templet'
 import LetestNews from './components/LetestNews'
@@ -40,9 +38,9 @@ function page() {
   }
   return (
     <>
-{/*      <TopPart stateMessage={stateMessage}></TopPart>
-     <BottomPart></BottomPart> */}
-     <Templet stateMessage={stateMessage} ></Templet>
+    <Suspense>
+       <Templet stateMessage={stateMessage} ></Templet>
+     </Suspense>
     </>
   )
 }
