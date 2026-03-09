@@ -43,8 +43,9 @@ function HomeLayout() {
           locationType:'',
           subcategory:'',
           category:'',
-          database:"news"
-          },
+          database:"news",
+          views:"false"
+        },
           page:1,limit:13
         });
 

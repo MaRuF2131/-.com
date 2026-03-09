@@ -20,7 +20,7 @@ import SocialPopUp from "@/ui/SocialPopUp";
         "popup":false
     },
     "ই-পেপার":{
-        "link":"/online-epaper",
+        "link":"/e-paper",
         "name":"ই-পেপার",
         "icon":<FaNewspaper/>,
         "popup":false
