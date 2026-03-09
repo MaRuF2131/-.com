@@ -8,6 +8,7 @@ import NewsCard2 from '@/ui/NewsCard2'
 import SportsNewsCard from '@/ui/SportsNewsCard'
 import { eventData } from '../../data/eventData'
 import Pagination from '@/app/service/Pagination'
+import TableLoader from '@/app/service/loader/TableLoader'
 
 function SportsPart() {
       const [newsData, setNewsData] = useState([]);
@@ -41,6 +42,7 @@ function SportsPart() {
               setNewsData(value);
             }
           },[data])
+  if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   return (
     <div className="w-full  flex flex-col border-b border-gray-300 pb-4  ">
       {/* Header */}

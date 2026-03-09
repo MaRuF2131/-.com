@@ -6,6 +6,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { newsDatas } from '../../data/newsData'
 import NewsCard2 from '@/ui/NewsCard2'
 import Pagination from '@/app/service/Pagination'
+import TableLoader from '@/app/service/loader/TableLoader'
 
 function EntertainmentPart() {
 
@@ -40,6 +41,8 @@ function EntertainmentPart() {
               setNewsData(value);
             }
           },[data])
+
+ if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   return (
     <div className="w-full hidden max-w-[850px] md:flex flex-col border-b border-gray-300 pb-4 lg:mx-6 mx-0 ">
       {/* Header */}

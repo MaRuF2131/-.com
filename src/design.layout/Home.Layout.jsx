@@ -22,6 +22,8 @@ import NewsTab from '@/components/NewsTab.jsx'
 import AreaNewsForm from '@/components/AreaNewsForm.jsx'
 import PollForm from '@/components/PollForm.jsx'
 import Pagination from '@/app/service/Pagination.jsx'
+import TableLoader from '@/app/service/loader/TableLoader'
+import LazyRender from '@/utils/LazyRender'
 
 function HomeLayout() {
   const [newsData, setNewsData] = useState([]);
@@ -56,6 +58,8 @@ function HomeLayout() {
             setNewsData(value);
           }
         },[data])
+
+if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   
   return (
     <section className='w-full flex flex-col items-start justify-start gap-y-8'>
@@ -114,58 +118,78 @@ function HomeLayout() {
       </div>
       
         {/* video section */}
-        <VideoPart></VideoPart> 
+              <VideoPart></VideoPart> 
 
-      <div className='w-full flex gap-4 flex-wrap items-start justify-between'>
-        {/* motamot ,online jorip,(letest and famous news) section  */}
+      <LazyRender>
+          <div className='w-full flex gap-4 flex-wrap items-start justify-between'>
+          {/* motamot ,online jorip,(letest and famous news) section  */}
 
-            {/* motamot */}
-             <OpinionPart></OpinionPart> 
-         <div className='lg:flex-1  lg:block w-full'>
-            {/* online jorip */}
-             <PollForm></PollForm> 
-         </div>
-            {/* letest and famous news */}
+              {/* motamot */}
+                <OpinionPart></OpinionPart> 
           <div className='lg:flex-1  lg:block w-full'>
-               <NewsTab></NewsTab> 
-           </div>
-      </div>
+              {/* online jorip */}
+                  <PollForm></PollForm> 
+          </div>
+              {/* letest and famous news */}
+            <div className='lg:flex-1  lg:block w-full'>
+                  <NewsTab></NewsTab>              
+            </div>
+          </div>
+      </LazyRender>
 
         {/* bachai krito section */}
-        <SpecialPart></SpecialPart> 
+        <LazyRender>
+          <SpecialPart></SpecialPart>
+        </LazyRender>
+         
 
         {/* jatio section */}
-         <NationalPart></NationalPart> 
+        <LazyRender>
+          <NationalPart></NationalPart> 
+        </LazyRender>
+         
 
         {/* rajniti section */}
-        <PoliticalPart></PoliticalPart> 
+        <LazyRender>
+          <PoliticalPart></PoliticalPart>
+        </LazyRender>
+         
 
         {/* banijjo section */}
-         <BusinessPart></BusinessPart> 
+        <LazyRender>
+          <BusinessPart></BusinessPart>
+        </LazyRender>
+          
 
-
-      <div className='w-full flex   items-start justify-start gap-8'>
-        {/* saradesh section */}
-         <div className=''>
-           <CountryPart></CountryPart> 
+      <LazyRender>
+        <div className='w-full flex   items-start justify-start gap-8'>
+          {/* saradesh section */}
+          <div className=''>
+              <CountryPart></CountryPart>   
+            </div>
+          <div className=' flex-1 max-w-md  min-w-[230px]   lg:block hidden'>
+              <AreaNewsForm></AreaNewsForm>              
           </div>
-        <div className=' flex-1 max-w-md  min-w-[230px]   lg:block hidden'>
-               <AreaNewsForm></AreaNewsForm>  
         </div>
-      </div>
-
-      <div>
-        {/* bisso section */}
-         <WorldPart></WorldPart> 
-      </div>
-
-      <div>
-        {/* binodon section */}
-         <EntertainmentPart></EntertainmentPart> 
-      </div>
+      </LazyRender>
+      <LazyRender>
+        <div>
+          {/* bisso section */}
+            <WorldPart></WorldPart>   
+        </div>
+      </LazyRender>
+      <LazyRender>
+        <div>
+          {/* binodon section */}
+            <EntertainmentPart></EntertainmentPart>         
+        </div>
+      </LazyRender>
 
         {/* khela section */}
-         <SportsPart></SportsPart> 
+        <LazyRender>
+          <SportsPart></SportsPart>
+        </LazyRender>
+          
 
 
       <div>
@@ -173,7 +197,8 @@ function HomeLayout() {
       </div>
 
         {/* prodcast section */}
-          <PodcastPart></PodcastPart> 
+          <PodcastPart></PodcastPart>
+           
 
     </section>
   )

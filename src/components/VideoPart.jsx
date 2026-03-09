@@ -7,6 +7,7 @@ import { FaVideo, FaArrowRight } from "react-icons/fa";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { newsDatas } from "../../data/newsData";
 import Pagination from "@/app/service/Pagination";
+import TableLoader from "@/app/service/loader/TableLoader";
 
 function VideoPart() {
   const scrollRef = useRef(null);
@@ -69,7 +70,7 @@ function VideoPart() {
     });
   };
 
-
+ if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
 
   return (
     <div className="w-full flex flex-col min-h-70 p-2 border border-gray-300 rounded-md relative">
@@ -82,7 +83,7 @@ function VideoPart() {
         </span>
 
         <Link
-          href="/"
+          href="/video?message=ভিডিও"
           className="cursor-pointer flex items-center gap-x-1"
         >
           <span className="text-xl font-bold">সব ভিডিও</span>

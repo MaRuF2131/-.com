@@ -6,6 +6,7 @@ import { newsDatas } from '../../data/newsData'
 import { FaArrowRight, FaRegClock } from 'react-icons/fa'
 import NewsCard2 from '@/ui/NewsCard2'
 import Pagination from '@/app/service/Pagination'
+import TableLoader from '@/app/service/loader/TableLoader'
 
 function PoliticalPart() {
       const [newsData, setNewsData] = useState([]);
@@ -39,6 +40,7 @@ function PoliticalPart() {
               setNewsData(value);
             }
           },[data])
+  if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   return (
     <div className="w-full max-w-[850px]  border-b border-gray-300 pb-4  h-auto flex flex-col items-center justify-start lg:mx-6 mx-0  ">
       {/* Header */}

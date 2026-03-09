@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { FaArrowRight, FaRegClock } from 'react-icons/fa'
 import { HiOutlineChevronRight } from 'react-icons/hi'
 import Pagination from '@/app/service/Pagination'
+import TableLoader from '@/app/service/loader/TableLoader'
 
 function NationalPart() {
     const [newsData, setNewsData] = useState([]);
@@ -23,10 +24,11 @@ function NationalPart() {
             division:"",
             distic:"",
             upozela:"",
-            locationType:'',
-            subcategory:'জাতীয়',
+            locationType:'bangladesh',
+            subcategory:'',
             category:'',
-            database:"news"
+            database:"news",
+            views:"true"
             },
             page:1,limit:11
           });
@@ -38,6 +40,7 @@ function NationalPart() {
               setNewsData(value);
             }
           },[data])
+  if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   return (
     <div className="w-full max-w-[850px]   flex flex-wrap items-start justify-between  border-b border-gray-300 pb-4 h-auto lg:mx-6 mx-0 ">
       {/* Header */}

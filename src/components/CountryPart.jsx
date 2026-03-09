@@ -7,6 +7,7 @@ import { newsDatas } from '../../data/newsData'
 import NewsCard2 from '@/ui/NewsCard2'
 import AreaNewsForm from './AreaNewsForm'
 import Pagination from '@/app/service/Pagination'
+import TableLoader from '@/app/service/loader/TableLoader'
 
 function CountryPart() {
       const [newsData, setNewsData] = useState([]);
@@ -25,8 +26,8 @@ function CountryPart() {
             division:"",
             distic:"",
             upozela:"",
-            locationType:'',
-            subcategory:'জাতীয়',
+            locationType:'bangladesh',
+            subcategory:'',
             category:'',
             database:"news"
             },
@@ -40,6 +41,7 @@ function CountryPart() {
               setNewsData(value);
             }
           },[data])
+  if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   return (
     <div className="w-full max-w-[850px] flex flex-col  border-b border-gray-300 pb-4 lg:mx-6 mx-0">
       {/* Header */}

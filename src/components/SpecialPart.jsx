@@ -6,6 +6,7 @@ import { FaArrowRight } from 'react-icons/fa'
 import { newsDatas } from '../../data/newsData'
 import SpecialCard from '@/ui/SpecialCard'
 import Pagination from '@/app/service/Pagination'
+import TableLoader from '@/app/service/loader/TableLoader'
 
 function SpecialPart() {
 
@@ -26,9 +27,10 @@ function SpecialPart() {
             distic:"",
             upozela:"",
             locationType:'',
-            subcategory:'জাতীয়',
+            subcategory:'',
             category:'',
-            database:"news"
+            database:"news",
+            views:"true"
             },
             page:1,limit:11
           });
@@ -40,6 +42,7 @@ function SpecialPart() {
               setNewsData(value);
             }
           },[data])
+  if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
   return (
     <div className="w-full max-w-[850px] flex flex-col border-b border-gray-300 pb-4 lg:mx-6 mx-0 ">
       {/* Header */}
