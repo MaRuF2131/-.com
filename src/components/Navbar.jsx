@@ -25,7 +25,7 @@ function Navbar() {
   }, [])
 
   return (
-    <div className="w-full mt-1 relative  z-[999] bg-white shadow-md">
+    <div className="w-full mt-1  z-[999] bg-white shadow-md">
       
       {/* Top Navbar (always static) */}
       <div className="block z-[999]">
@@ -33,16 +33,7 @@ function Navbar() {
       </div>
 
       {/* Bottom Navbar (becomes fixed on scroll) */}
-      <div
-        className={`transition-all duration-500 ease-in-out overflow-auto ${
-          isSticky
-            ? "fixed top-0 left-0 right-0 z-[998] bg-white shadow-md"
-            : ""
-        }`}
-      >
-        <Navbar2 />
-      </div>
-
+        <Navbar2 isSticky={isSticky} />
     </div>
   )
 }

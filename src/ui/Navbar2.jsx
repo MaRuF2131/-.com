@@ -7,33 +7,38 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import { NavData3 } from '@/json.data/NavData3';
 import MediaMenu from './OtherList';
 
-function Navbar2() {
+function Navbar2({isSticky}) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const message = searchParams.get('message') || ""
   const [open, setOpen] = React.useState(false);
   return (
-    <div className="navbar2  text-lg font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4">
+    <div
+      className={`text-lg  font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4 transition-all  duration-500 ease-in-out   ${
+          isSticky
+            ? "fixed top-0 left-0 right-0 z-998 bg-white shadow-md"
+            : "relative"
+        }`}
+       >
       <Link href="/" ><HiHome className="cursor-pointer text-2xl" /></Link>
-      {Object.keys(NavData2).map((key, index) => {
-        const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link || message.trim() === NavData2[key].name.trim()
-        
-        return(
-          <Link key={index} href={NavData2[key].link}  className={` h-full flex items-center gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca] border-b-3 border-[#0a58ca] rounded":" hover:border-b-2 hover:border-[#0a58ca] rounded"}`}>
-            <span className='h-full'>{NavData2[key].name}</span>
-          </Link>
-        )
-      })}
+      <div className='h-full no-scrollbar flex-1 overflow-auto flex items-center justify-between gap-x-4'>
+        {Object.keys(NavData2).map((key, index) => {
+          const isActive = `${pathname}?message=${NavData2[key].name}` === NavData2[key].link || message.trim() === NavData2[key].name.trim()
+          
+          return(
+            <Link key={index} href={NavData2[key].link}  className={` h-full flex items-center gap-x-2 cursor-pointer ${isActive?"text-[#0a58ca] border-b-3 border-[#0a58ca] rounded":" hover:border-b-2 hover:border-[#0a58ca] rounded"}`}>
+              <span className='h-full'>{NavData2[key].name}</span>
+            </Link>
+          )
+        })}
+      </div>
 
-       <div           
-/*            onPointerMove={() => setOpen(true)}
-           onPointerLeave={() => setOpen(false)} */
-           >
+       <div>
           <HiMenu className="text-xl cursor-pointer " 
            onClick={(e)=>{e.stopPropagation();e.preventDefault(); setOpen(!open)}}
           />
 
-          { open  && <div className='absolute z-[999] top-[89%] sm:left-5 left-0 max-h-svh  sm:right-5 right-0 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
+          { open  && <div className='absolute z-1000 top-[89%] sm:left-5 left-0 max-h-svh  sm:right-5 right-0 overflow-auto no-scrollbar   bg-white shadow-lg rounded-md  px-5 '>
              <h2 className='text-xl border-b border-gray-300 py-2'>
                 {new Date().toLocaleDateString("bn-BD", {
                   weekday: "long",

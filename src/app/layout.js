@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReactQueryProvider from "./service/ReactQueryProvider";
+import ScrollToTop from "@/components/ScrollTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${solaimanLipi.className} antialiased leading-none bg-white dark:bg-white text-black dark:text-black  `}
       >
+        <ScrollToTop></ScrollToTop>
         <Navbar />
         <div className="mt-3 max-w-[1500px] mx-auto">
           <ReactQueryProvider>
