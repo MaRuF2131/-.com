@@ -14,7 +14,7 @@ import SocialPopUp from "@/ui/SocialPopUp";
 
  export const NavData1 ={
     "আজকের পত্রিকা":{
-        "link":"/ajkerpatrika",
+        "link":"/ajkerpatrika?message=আজকের পত্রিকা",
         "name":"আজকের পত্রিকা",
         "icon":<FaTable/>,
         "popup":false
