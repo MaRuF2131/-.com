@@ -1,6 +1,7 @@
 "use client";
 
 import Pagination from "@/app/service/Pagination";
+import { updateView } from "@/app/service/UpdateViews";
 import { useRouter, useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaEye, FaShare } from "react-icons/fa";
@@ -56,7 +57,7 @@ export default function StoryPage() {
   useEffect(()=>{
 
     if(!story) return;
-
+    
      const timer=setTimeout(()=>{
 
       nextStory();
@@ -97,6 +98,13 @@ export default function StoryPage() {
     }
 
   };
+
+    useEffect(() => {
+    if(stories[current]){
+      updateView(stories[current]._id,'photo_story');
+    }
+
+  }, [current, stories]);
 
   return (
 

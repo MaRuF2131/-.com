@@ -32,6 +32,7 @@ function RelatedNews({category}) {
         }
       },[data])
 
+
   return (
     <div>
             <div className="lg:flex hidden items-center gap-3 py-6">

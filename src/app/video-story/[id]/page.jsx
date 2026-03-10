@@ -1,6 +1,7 @@
 "use client";
 
 import Pagination from "@/app/service/Pagination";
+import { updateView } from "@/app/service/UpdateViews";
 import { useRouter, useParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
 import { FaEye, FaShare, FaVolumeMute, FaVolumeUp, FaPlay, FaPause, FaRedo } from "react-icons/fa";
@@ -156,6 +157,13 @@ export default function StoryPage() {
     }
 
    },[current,story]);
+
+       useEffect(() => {
+       if(stories[current]){
+         updateView(stories[current]._id,'video_story');
+       }
+   
+     }, [current, stories]);
 
   return (
 
