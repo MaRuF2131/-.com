@@ -2,8 +2,8 @@
 
 import Pagination from "@/app/service/Pagination";
 import { useRouter, useParams } from "next/navigation";
-import { useEffect, useState, useRef } from "react";
-import { FaEye, FaShare, FaVolumeMute, FaVolumeUp, FaPlay, FaPause, FaRedo } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaEye, FaShare } from "react-icons/fa";
 
 export default function StoryPage() {
 
@@ -11,15 +11,11 @@ export default function StoryPage() {
   const params = useParams();
   let initialId = params?.id || "";
 
-  const videoRef = useRef(null);
-
   const [stories, setStories] = useState([]);
   const [current, setCurrent] = useState(0);
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isEnded, setIsEnded] = useState(false);
-  const [firstFetch, setFirstFetch] = useState(true); // track first fetch
+  const [firstFetch, setFirstFetch] = useState(true);
   const [currentId, setCurrentId] = useState(initialId);
+  const [currentImage,setcurrentImage]=useState(0)
 
   const limit = 4;
 
@@ -32,7 +28,7 @@ export default function StoryPage() {
     url:`/user/news`,
     keyValuepair:{
       id:currentId?currentId:"",
-      database:"video_story"
+      database:"photo_story"
     },
     page:1,
     limit:limit
@@ -47,8 +43,8 @@ export default function StoryPage() {
       ) || [];
 
       setStories(value);
-
-      // After first fetch, remove id for next fetches
+      console.log("story",stories);
+      
       if (firstFetch) {
         setFirstFetch(false);
         setCurrentId(""); 
@@ -59,89 +55,56 @@ export default function StoryPage() {
   },[data]);
 
   const story = stories[current];
+  const partition=story?.images[currentImage];
 
-  // play pause
-  const togglePlay = ()=>{
+  // auto next story (5 sec)
+  useEffect(()=>{
 
-    if(!videoRef.current) return;
+    if(!story) return;
 
-    if(isPlaying){
+     const timer=setTimeout(()=>{
 
-      videoRef.current.pause();
+      nextStory();
 
-    }else{
+    },5000);
 
-      videoRef.current.play();
+    return ()=>clearTimeout(timer);
 
-    }
+  },[current, story]);
 
-    setIsPlaying(!isPlaying);
-
-  };
-
-  // mute toggle
-  const toggleMute = ()=>{
-
-    if(!videoRef.current) return;
-
-    videoRef.current.muted = !isMuted;
-
-    setIsMuted(!isMuted);
-
-  };
-
-  // replay
-  const replayVideo = ()=>{
-
-    if(!videoRef.current) return;
-
-    videoRef.current.currentTime = 0;
-
-    videoRef.current.play();
-
-    setIsEnded(false);
-    setIsPlaying(true);
-
-  };
-
-  // next story
   const nextStory = async ()=>{
-
+    console.log("len",story?.images.length-1,currentImage);
+    
+    if(story?.images.length-1>currentImage){ setcurrentImage(currentImage+1);return}
     const nextIndex=current+1;
-
-    if(nextIndex >= stories.length-1){
-
+    if(nextIndex > stories.length-1){
       if(hasNextPage && !isFetchingNextPage){
+        setcurrentImage(0)
         await fetchNextPage();
-
-      }else return
+      }else return;
 
     }
-
+    setcurrentImage(0);
     setCurrent(nextIndex);
-    setIsEnded(false);
 
   };
 
   const prevStory = ()=>{
-
+    if(currentImage>0){setcurrentImage(currentImage-1);return}
     if(current>0){
-
       setCurrent(current-1);
-      setIsEnded(false);
-
     }
 
   };
 
   return (
 
-    <div className="fixed inset-0 bg-[#1b0000] flex items-center justify-center z-1000">
+    <div className="fixed inset-0 bg-[#1b0000] flex items-center justify-center z-50">
 
       {/* close */}
       <button
         onClick={()=>router.back()}
-        className="absolute right-6 top-6 text-white text-3xl"
+        className="absolute z-50 right-6 top-6 text-white text-3xl"
       >
         ✕
       </button>
@@ -149,26 +112,26 @@ export default function StoryPage() {
       {/* left */}
       <button
         onClick={prevStory}
-        className="absolute left-10 bg-white rounded-full w-12 h-12"
+        className="absolute z-50 left-10 bg-white rounded-full w-12 h-12"
       >
         ❮
       </button>
 
-      <div className="relative w-[380px] h-full bg-black rounded-xl overflow-hidden">
+      <div className="relative max-w-[380px] w-full h-full max-h-96 md:max-h-132 bg-black rounded-xl overflow-hidden">
 
-                {/* progress */}
+        {/* progress */}
         <div className="absolute top-1 left-1 right-1 flex gap-1 z-50">
 
-          {stories.slice(current, current + 4).map((_, i) => (
+          {story?.images.map((_, i) => (
 
-            <div
-              key={i}
-              className={`h-1 flex-1 rounded ${
-                i === 0 ? "bg-white" : "bg-gray-500"
-              }`}
-            />
+              <div
+                key={i}
+                className={`h-1 flex-1 rounded ${
+                  i === currentImage ? "bg-white" : "bg-gray-500"
+                }`}
+              />
 
-          ))}
+          ))}  
 
         </div>
 
@@ -180,60 +143,27 @@ export default function StoryPage() {
             <span>{story?.views || 0}</span>
           </div>
 
-                    {/* play pause */}
-          <button onClick={togglePlay}>
-
-            {isPlaying ? <FaPause/> : <FaPlay/>}
-
-          </button>
-
-          {/* mute */}
-          <button onClick={toggleMute}>
-
-            {isMuted ? <FaVolumeMute/> : <FaVolumeUp/>}
-
-          </button>
-
           <button onClick={()=>navigator.share?.({url:window.location.href})}>
             <FaShare/>
           </button>
 
         </div>
 
-        {/* video */}
-        {story && (
+        {/* image */}
+        {partition && (
 
-          <video
-            ref={videoRef}
-            key={story.videoUrl}
-            src={story.videoUrl}
-            autoPlay
-            muted={isMuted}
-            onEnded={()=>setIsEnded(true)}
-            className="w-full h-full object-cover"
+          <img
+            src={partition?.imageUrl}
+            alt={partition?.caption}
+            className="w-full h-full object-fil object-center"
           />
-
-        )}
-
-
-        {/* replay button */}
-        {isEnded && (
-
-          <button
-            onClick={replayVideo}
-            className="absolute inset-0 flex items-center justify-center text-white text-5xl"
-          >
-
-            <FaRedo/>
-
-          </button>
 
         )}
 
         {/* title */}
         <div className="absolute bottom-6 left-4 right-4 text-white text-lg">
 
-          {story?.title}
+          {partition?.caption}
 
         </div>
 
@@ -242,7 +172,7 @@ export default function StoryPage() {
       {/* right */}
       <button
         onClick={nextStory}
-        className="absolute right-10 bg-white rounded-full w-12 h-12"
+        className="absolute z-50 right-10 bg-white rounded-full w-12 h-12"
       >
         ❯
       </button>
