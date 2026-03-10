@@ -48,12 +48,6 @@ export default function StoryPage() {
 
       setStories(value);
 
-      // After first fetch, remove id for next fetches
-      if (firstFetch) {
-        setFirstFetch(false);
-        setCurrentId(""); 
-      }
-
     }
 
   },[data]);
@@ -107,9 +101,16 @@ export default function StoryPage() {
   // next story
   const nextStory = async ()=>{
 
+        if (firstFetch) {
+          console.log("calll");    
+        setFirstFetch(false);
+        setCurrentId("");
+        return
+      }
+
     const nextIndex=current+1;
 
-    if(nextIndex >= stories.length-1){
+    if(nextIndex > stories.length-1){
 
       if(hasNextPage && !isFetchingNextPage){
         await fetchNextPage();
@@ -124,9 +125,8 @@ export default function StoryPage() {
   };
 
   const prevStory = ()=>{
-
-    if(current>0){
-
+            console.log("current",current);
+    if(current>0){    
       setCurrent(current-1);
       setIsEnded(false);
 
@@ -141,7 +141,7 @@ export default function StoryPage() {
       {/* close */}
       <button
         onClick={()=>router.back()}
-        className="absolute right-6 top-6 text-white text-3xl"
+        className="absolute z-50 right-6 top-6 text-white text-3xl"
       >
         ✕
       </button>
@@ -149,12 +149,12 @@ export default function StoryPage() {
       {/* left */}
       <button
         onClick={prevStory}
-        className="absolute left-10 bg-white rounded-full w-12 h-12"
+        className="absolute z-50 left-10 bg-white rounded-full w-12 h-12"
       >
         ❮
       </button>
 
-      <div className="relative w-[380px] h-full bg-black rounded-xl overflow-hidden">
+      <div className="relative max-w-[380px] w-full h-full max-h-96 md:max-h-132 bg-black rounded-xl overflow-hidden">
 
                 {/* progress */}
         <div className="absolute top-1 left-1 right-1 flex gap-1 z-50">
@@ -164,7 +164,7 @@ export default function StoryPage() {
             <div
               key={i}
               className={`h-1 flex-1 rounded ${
-                i === 0 ? "bg-white" : "bg-gray-500"
+                i === current%4 ? "bg-white" : "bg-gray-500"
               }`}
             />
 
@@ -210,7 +210,7 @@ export default function StoryPage() {
             autoPlay
             muted={isMuted}
             onEnded={()=>setIsEnded(true)}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-fil"
           />
 
         )}
@@ -242,7 +242,7 @@ export default function StoryPage() {
       {/* right */}
       <button
         onClick={nextStory}
-        className="absolute right-10 bg-white rounded-full w-12 h-12"
+        className="absolute z-50 right-10 bg-white rounded-full w-12 h-12"
       >
         ❯
       </button>
