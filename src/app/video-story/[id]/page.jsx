@@ -20,6 +20,7 @@ export default function StoryPage() {
   const [isEnded, setIsEnded] = useState(false);
   const [firstFetch, setFirstFetch] = useState(true); // track first fetch
   const [currentId, setCurrentId] = useState(initialId);
+  const [progress, setProgress] = useState(0);
 
   const limit = 4;
 
@@ -134,6 +135,28 @@ export default function StoryPage() {
 
   };
 
+  useEffect(()=>{
+
+    const video = videoRef.current;
+    if(!video) return;
+    setProgress(0);
+    const updateProgress = ()=>{
+
+      if(video.duration){
+        const percent = (video.currentTime / video.duration) * 100;
+        setProgress(percent);
+      }
+
+    };
+
+    video.addEventListener("timeupdate", updateProgress);
+
+    return ()=>{
+      video.removeEventListener("timeupdate", updateProgress);
+    }
+
+   },[current,story]);
+
   return (
 
     <div className="fixed inset-0 bg-[#1b0000] flex items-center justify-center z-1000">
@@ -157,88 +180,87 @@ export default function StoryPage() {
       <div className="relative max-w-[380px] w-full h-full max-h-96 md:max-h-132 bg-black rounded-xl overflow-hidden">
 
                 {/* progress */}
-        <div className="absolute top-1 left-1 right-1 flex gap-1 z-50">
+          <div className="absolute top-1 left-1 right-1 flex gap-1 z-50">
 
-          {stories.slice(current, current + 4).map((_, i) => (
+               <div className="h-1 w-full rounded bg-gray-500">
+                  <div
+                      className="bg-white h-full"
+                      style={{
+                        width: `${progress}%`,
+                        transition: "width 0.1s linear"
+                      }}>
+                  </div>
 
-            <div
-              key={i}
-              className={`h-1 flex-1 rounded ${
-                i === current%4 ? "bg-white" : "bg-gray-500"
-              }`}
-            />
+              </div>
 
-          ))}
-
-        </div>
-
-        {/* top bar */}
-        <div className="absolute top-3 left-3 right-3 flex justify-between text-white z-50">
-
-          <div className="flex items-center gap-2">
-            <FaEye/>
-            <span>{story?.views || 0}</span>
-          </div>
-
-                    {/* play pause */}
-          <button onClick={togglePlay}>
-
-            {isPlaying ? <FaPause/> : <FaPlay/>}
-
-          </button>
-
-          {/* mute */}
-          <button onClick={toggleMute}>
-
-            {isMuted ? <FaVolumeMute/> : <FaVolumeUp/>}
-
-          </button>
-
-          <button onClick={()=>navigator.share?.({url:window.location.href})}>
-            <FaShare/>
-          </button>
-
-        </div>
-
-        {/* video */}
-        {story && (
-
-          <video
-            ref={videoRef}
-            key={story.videoUrl}
-            src={story.videoUrl}
-            autoPlay
-            muted={isMuted}
-            onEnded={()=>setIsEnded(true)}
-            className="w-full h-full object-fil"
-          />
-
-        )}
+            </div>
 
 
-        {/* replay button */}
-        {isEnded && (
+            {/* top bar */}
+            <div className="absolute text-amber-50 top-3 left-3 right-3 flex justify-between  z-50">
 
-          <button
-            onClick={replayVideo}
-            className="absolute inset-0 flex items-center justify-center text-white text-5xl"
-          >
+              <div className="flex items-center gap-2">
+                <FaEye/>
+                <span>{story?.views || 0}</span>
+              </div>
 
-            <FaRedo/>
+                        {/* play pause */}
+              <button onClick={togglePlay}>
 
-          </button>
+                {isPlaying ? <FaPause/> : <FaPlay/>}
 
-        )}
+              </button>
 
-        {/* title */}
-        <div className="absolute bottom-6 left-4 right-4 text-white text-lg">
+              {/* mute */}
+              <button onClick={toggleMute}>
 
-          {story?.title}
+                {isMuted ? <FaVolumeMute/> : <FaVolumeUp/>}
 
-        </div>
+              </button>
 
-      </div>
+              <button onClick={()=>navigator.share?.({url:window.location.href})}>
+                <FaShare/>
+              </button>
 
+            </div>
+
+            {/* video */}
+            {story && (
+
+              <video
+                ref={videoRef}
+                key={story.videoUrl}
+                src={story.videoUrl}
+                autoPlay
+                muted={isMuted}
+                onEnded={()=>setIsEnded(true)}
+                className="w-full h-full object-fil"
+              />
+
+            )}
+
+
+            {/* replay button */}
+            {isEnded && (
+
+              <button
+                onClick={replayVideo}
+                className="absolute inset-0 flex items-center justify-center text-white text-5xl"
+              >
+
+                <FaRedo/>
+
+              </button>
+
+            )}
+
+            {/* title */}
+            <div className="absolute bottom-6 left-4 right-4 text-white text-lg">
+
+              {story?.title}
+
+            </div>
+         </div>
       {/* right */}
       <button
         onClick={nextStory}
