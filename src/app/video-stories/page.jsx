@@ -4,13 +4,12 @@ import Pagination from '@/app/service/Pagination';
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
-import { FaCameraRetro } from 'react-icons/fa';
+import { FaEye, FaVideo } from 'react-icons/fa';
 
-function PhoteStoryCard() {
-
+function VideoStoryCard() {
   const [newsData, setNewsData] = useState([]);
-  const loadMoreRef = useRef();
   const router=useRouter()
+  const loadMoreRef = useRef();
       const {
           data,
           fetchNextPage,
@@ -24,11 +23,11 @@ function PhoteStoryCard() {
             id:"",
             division:"",
             distic:"",
-            upozela:"",
+            upozila:"",
             locationType:'',
             subcategory:'',
             category:"",
-            database:"photo_story"
+            database:"video_story"
             },
             page:1,limit:5
           });
@@ -56,35 +55,42 @@ function PhoteStoryCard() {
   }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
 
   const click=(id)=>{
-    router.push(`/photo-story/${id}`)
+    router.push(`/video-story/${id}`)
   }
   return (
-    <>
+        <>
     <div className='w-full flex flex-wrap items-start justify-between gap-5 p-2'>
         {/* Header */}
         <div className="w-full text-3xl flex items-center  justify-start  border-b-2 border-red-600">
-          <FaCameraRetro className="text-[#0d6efd]" />
-          <span>ফটো স্টোরি</span>  
+          <FaVideo className="text-[#d63384]" />
+          <span>ভিডিও স্টোরি</span>  
        </div>
-    {newsData.map((photoStory, index) => (
-        <div onClick={()=>click(photoStory?._id)} key={index} className='max-w-full min-w-62 flex-1 h-100 pt-2 relative'>
-          <Image src={photoStory?.images[0]?.imageUrl } alt={photoStory?.title} width={300} height={200} className='object-fill aspect-auto rounded-md h-full w-full' />
-          <h2 className='absolute bottom-0 w-full text-center text-white  bg-black/15  text-2xl'>{photoStory?.images[0]?.caption}</h2>
-          <img src="/photo-story.webp" alt="icon" className='absolute right-5 top-5 w-8 h-8'/>
-        </div>
-      ))}
+            {newsData.map((videoStory, index) => (
+            <div onClick={()=>click(videoStory?._id)} key={index} className='max-w-full min-w-62 h-80 pt-2 relative'>
+                            <div className="flex text-white text-lg bg-black/40 p-1 rounded-md items-center gap-2  absolute top-4 left-2 z-50">
+                              <FaEye />
+                              <span>{videoStory?.views || 0}</span>
+                            </div>
+                <video src={videoStory?.videoUrl || "/default.webp"} alt={videoStory?.title} width={300} height={200} className='object-fill aspect-[5/6.5] rounded-md max-h-full w-full' />
 
-    </div>
+                <h2 className='absolute bottom-0 z-50 w-full text-center text-white bg-black/15  text-2xl'>{videoStory?.title}</h2>           
+                {/* overlay */}
+                <div className='absolute inset-0 top-2 z-40 flex items-center justify-center rounded-md cursor-pointer bg-black/20'>
+                    <Image src={"/video/overlay.webp"} alt={videoStory?.title} width={300} height={200} className=' w-15 h-15' />
+                </div>
+            </div>
+            ))}
+      </div>
             {/* Load more / end indicator */}
         <div ref={loadMoreRef} className="w-full text-center mt-8">
              
         </div>
         {/* no data indicator  */}
         {(!hasNextPage && newsData?.length <= 0 && !isFetching && !isFetchingNextPage && status==="success") &&(
-            <NoDataIndicator message="Photo Story"></NoDataIndicator>
+            <NoDataIndicator message="Video Story"></NoDataIndicator>
         )}
     </>
   )
 }
 
-export default PhoteStoryCard
+export default VideoStoryCard

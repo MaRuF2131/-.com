@@ -5,27 +5,33 @@ import { MdOutlineVideoLibrary } from "react-icons/md";
 import { IoBookOutline } from "react-icons/io5";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { FaSoundcloud } from "react-icons/fa";
+import Link from "next/link";
 
 const menuItems = [
   {
     name: "ভিডিও স্টোরি",
     icon: <FaPhotoVideo className="text-pink-500 text-xl" />,
+    path:"/video-stories"
   },
   {
     name: "ফটো স্টোরি",
     icon: <IoBookOutline className="text-blue-500 text-xl" />,
+    path:"/photo-stories"
   },
   {
     name: "ফটো গ্যালারি",
     icon: <HiOutlinePhotograph className="text-red-500 text-xl" />,
+    path:"#"
   },
   {
     name: "ভিডিও গ্যালারি",
     icon: <MdOutlineVideoLibrary className="text-red-500 text-xl" />,
+    path:"/video?message=ভিডিও"
   },
   {
     name: "অডিও",
     icon: <FaSoundcloud className="text-orange-500 text-xl" />,
+    path:"#"
   },
 ];
 
@@ -34,7 +40,8 @@ export default function MediaMenu() {
     <div className="w-full border-t border-b border-gray-300 py-2 px-5">
       <div className="max-w-6xl mx-auto overflow-auto no-scrollbar flex items-center justify-center gap-10 py-3">
         {menuItems.map((item, index) => (
-          <div
+          <Link
+            href={item?.path}
             key={index}
             className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition"
           >
@@ -42,7 +49,7 @@ export default function MediaMenu() {
             <span className="text-lg text-nowrap font-semibold text-gray-800">
               {item.name}
             </span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

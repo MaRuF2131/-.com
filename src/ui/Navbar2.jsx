@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavData2 } from '@/json.data/NavData2'
 import Link from 'next/link'
 import { HiHome, HiMenu } from "react-icons/hi";
@@ -12,6 +12,9 @@ function Navbar2({isSticky}) {
   const searchParams = useSearchParams()
   const message = searchParams.get('message') || ""
   const [open, setOpen] = React.useState(false);
+  useEffect(()=>{
+     setOpen(false)
+  },[pathname])
   return (
     <div
       className={`text-lg  font-semibold text-[#202114]  w-full flex items-center justify-between gap-x-4 py-2 lg:px-23 px-4 transition-all  duration-500 ease-in-out   ${
