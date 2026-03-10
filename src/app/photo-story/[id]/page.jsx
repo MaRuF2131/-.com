@@ -44,11 +44,6 @@ export default function StoryPage() {
 
       setStories(value);
       console.log("story",stories);
-      
-      if (firstFetch) {
-        setFirstFetch(false);
-        setCurrentId(""); 
-      }
 
     }
 
@@ -70,13 +65,19 @@ export default function StoryPage() {
 
     return ()=>clearTimeout(timer);
 
-  },[current, story]);
+  },[current,currentImage ,story]);
 
   const nextStory = async ()=>{
     console.log("len",story?.images.length-1,currentImage);
     
     if(story?.images.length-1>currentImage){ setcurrentImage(currentImage+1);return}
+    if (firstFetch) {
+        setFirstFetch(false);
+        setCurrentId(""); 
+        return
+      }
     const nextIndex=current+1;
+
     if(nextIndex > stories.length-1){
       if(hasNextPage && !isFetchingNextPage){
         setcurrentImage(0)
