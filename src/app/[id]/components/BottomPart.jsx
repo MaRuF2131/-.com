@@ -7,7 +7,7 @@ import TableLoader from '@/app/service/loader/TableLoader';
 import NoDataIndicator from '@/app/service/loader/NodataIndicator';
 import FinishIndicator from '@/app/service/loader/FinishIndicator';
 
-function BottomPart({stateMessage,subcategory}) {
+function BottomPart({stateMessage,subcategory,state}) {
   const [newsData, setNewsData] = useState([]);
   const loadMoreRef = useRef();
       const {
@@ -21,13 +21,13 @@ function BottomPart({stateMessage,subcategory}) {
           url:`/user/news`,
           keyValuepair:{
             id:"",
-            division:"",
-            distic:"",
-            upozila:"",
+            division:state.division||"",
+            distic:state.distic||"",
+            upozila:state.up||"",
             country:stateMessage==='বিশ্ব'?subcategory: '', 
             locationType:stateMessage==='জাতীয়'?"bangladesh":stateMessage==='বিশ্ব'?"world":"",
             subcategory:stateMessage!='বিশ্ব'?subcategory: '',
-            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' )?stateMessage:"",
+            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' && stateMessage!='সারাদেশ')?stateMessage:"",
             database:"news",
             views:stateMessage==='বাছাইকৃত'?"true":""
             },

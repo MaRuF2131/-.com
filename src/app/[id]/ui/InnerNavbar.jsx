@@ -36,6 +36,16 @@ function InnerNavbar({stateMessage ,state }) {
   },[stateMessage])
 
   const clearState=()=>{
+    if(stateMessage && state){
+      if(stateMessage==='সারাদেশ'){
+        const list=Object.keys(DivisionList)
+        state.setnavlist(list)
+      }else{
+        const list=st[stateMessage] || []
+        state.setnavlist(list)
+      }
+
+    }
     state.setnavlist2([]);
     state.setnavlist3([]);
     state.setsubcategory("");
@@ -49,7 +59,8 @@ function InnerNavbar({stateMessage ,state }) {
       if(stateMessage==='সারাদেশ'){
         const list=Object.keys(DivisionList[v])
         state.setDivision(v);
-        state.setnavlist2(list)
+        state.setnavlist([v]);
+        state.setnavlist2(list);  //list
       }else{
         state.setsubcategory(v)
       }
@@ -59,6 +70,7 @@ function InnerNavbar({stateMessage ,state }) {
       if(stateMessage==='সারাদেশ'){
         const list=DivisionList[state.division][v]
         state.setDistic(v)
+        state.setnavlist2([v]);  //list
         state.setnavlist3(list)
       }else{
 /*         state.setnavlist2([])
@@ -69,7 +81,7 @@ function InnerNavbar({stateMessage ,state }) {
   return (
     <div className='h-auto w-full border-b-2 border-gray-300 flex items-start justify-start sm:px-4 px-1 sm:gap-4 gap-2'>
       <h1 onClick={(e)=>{e.preventDefault(); e.stopPropagation(); clearState()}} className=' cursor-pointer text-2xl font-bold text-[#0a58ca]'>{stateMessage}</h1>
-{   state &&  Object.keys(state).length > 0 && <div className="flex-1 overflow-auto no-scrollbar">
+{   state &&  Object.keys(state).length > 0 && <div className="flex-1 flex overflow-auto no-scrollbar">
         <div className='flex  items-center justify-start gap-2'>
             {state.navlist.map((v, i) => (
               <button
@@ -93,7 +105,7 @@ function InnerNavbar({stateMessage ,state }) {
           ))}
         </div>
         <div className='flex  items-center justify-start md:gap-2'>
-          {state.navlist3.map((v, i) => (
+          {!state.up ? state.navlist3.map((v, i) => (
             <button
               key={i}
               onClick={(e)=>{e.preventDefault(); e.stopPropagation();state.setUp(v)}}
@@ -101,7 +113,14 @@ function InnerNavbar({stateMessage ,state }) {
             >
               {v}
             </button>
-          ))}
+          ))
+          :
+           <div
+              className={`md:px-2 px-1 cursor-pointer text-nowrap text-xl font-bold text-[#0a58ca] `}
+             >
+              {state.up}
+            </div>
+        }
         </div>
       </div>}
     </div>

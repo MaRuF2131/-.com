@@ -33,6 +33,9 @@ import Pagination from '@/app/service/Pagination'
       const searchParams = useSearchParams()
 
       const message = searchParams.get('message') //  directly string
+      const div = searchParams.get('division') //  directly string
+      const dis = searchParams.get('distic') //  directly string
+      const upozila = searchParams.get('upozila') //  directly string
 
       const [stateMessage, setStateMessage] = useState('loading')
 
@@ -42,7 +45,16 @@ import Pagination from '@/app/service/Pagination'
         } else {
           setStateMessage('invalid')
         }
-      }, [message])
+        if (div) {
+          setDivision(div)
+        }
+        if (dis) {
+          setDistic(dis)
+        }
+        if (upozila) {
+          setUp(upozila)
+        }
+      }, [message,div,dis,upozila])
 
 
   const [newsData, setNewsData] = useState([]);
@@ -64,7 +76,7 @@ import Pagination from '@/app/service/Pagination'
             country:stateMessage==='বিশ্ব'?subcategory: '', 
             locationType:stateMessage==='জাতীয়'?"bangladesh":stateMessage==='বিশ্ব'?"world":"",
             subcategory:stateMessage!='বিশ্ব'?subcategory: '',
-            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' )?stateMessage:"",
+            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' && stateMessage!='সারাদেশ' )?stateMessage:"",
             database:"news",
             views:stateMessage==='বাছাইকৃত'?"true":""
             },
@@ -139,7 +151,7 @@ import Pagination from '@/app/service/Pagination'
                 
             </div>
         ))
-        : <BottomPart stateMessage={stateMessage} subcategory={subcategory}></BottomPart> 
+        : <BottomPart stateMessage={stateMessage} subcategory={subcategory} state={state}></BottomPart> 
       
       }      
     </>
