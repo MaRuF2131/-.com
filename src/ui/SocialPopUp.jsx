@@ -22,7 +22,7 @@ export default function SocialNavbar() {
 
                 {/* Facebook */}
                 <div className="w-full border-b border-gray-300 pb-5">
-                    <h3 className="font-bold text-lg mb-4">
+                    <h3 className="font-bold text-lg mb-4 text-start">
                         ফেসবুক পেজ
                     </h3>
 

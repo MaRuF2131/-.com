@@ -18,7 +18,7 @@ function Navbar1() {
              >
                 <span className='text-sm'>{NavData1[key].icon}</span>
                 <span>{NavData1[key].name}</span>
-                 {(NavData1[key].popup) && <div className='absolute top-[40%] left-0 right-0 hidden group-hover:block   bg-transparent  p-4 z-999'>{NavData1[key].popup}</div>} 
+                 {(NavData1[key].popup) && <div className='absolute top-20 left-0 right-0 hidden group-hover:block   bg-transparent  p-4 z-999'>{NavData1[key].popup}</div>} 
             </button>
         ))}
 
