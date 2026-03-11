@@ -4,6 +4,7 @@ import { useForm, useWatch } from "react-hook-form";
 import { FiSearch } from "react-icons/fi";
 import { DivisionList } from "@/json.data/DivisionList";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function AreaNewsForm() {
   const {
@@ -17,6 +18,7 @@ export default function AreaNewsForm() {
   // watch values reactively
   const selectedDivision = useWatch({ control, name: "division" });
   const selectedDistrict = useWatch({ control, name: "district" });
+  const router=useRouter()
 
   // Reset district & upazila when division changes
   useEffect(() => {
@@ -31,6 +33,9 @@ export default function AreaNewsForm() {
 
   const onSubmit = (data) => {
     console.log("Submitted Data:", data);
+    const url = `country-news?message=সারাদেশ&division=${data.division}&distic=${data.district}&upozila=${data.upazila}`;
+    router.push(url)
+
   };
 
   const districts = selectedDivision ? Object.keys(DivisionList[selectedDivision]) : [];

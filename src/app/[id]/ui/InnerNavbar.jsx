@@ -25,6 +25,8 @@ function InnerNavbar({stateMessage ,state }) {
   useEffect(()=>{
     if(stateMessage && state){
       if(stateMessage==='সারাদেশ'){
+        if(state.division){state.setnavlist([state.division])}
+        if(state.distic){state.setnavlist2([state.distic]);return}
         const list=Object.keys(DivisionList)
         state.setnavlist(list)
       }else{
