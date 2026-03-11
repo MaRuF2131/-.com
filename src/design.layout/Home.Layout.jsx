@@ -121,7 +121,6 @@ if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
         {/* video section */}
               <VideoPart></VideoPart> 
 
-      <LazyRender>
           <div className='w-full flex gap-4 flex-wrap items-start justify-between'>
           {/* motamot ,online jorip,(letest and famous news) section  */}
 
@@ -136,7 +135,6 @@ if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
                   <NewsTab></NewsTab>              
             </div>
           </div>
-      </LazyRender>
 
         {/* bachai krito section */}
         <LazyRender>
