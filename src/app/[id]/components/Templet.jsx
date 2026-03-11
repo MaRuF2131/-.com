@@ -11,6 +11,7 @@ import { FaArrowRight } from "react-icons/fa"
 import CategoryCard from "../ui/CategoryCard"
 import Link from 'next/link'
 import Pagination from '@/app/service/Pagination'
+import LetestNews from './LetestNews.jsx'
  
  function Templet() {
       const [navlist,setnavlist]=useState([]);

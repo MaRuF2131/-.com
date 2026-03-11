@@ -21,7 +21,7 @@ const menuItems = [
   {
     name: "ফটো গ্যালারি",
     icon: <HiOutlinePhotograph className="text-red-500 text-xl" />,
-    path:"#"
+    path:"/photo-gallery"
   },
   {
     name: "ভিডিও গ্যালারি",
