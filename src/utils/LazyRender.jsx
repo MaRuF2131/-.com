@@ -24,7 +24,7 @@ export default function LazyRender({ children }) {
   }, []);
 
   return (
-    <div className="w-fit" ref={ref}>
+    <div className="" ref={ref}>
       {isVisible ? children : null}
     </div>
   );

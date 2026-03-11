@@ -23,6 +23,7 @@ import AreaNewsForm from '@/components/AreaNewsForm.jsx'
 import PollForm from '@/components/PollForm.jsx'
 import Pagination from '@/app/service/Pagination.jsx'
 import TableLoader from '@/app/service/loader/TableLoader'
+import Gallery from '@/components/Gallery.jsx'
 import LazyRender from '@/utils/LazyRender'
 
 function HomeLayout() {
@@ -192,9 +193,16 @@ if(isFetching) return <TableLoader ms={"Loading"}></TableLoader>
           
 
 
-      <div>
+
         {/* gallery section */}
-      </div>
+        <div className='w-full'>
+           <LazyRender>
+             <Gallery></Gallery>
+          </LazyRender>
+        </div>
+
+
+
 
         {/* prodcast section */}
           <PodcastPart></PodcastPart>
