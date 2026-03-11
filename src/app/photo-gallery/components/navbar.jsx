@@ -22,7 +22,7 @@ function InnerNavbar({stateMessage,state }) {
   }
 
   const handle=(v)=>{
-    state.category(v)
+    state.setcategory(v)
 
   }
 
@@ -35,7 +35,7 @@ function InnerNavbar({stateMessage,state }) {
                 <button
                     key={i}
                     onClick={(e)=>{e.preventDefault(); e.stopPropagation(); handle(v)}}
-                    className={`md:px-2 px-1 text-nowrap cursor-pointer text-xl font-bold ${(v===state.division || v===state.subcategory) ?"text-[#0a58ca]":"text-black  hover:text-[#0a58ca]"} `}
+                    className={`md:px-2 px-1 text-nowrap cursor-pointer text-xl font-bold ${(v===state.category) ?"text-[#0a58ca]":"text-black  hover:text-[#0a58ca]"} `}
                 >
                     {v}
                 </button>
