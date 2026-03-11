@@ -21,7 +21,7 @@ function page() {
                         ফেসবুক পেজ
                     </h3>
 
-                    <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-x-8 gap-y-4 w-full">
 
                         <a
                         className="flex items-center gap-2 hover:text-blue-600 transition"
@@ -76,7 +76,7 @@ function page() {
                     ইউটিউব চ্যানেল
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {[
                     "kontosor News",
                     "kontosor World",
@@ -105,7 +105,7 @@ function page() {
                     হোয়াটসঅ্যাপ
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {["kontosor News", "kontosor Sports", "kontosor World"].map((item, i) => (
                     <a
                         key={i}
@@ -126,7 +126,7 @@ function page() {
                     টিকটক
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {["kontosor News", "kontosor Entertainment"].map((item, i) => (
                     <a
                         key={i}
@@ -146,7 +146,7 @@ function page() {
                     লাইকি
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {["kontosor News"].map((item, i) => (
                     <a
                         key={i}
@@ -166,7 +166,7 @@ function page() {
                         টুইটার
                     </h3>
 
-                    <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                         {["kontosor"].map((item, i) => (
                         <a
                             key={i}
@@ -186,7 +186,7 @@ function page() {
                     ইনস্টাগ্রাম
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {["kontosor"].map((item, i) => (
                     <a
                         key={i}
@@ -207,7 +207,7 @@ function page() {
                     লিঙ্কডইন
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {["kontosor"].map((item, i) => (
                     <a
                         key={i}
@@ -228,7 +228,7 @@ function page() {
                     টেলিগ্রাম
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     {["kontosor"].map((item, i) => (
                     <a
                         key={i}
@@ -248,7 +248,7 @@ function page() {
                     অন্যান্য
                 </h3>
 
-                <div className="grid grid-cols-4 gap-x-8 gap-y-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-x-8 gap-y-4 w-full">
                     <a
                     href="#"
                     className="flex items-center gap-2 hover:text-orange-500 transition"
