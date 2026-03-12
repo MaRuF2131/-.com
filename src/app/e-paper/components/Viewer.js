@@ -1,30 +1,41 @@
-"use client"
+"use client";
 
-import {useState} from "react"
+import { useState } from "react";
 
 export default function Viewer({ image }) {
+  const [zoom, setZoom] = useState(0.95);
 
-  const [zoom,setZoom] = useState(1)
-
-  const zoomIn = ()=> setZoom(z=>z+0.2)
-  const zoomOut = ()=> setZoom(z=>z-0.2)
+  const zoomIn = () => setZoom((z) => Math.min(z + 0.2, 5)); // max zoom 5x
+  const zoomOut = () => setZoom((z) => Math.max(z - 0.2, 0.2)); // min zoom 0.2x
 
   return (
+    <div className="flex-1 h-[95vh] overflow-auto p-2 relative bg-gray-200 flex justify-center items-center">
 
-    <div className="flex-1 flex flex-col items-center justify-center bg-gray-200">
-
-      <div className="mb-2 flex gap-2">
-        <button onClick={zoomIn} className="border px-2">+</button>
-        <button onClick={zoomOut} className="border px-2">-</button>
+      {/* Zoom Controls */}
+      <div className="z-50 flex gap-2 sticky top-4 left-1/2 -translate-x-1/2 bg-white/80 p-2 rounded shadow-md backdrop-blur-sm">
+        <button
+          onClick={zoomIn}
+          className="px-3 py-1 bg-black text-white rounded hover:bg-gray-800 transition"
+        >
+          +
+        </button>
+        <button
+          onClick={zoomOut}
+          className="px-3 py-1 bg-black text-white rounded hover:bg-gray-800 transition"
+        >
+          -
+        </button>
       </div>
 
-      <img
-        src={image}
-        style={{transform:`scale(${zoom})`}}
-        className="transition"
-      />
+      {/* Image Viewer */}
+      <div className="w-full h-full flex justify-center items-center">
+        <img
+          src={image}
+          style={{ transform: `scale(${zoom})` }}
+          className="transition-transform duration-300 w-auto h-auto max-w-full max-h-full object-contain"
+        />
+      </div>
 
     </div>
-
-  )
+  );
 }

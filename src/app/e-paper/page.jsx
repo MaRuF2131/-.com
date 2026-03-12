@@ -1,32 +1,64 @@
 "use client"
 
-import {useState} from "react"
+import {useEffect, useState} from "react"
 
 import TopToolbar from "./components/TopToolbar"
 import PageSidebar from "./components/PageSidebar"
 import Viewer from "./components/Viewer"
 import PageGrid from "./components/PageGrid"
 import TextView from "./components/TextView"
+import { useQuery } from "@tanstack/react-query"
+import api from "../service/axios"
 
 export default function Page(){
 
-  const pages=[
-    "/epaper/p1.jpg",
-    "/epaper/p2.jpg",
-    "/epaper/p3.jpg",
-    "/epaper/p4.jpg"
-  ]
-
-  const [currentPage,setPage]=useState(0)
+  const [epaper, setepaper] = useState([]);
+  const [totalPages, settotalPages] = useState(0);
+  const [publicId, setpublicId] = useState(null);
+  const [currentPage,setPage]=useState(1)
   const [viewMode,setViewMode]=useState("image")
+  const [image,setimage]=useState(null)
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["e-paper"],
+    queryFn: async () => {
+      const res = await api.get(`/admin/magazine`);
+      return res.data?.data || [];
+    },
+   });
+
+  // Generate page URLs dynamically
+  const pageUrls = Array.from({ length: totalPages }, (_, i) => {
+    return `https://res.cloudinary.com/drexcxkuq/image/upload/pg_${i + 1}/f_jpg/${publicId}.pdf`;
+  });
+
+  // Update displayed image when currentPage changes
+  useEffect(() => {
+    if (pageUrls[currentPage]) setimage(pageUrls[currentPage]);
+  }, [currentPage, pageUrls]);
+
+  useEffect(() => {
+    if (data ) {
+      setepaper(data); // প্রথম magazine
+      settotalPages(epaper[0]?.pages || 0);
+      setpublicId(epaper[0]?.publicId);
+    }
+  }, [data,epaper]);
+
+  if (isLoading) return <div>Loading...</div>;
+
+  if (epaper.length==0) return <div>No magazine found</div>;
+
+
 
   return(
 
-    <div className="h-screen flex flex-col">
+    <div className="h-auto flex flex-col">
 
       <TopToolbar
-        pages={pages}
+        pages={epaper[0] || []}
         currentPage={currentPage}
+        image={image}
         setPage={setPage}
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -34,7 +66,7 @@ export default function Page(){
 
       {viewMode==="page" ? (
 
-        <PageGrid pages={pages} setPage={setPage}/>
+        <PageGrid pages={epaper[0]} setPage={setPage}/>
 
       ) : viewMode==="text" ? (
 
@@ -44,9 +76,9 @@ export default function Page(){
 
         <div className="flex flex-1">
 
-          <PageSidebar pages={pages} setPage={setPage}/>
-
-          <Viewer image={pages[currentPage]}/>
+          <PageSidebar pages={epaper[0] || []} currentPage={currentPage}setPage={setPage}/>
+          
+          <Viewer image={image}/>
 
         </div>
 
