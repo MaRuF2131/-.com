@@ -26,7 +26,7 @@ import SocialPopUp from "@/ui/SocialPopUp";
         "popup":false
     },
     "ম্যাগাজিন":{
-        "link":"/ajkerpatrika",
+        "link":"/magazine",
         "name":"ম্যাগাজিন",
         "icon":<FaBook/>,
         "popup":true
