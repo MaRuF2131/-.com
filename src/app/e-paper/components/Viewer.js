@@ -32,7 +32,7 @@ export default function Viewer({ image }) {
         <img
           src={image}
           style={{ transform: `scale(${zoom})` }}
-          className="transition-transform duration-300 w-auto h-auto max-w-full max-h-full object-contain"
+          className="transition-transform duration-300 w-auto h-auto max-w-full max-h-full object-contain object-center"
         />
       </div>
 

@@ -43,9 +43,15 @@ import SocialPopUp from "@/ui/SocialPopUp";
         "icon":<FaThumbsUp/>,
         "popup":<SocialPopUp/>
     },
-    "বাংলা কনভার্টার":{
+/*     "বাংলা কনভার্টার":{
         "link":"/converter",
         "name":"বাংলা কনভার্টার",
+        "icon":<FaLink/>,
+        "popup":false
+    }, */
+    "সাংবাদিক":{
+        "link":"/reporter",
+        "name":"সাংবাদিক",
         "icon":<FaLink/>,
         "popup":false
     },
