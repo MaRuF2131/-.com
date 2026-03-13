@@ -87,7 +87,7 @@ export const NavData3 = {
     popup: false,
   },
   "সোশ্যাল মিডিয়া": {
-    link: "/social-media?message=সোশ্যাল_মিডিয়া",
+    link: "/social-media-news?message=সোশ্যাল_মিডিয়া",
     name: "সোশ্যাল মিডিয়া",
     icon: "social",
     popup: false,
