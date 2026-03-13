@@ -10,7 +10,7 @@ export default function ReporterGallery({ reporters }) {
     if (!reporters) return;
     const result = reporters.filter(r =>
       r.name.toLowerCase().includes(search.toLowerCase()) ||
-      r.position.toLowerCase().includes(search.toLowerCase())
+      r.reportArea.toLowerCase().includes(search.toLowerCase())
     );
     setFiltered(result);
   }, [search, reporters]);
@@ -34,16 +34,16 @@ export default function ReporterGallery({ reporters }) {
         {filtered.map((reporter) => (
           <div
             key={reporter._id}
-            className="bg-white shadow-md rounded overflow-hidden hover:shadow-lg transition cursor-pointer"
+            className="bg-white p-3 w-full flex flex-col items-center justify-between min-h-48 shadow-md rounded overflow-hidden hover:shadow-lg transition cursor-pointer"
           >
             <img
-              src={reporter.image || "/placeholder.jpg"}
-              alt={reporter.name}
-              className="w-full h-48 object-cover"
+              src={reporter?.profileImage || "/placeholder.jpeg"}
+              alt={reporter?.name}
+              className=" h-20 w-20 object-fill rounded-full border border-gray-400"
             />
             <div className="p-4 text-center">
-              <h3 className="text-lg font-semibold">{reporter.name}</h3>
-              <p className="text-gray-600">{reporter.position}</p>
+              <h3 className="text-lg font-semibold">{reporter?.name}</h3>
+              <p className="text-gray-600">{reporter?.reportArea}</p>
             </div>
           </div>
         ))}
