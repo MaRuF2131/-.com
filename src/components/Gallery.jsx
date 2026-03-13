@@ -75,7 +75,7 @@ export default function PhotoGallery() {
   return (
     <div className="bg-[#1f1f1f] p-4 text-white w-full">
         <div className=" w-full gap-10 pb-4 flex items-center justify-between">
-           <Link href={`#`}  className="text-3xl ">ফটোগ্যালারি</Link>
+           <Link href={`/photo-gallery`}  className="text-3xl ">ফটোগ্যালারি</Link>
            <p className="h-1 flex-1 bg-rose-50"></p>
         </div>
 
