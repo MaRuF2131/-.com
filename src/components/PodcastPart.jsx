@@ -1,14 +1,48 @@
+"use client"
 import React, { useRef, useState, useEffect } from "react";
 import Image from 'next/image'
 import { newsDatas } from '../../data/newsData'
 import PodcastCard from '@/ui/PodcastCard'
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import VideoCard from "@/ui/VideoCard";
+import Pagination from "@/app/service/Pagination";
 
 function PodcastPart() {
   const scrollRef2 = useRef(null);
     const [showLeft, setShowLeft] = useState(false);
     const [showRight, setShowRight] = useState(false);
+
+    const [newsData, setNewsData] = useState([]);
+  
+      const {
+          data,
+          fetchNextPage,
+          hasNextPage,
+          isFetchingNextPage,
+          isFetching,
+          status
+         } = Pagination({
+          url:`/user/news`,
+          keyValuepair:{
+            id:"",
+            division:"",
+            distic:"",
+            upozela:"",
+            locationType:'',
+            subcategory:'',
+            category:'',
+            database:"audio"
+            },
+            page:1,limit:10
+          });
+  
+        useEffect(()=>{
+          console.log("data",data);
+            if(data){ 
+              const value=data?.pages?.flatMap((page) => page?.data?.data) || []; 
+              setNewsData(value);
+            }
+          },[data])
   
     const checkScroll2 = () => {
       const el = scrollRef2.current;
@@ -59,7 +93,7 @@ function PodcastPart() {
         onScroll={checkScroll2}
         className="flex w-auto gap-4 overflow-auto scroll-smooth no-scrollbar"
       >
-        {newsDatas.map((news, index) => (
+        {newsData.map((news, index) => (
           <PodcastCard key={index} news={news} />
         ))}
       </div>
