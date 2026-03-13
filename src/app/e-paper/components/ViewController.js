@@ -1,6 +1,6 @@
 "use client";
 
-export default function ViewController({ viewMode, setViewMode, pageImage,image }) {
+export default function ViewController({ viewMode, setViewMode,image }) {
 
   const download = () => {
     const a = document.createElement("a");

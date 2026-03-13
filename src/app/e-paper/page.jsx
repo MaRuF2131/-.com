@@ -66,7 +66,7 @@ export default function Page(){
 
       {viewMode==="page" ? (
 
-        <PageGrid pages={epaper[0]} setPage={setPage}/>
+        <PageGrid image={image} setPage={setPage} currentPage={currentPage}/>
 
       ) : viewMode==="text" ? (
 

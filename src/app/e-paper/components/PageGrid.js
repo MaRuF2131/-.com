@@ -1,18 +1,13 @@
-export default function PageGrid({ pages,setPage }) {
+export default function PageGrid({ image,setPage,currentPage }) {
 
   return (
 
-    <div className="grid grid-cols-4 gap-4 p-6">
-
-      {pages.map((p,i)=>(
+    <div className="grid grid-cols-1 gap-4 p-6">
         <img
-          key={i}
-          src={p}
-          onClick={()=>setPage(i)}
+          src={image}
+          onClick={()=>setPage(currentPage+1)}
           className="cursor-pointer border"
         />
-      ))}
-
     </div>
 
   )
