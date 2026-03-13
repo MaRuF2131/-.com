@@ -1,11 +1,12 @@
 import { formatDate } from '@/utils/formatDate';
 import Image from 'next/image'
+import Link from 'next/link';
 import React from 'react'
 import { FaRegClock } from 'react-icons/fa'
 
 function PodcastCard({ news }) {
   return (
-    <div className="md:min-w-[34%] min-w-full sm:min-w-[70%] max-w-[400px] w-full group border  h-full border-gray-300 rounded-md p-2 cursor-pointer flex flex-nowrap items-start justify-start gap-2">
+    <Link href={`/podcast/${news?._id}`} className="md:min-w-[34%] min-w-full sm:min-w-[70%] max-w-[400px] w-full group border  h-full border-gray-300 rounded-md p-2 cursor-pointer flex flex-nowrap items-start justify-start gap-2">
       
       <Image
         src={news?.thumbnail}
@@ -26,7 +27,7 @@ function PodcastCard({ news }) {
         </p>
       </div>
 
-    </div>
+    </Link>
   );
 }
 

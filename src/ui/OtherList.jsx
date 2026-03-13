@@ -31,7 +31,7 @@ const menuItems = [
   {
     name: "অডিও",
     icon: <FaSoundcloud className="text-orange-500 text-xl" />,
-    path:"#"
+    path:"/podcast"
   },
 ];
 

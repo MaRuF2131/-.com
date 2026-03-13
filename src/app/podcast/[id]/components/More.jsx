@@ -1,10 +1,10 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
-import Pagination from '../service/Pagination';
-import TableLoader from '../service/loader/TableLoader';
-import NoDataIndicator from '../service/loader/NodataIndicator';
-import FinishIndicator from '../service/loader/FinishIndicator';
-import Card1 from "./components/Card1"
+import Card1 from "../../components/Card1"
+import Pagination from '@/app/service/Pagination';
+import TableLoader from '@/app/service/loader/TableLoader';
+import NoDataIndicator from '@/app/service/loader/NodataIndicator';
+import FinishIndicator from '@/app/service/loader/FinishIndicator';
 
 function page() {
     const loadMoreRef = useRef();
@@ -54,9 +54,9 @@ function page() {
     return () => observer.disconnect();
   }, [fetchNextPage, hasNextPage, isFetchingNextPage]);
   return (
-    <div className='p-2'>
-        <h1 className='text-4xl text-blue-600 pb-3'>পডকাস্ট</h1>
-        <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3'>
+    <div className='p-2 w-full'>
+        <h1 className='text-3xl text-blue-600 py-5'>আরও</h1>
+        <div className='w-full grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3'>
             {newsData?.map((news ,i)=>
             <Card1 key={i} news={news}></Card1>
             )}

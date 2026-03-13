@@ -1,13 +1,14 @@
 import { formatDate } from '@/utils/formatDate';
 import Image from 'next/image'
-import Link from 'next/link';
 import React from 'react'
 import { FaRegClock } from 'react-icons/fa'
 
 function PodcastCard({ news }) {
+    console.log("news",news);
+    
   return (
     <div className=" w-full group border  h-full border-gray-300 rounded-md p-2 cursor-pointer flex flex-wrap items-start justify-start gap-2">
-      <Link href={`/podcast/${news?._id}`} className='w-full flex flex-nowrap items-start justify-start gap-2'>
+      <div className='w-full flex flex-nowrap items-start justify-start gap-2'>
             <Image
                 src={news?.thumbnail}
                 alt={news?.title}
@@ -26,10 +27,10 @@ function PodcastCard({ news }) {
                 {formatDate(news?.createdAt)}
                 </p>
             </div>
-        </Link>
+        </div>
 
       <audio controls className="w-full">
-            <source src={news.audioUrl} />
+            <source src={news?.audioUrl} />
       </audio>
 
     </div>
