@@ -42,6 +42,13 @@ import LetestNews from './LetestNews.jsx'
 
       useEffect(() => {
         if (message) {
+
+          if(message==='রাজধানী'){
+            setDistic('ঢাকা')
+          }
+          if(message==='চট্টগ্রাম'){
+            setDivision('চট্টগ্রাম')
+          }
           setStateMessage(message)
         } else {
           setStateMessage('invalid')
@@ -77,7 +84,7 @@ import LetestNews from './LetestNews.jsx'
             country:stateMessage==='বিশ্ব'?subcategory: '', 
             locationType:stateMessage==='জাতীয়'?"bangladesh":stateMessage==='বিশ্ব'?"world":"",
             subcategory:stateMessage!='বিশ্ব'?subcategory: '',
-            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' && stateMessage!='সারাদেশ' )?stateMessage:"",
+            category:(stateMessage!='বাছাইকৃত' && stateMessage!='জাতীয়' && stateMessage!='বিশ্ব' && stateMessage!='সারাদেশ' && stateMessage!='রাজধানী' && stateMessage!='চট্টগ্রাম'  )?stateMessage:"",
             database:"news",
             views:stateMessage==='বাছাইকৃত'?"true":""
             },
