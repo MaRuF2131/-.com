@@ -123,7 +123,7 @@ export default function Footer() {
         {/* কপিরাইট + ডিসক্লেইমার */}
         <div className="  flex items-center justify-between bg-[#ededed] py-2 px-3   text-[#555555]">
           <p className="">
-            স্বত্ব © কন্ঠস্বর মিডিয়া লিমিটেড ২০২৬
+            স্বত্ব © কন্ঠস্বর মিডিয়া লিমিটেড ২০২৬ <span className="text-blue-700">@Created bye technovers</span>
           </p>
           <p>
             ওয়েবসাইটের কোনো লেখা, ছবি, ভিডিও অনুমতি ছাড়া ব্যবহার বেআইনি।
